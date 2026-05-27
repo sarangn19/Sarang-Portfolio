@@ -32,12 +32,18 @@
     <section class="case-study-hero">
         <div class="container">
             <a href="../index.html#work" class="back-link">← Back to Work</a>
-            <h1 class="case-study-title">Transparent Checkout & Pricing System</h1>
-            <p class="case-study-subtitle">Reducing price shocks and improving trust in food delivery checkout — a UX case study on pricing clarity.</p>
+            <h1 class="case-study-title">Transparent Checkout &<br>Pricing System</h1>
+            <p class="case-study-subtitle">Reducing price shock and improving trust in food delivery checkout</p>
             <div class="case-study-meta">
                 <span class="tag">Product Design</span>
                 <span class="tag">UX Research</span>
                 <span class="tag">Food Delivery</span>
+            </div>
+            <div class="hero-meta-details" style="display:flex;gap:32px;flex-wrap:wrap;margin-top:24px;font-size:0.9rem;color:rgba(0,0,0,0.6);">
+                <span><strong>Role:</strong> Product Designer</span>
+                <span><strong>Timeline:</strong> 3 Weeks</span>
+                <span><strong>Platform:</strong> Mobile</span>
+                <span><strong>Tools:</strong> Figma</span>
             </div>
         </div>
     </section>
@@ -47,44 +53,150 @@
         <div class="container">
             <div class="content-grid">
                 <div class="main-content">
-                    <section class="case-section">
-                        <h2>Why does checkout feel like a trap?</h2>
-                        <p>Many food delivery platforms reveal additional charges only during the final stage of checkout. This creates a mismatch between the user's expected price and the actual payment amount, often leading to frustration, cart abandonment, and reduced trust.</p>
-                        <p>The goal of this project was to design a checkout system that communicates clear pricing information earlier in the ordering journey — so users always know what they're paying before they reach the payment step.</p>
-                    </section>
 
+                    <!-- 1. Overview -->
                     <section class="case-section">
-                        <h2>Users often feel blindsided at checkout</h2>
-                        <p>Users often encounter unexpected price increases during checkout, due to charges that appear only at the final billing step — such as service fees, delivery surcharges, and taxes added late in the flow.</p>
-                    </section>
-
-                    <section class="case-section">
-                        <h2>Understanding how users perceive pricing</h2>
-                        <p>Secondary research and analysis of existing checkout experiences across multiple platforms. Goal: identify where confusion occurs and how pricing transparency can improve user trust.</p>
-                    </section>
-
-                    <section class="case-section">
-                        <h2>Pricing opacity is a trust killer</h2>
-                        <p>Food delivery users need a transparent pricing system that clearly communicates the total cost of their order before checkout, because hidden or unexpected fees create confusion and reduce trust in the platform.</p>
-                    </section>
-
-                    <section class="case-section">
-                        <h2>Making every rupee visible, every step of the way</h2>
-                        <p>The solution introduces a transparent pricing system that provides clear cost visibility throughout the entire ordering journey.</p>
-                    </section>
-
-                    <section class="case-section">
-                        <h2>Three principles guided every decision</h2>
+                        <h2>1. Overview</h2>
+                        <p>Many food delivery platforms reveal additional charges only during the final stage of checkout. This creates a mismatch between the user's expected price and the actual payment amount, often leading to confusion and abandoned carts.</p>
+                        <p>The goal of this project was to design a checkout system that communicates clear pricing information earlier in the ordering journey.</p>
+                        <h3 style="margin-top:24px;font-size:1.1rem;">Goals</h3>
                         <ul>
-                            <li>Pricing visible at every step — no surprises before payment</li>
+                            <li>Reduce price surprises during checkout</li>
+                            <li>Improve clarity of delivery fees and taxes</li>
+                            <li>Build trust through transparent pricing</li>
+                            <li>Help users understand the total order cost earlier</li>
+                        </ul>
+                        <h3 style="margin-top:24px;font-size:1.1rem;">Expected Outcome</h3>
+                        <p>A transparent pricing system that allows users to understand how the final price is calculated before they reach the payment stage.</p>
+                    </section>
+
+                    <!-- 2. Problem -->
+                    <section class="case-section">
+                        <h2>2. Problem</h2>
+                        <p>Users often encounter unexpected price increases during checkout due to hidden or poorly explained charges.</p>
+                        <h3 style="margin-top:24px;font-size:1.1rem;">Key issues identified</h3>
+                        <ul>
+                            <li>Delivery and service fees appearing late in the process</li>
+                            <li>Lack of clear explanation for pricing components</li>
+                            <li>Confusing fee structures</li>
+                            <li>Sudden price increases before payment</li>
+                        </ul>
+                        <p>These issues frequently lead to frustration and increase the likelihood of users abandoning their orders.</p>
+                    </section>
+
+                    <!-- 3. User Research -->
+                    <section class="case-section">
+                        <h2>3. User Research</h2>
+                        <p>To understand how users perceive pricing during food delivery checkout, I conducted exploratory research focusing on how users react to price changes during the ordering process.</p>
+                        <p>The goal was to identify where confusion occurs and how pricing transparency could improve user trust.</p>
+                        <h3 style="margin-top:24px;font-size:1.1rem;">Research Goals</h3>
+                        <ul>
+                            <li>Understand how users interpret pricing while ordering food</li>
+                            <li>Identify moments where users feel confused or misled</li>
+                            <li>Discover how unexpected fees affect checkout decisions</li>
+                            <li>Learn what level of price transparency users expect</li>
+                        </ul>
+                        <h3 style="margin-top:24px;font-size:1.1rem;">Research Methods</h3>
+                        <p><strong>UX Pattern Analysis</strong><br>Pricing patterns used in existing checkout systems were studied to understand how cost information is communicated across platforms.</p>
+                        <p><strong>Competitive Analysis</strong><br>Checkout flows from major food delivery apps were analyzed, including:</p>
+                        <ul>
+                            <li>Swiggy</li>
+                            <li>Zomato</li>
+                            <li>Uber Eats</li>
+                        </ul>
+                        <p><strong>User Interviews</strong><br>6 participants · Food delivery usage: 2–5 times per week · Age group: 20–32</p>
+                        <h3 style="margin-top:24px;font-size:1.1rem;">Key User Behaviors</h3>
+                        <p>Several consistent behaviors were observed:</p>
+                        <p><strong>Expectation Formation</strong><br>Users mentally calculate an estimated total price while browsing menu items.</p>
+                        <p><strong>Checkout Surprise</strong><br>When additional charges appear suddenly during checkout, users feel misled by the platform.</p>
+                        <p><strong>Fee Confusion</strong><br>Many users do not understand what service fees or platform charges represent.</p>
+                        <p><strong>Decision Hesitation</strong><br>Unexpected price increases cause users to pause, reconsider their order, or abandon checkout.</p>
+                        <h3 style="margin-top:24px;font-size:1.1rem;">Key Findings</h3>
+                        <ul>
+                            <li>Users prefer seeing the estimated total cost earlier in the journey</li>
+                            <li>Users want a clear explanation of each charge</li>
+                            <li>Sudden price increases during checkout reduce trust</li>
+                            <li>Transparency improves confidence during payment decisions</li>
                         </ul>
                     </section>
 
+                    <!-- 4. Insights & Problem Statement -->
                     <section class="case-section">
-                        <h2>Trust is built one transparent step at a time</h2>
-                        <p>Pricing transparency builds trust — seeing pricing information early creates significantly more trust than revealing it at the final step. Even small improvements in how cost information is communicated can significantly influence user behaviour and satisfaction.</p>
-                        <p>Designing financial interactions requires balancing transparency with simplicity — too much data at once overwhelms users. The goal is clarity, not completeness.</p>
+                        <h2>4. Insights & Problem Statement</h2>
+                        <h3 style="font-size:1.1rem;">Core Insights</h3>
+                        <ul>
+                            <li>Pricing transparency plays a major role in building user trust</li>
+                            <li>Users feel frustrated when prices change suddenly at checkout</li>
+                            <li>Clear breakdowns help users understand what they are paying for</li>
+                            <li>Early visibility of total cost reduces checkout friction</li>
+                        </ul>
+                        <h3 style="margin-top:24px;font-size:1.1rem;">Problem Statement</h3>
+                        <p>Food delivery users need a transparent pricing system that clearly communicates the total cost of their order before checkout, because hidden or unexpected fees create confusion and reduce trust in the platform.</p>
                     </section>
+
+                    <!-- 5. Solution & User Flow -->
+                    <section class="case-section">
+                        <h2>5. Solution & User Flow</h2>
+                        <h3 style="font-size:1.1rem;">Solution Overview</h3>
+                        <p>The proposed solution introduces a transparent pricing system that provides clear cost visibility throughout the ordering journey.</p>
+                        <p><strong>Key improvements include:</strong></p>
+                        <ul>
+                            <li>Early display of estimated total price</li>
+                            <li>Detailed breakdown of delivery fees, service charges, and taxes</li>
+                            <li>Clear visual hierarchy for cost information</li>
+                            <li>A consistent pricing summary across the checkout flow</li>
+                        </ul>
+                        <p>This approach ensures that users always understand how the final amount is calculated.</p>
+                        <h3 style="margin-top:24px;font-size:1.1rem;">Before vs After</h3>
+                        <p><strong>Before</strong><br>Users see item prices while browsing · Additional charges appear during checkout · Final price differs from user expectations</p>
+                        <p><strong>After</strong><br>Estimated total price visible earlier in cart · Clear breakdown of delivery fees and taxes · Users understand final price before checkout</p>
+                        <h3 style="margin-top:24px;font-size:1.1rem;">User Flow</h3>
+                        <p>The redesigned checkout journey focuses on reducing surprises and improving clarity.</p>
+                        <p style="font-size:0.9rem;color:rgba(0,0,0,0.6);background:#f5f5f5;padding:16px;border-radius:8px;text-align:center;">
+                            Browse Restaurant → Select Food Items → Add to Cart → View Transparent Cost Breakdown → Checkout → Payment Confirmation
+                        </p>
+                        <p>By introducing a pricing breakdown earlier in the process, users can make informed decisions before reaching the final payment stage.</p>
+                    </section>
+
+                    <!-- 6. Design & Core Screens -->
+                    <section class="case-section">
+                        <h2>6. Design & Core Screens</h2>
+                        <h3 style="font-size:1.1rem;">Design Principles</h3>
+                        <p>The design approach was guided by three key principles:</p>
+                        <p><strong>Clarity</strong> — Pricing information should be easy to understand and clearly presented.</p>
+                        <p><strong>Transparency</strong> — All charges should be visible and explained to the user.</p>
+                        <p><strong>Predictability</strong> — Users should know the expected total cost before reaching checkout.</p>
+                        <h3 style="margin-top:24px;font-size:1.1rem;">Design Decisions</h3>
+                        <p><strong>Estimated Total Price in Cart</strong><br>Showing the estimated total earlier helps users understand the full cost before checkout.</p>
+                        <p><strong>Fee Breakdown Section</strong><br>A detailed cost breakdown explains delivery fees, service charges, and taxes.</p>
+                        <p><strong>Consistent Pricing Summary</strong><br>Maintaining a visible price summary throughout checkout prevents confusion.</p>
+                        <h3 style="margin-top:24px;font-size:1.1rem;">Core Screens</h3>
+                        <p><strong>Cart Screen</strong><br>Displays an estimated total price and highlights delivery and service charges early in the ordering journey.</p>
+                        <p><strong>Cost Breakdown Screen</strong><br>Provides a detailed explanation of each component contributing to the final price.</p>
+                        <p><strong>Checkout Screen</strong><br>Shows the final payable amount along with a transparent breakdown of fees and taxes.</p>
+                        <p>These screens ensure that users always understand how the total cost is calculated.</p>
+                    </section>
+
+                    <!-- 7. Outcome & Learnings -->
+                    <section class="case-section">
+                        <h2>7. Outcome & Learnings</h2>
+                        <h3 style="font-size:1.1rem;">Expected Outcome</h3>
+                        <p>The redesigned checkout experience aims to improve pricing transparency and build user trust during the payment process.</p>
+                        <p><strong>Potential benefits include:</strong></p>
+                        <ul>
+                            <li>Reduced cart abandonment</li>
+                            <li>Improved user trust in pricing</li>
+                            <li>Increased checkout completion rates</li>
+                            <li>Better understanding of service charges</li>
+                        </ul>
+                        <h3 style="margin-top:24px;font-size:1.1rem;">Key Learnings</h3>
+                        <p>This project highlighted how pricing transparency plays a crucial role in user trust within digital products. Even small improvements in how cost information is communicated can significantly influence user behavior and satisfaction.</p>
+                        <p>Designing clear and predictable financial interactions is essential for creating trustworthy digital experiences.</p>
+                        <h3 style="margin-top:24px;font-size:1.1rem;">Reflection</h3>
+                        <p>This project reinforced the importance of designing trust-driven experiences in digital products. Unexpected costs can quickly damage user confidence, even when the rest of the product experience is strong.</p>
+                        <p>By making pricing more transparent and predictable, platforms can create smoother checkout experiences and improve long-term user trust.</p>
+                    </section>
+
                 </div>
 
                 <aside class="case-sidebar">
@@ -96,11 +208,15 @@
                         </div>
                         <div class="sidebar-item">
                             <span class="label">Timeline</span>
-                            <span class="value">4 weeks</span>
+                            <span class="value">3 weeks</span>
                         </div>
                         <div class="sidebar-item">
-                            <span class="label">Methods</span>
-                            <span class="value">User Research, UX Design, Prototyping</span>
+                            <span class="label">Platform</span>
+                            <span class="value">Mobile</span>
+                        </div>
+                        <div class="sidebar-item">
+                            <span class="label">Tools</span>
+                            <span class="value">Figma</span>
                         </div>
                     </div>
                 </aside>
@@ -138,7 +254,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2024 Sarang N. All rights reserved.</p>
+                <p>&copy; 2025 Sarang N. All rights reserved.</p>
             </div>
         </div>
     </footer>
