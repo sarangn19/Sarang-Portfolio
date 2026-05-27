@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Project Name · Sarang N</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="../shared.css"/>
+  <style>
+    .research-trigger{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border:1px solid rgba(0,0,0,.12);border-radius:100px;background:transparent;font-family:'DM Sans',sans-serif;font-size:.85rem;font-weight:500;color:var(--text);cursor:pointer;transition:all .25s;margin-top:16px}
+    .research-trigger:hover{background:var(--text);color:#fff;border-color:var(--text)}
+    .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.6);backdrop-filter:blur(4px);z-index:10000;display:none;align-items:center;justify-content:center;padding:24px;opacity:0;transition:opacity .3s}
+    .modal-overlay.active{display:flex;opacity:1}
+    .modal{background:#fff;border-radius:16px;width:100%;max-width:900px;max-height:90vh;overflow:hidden;display:flex;flex-direction:column;transform:scale(.95);transition:transform .3s cubic-bezier(.16,1,.3,1)}
+    .modal-overlay.active .modal{transform:scale(1)}
+    .modal-header{display:flex;align-items:center;justify-content:space-between;padding:20px 24px;border-bottom:1px solid var(--border);flex-shrink:0}
+    .modal-title{font-size:.95rem;font-weight:500;color:var(--text)}
+    .modal-close{width:32px;height:32px;border-radius:50%;border:none;background:var(--bg);font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;color:var(--muted);transition:all .2s}
+    .modal-close:hover{background:rgba(0,0,0,.08);color:var(--text)}
+    .modal-body{flex:1;overflow-y:auto;padding:24px;min-height:400px}
+    .modal-body iframe{width:100%;height:100%;min-height:600px;border:none;border-radius:8px}
+    .modal-body embed{width:100%;height:100%;min-height:600px;border:none;border-radius:8px}
+    @media(max-width:600px){.modal-body iframe,.modal-body embed{min-height:400px}}
+  </style>
+</head>
+<body>
+  <div class="cursor" id="cursor"></div>
+  <div class="cursor-ring" id="cursorRing"></div>
+
+  <nav class="cs-nav">
+    <a class="cs-nav-logo" href="../index.html">Sarang.</a>
+    <a class="cs-nav-back" href="../index.html#work">&larr; Back to Work</a>
+  </nav>
+
+  <div class="cs-hero">
+    <span class="cs-tag">UI/UX · Project Type</span>
+    <h1 class="cs-hero-title">Project Name</h1>
+    <p class="cs-hero-sub">Short description of the project and its goals.</p>
+    <div class="cs-meta-row">
+      <div class="cs-meta-item"><span class="cs-meta-label">Role</span><span class="cs-meta-val">UI/UX Designer</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label">Timeline</span><span class="cs-meta-val">X weeks</span></div>
+      <div class="cs-meta-item"><span class="cs-meta-label">Tools</span><span class="cs-meta-val">Figma</span></div>
+    </div>
+  </div>
+
+  <div class="page-wrap">
+    <aside class="toc">
+      <div class="toc-label">On this page</div>
+      <a href="#overview">Overview</a>
+      <a href="#decisions">UI Decisions</a>
+      <a href="#learnings">Learnings</a>
+      <div class="toc-spacer"></div>
+      <a href="../index.html#work" class="toc-back">&larr; Back to Work</a>
+    </aside>
+
+    <div class="cs-body">
+      <div class="cs-content">
+
+        <!-- Overview -->
+        <div class="cs-section reveal" id="overview">
+          <span class="cs-section-label">Overview</span>
+          <h2 class="cs-section-title">Project context &amp; goals</h2>
+          <p class="cs-body-text">Describe the project background, the problem you were solving, and your approach.</p>
+        </div>
+
+        <!-- UI Decisions -->
+        <div class="cs-section reveal" id="decisions">
+          <span class="cs-section-label">UI Decisions</span>
+          <h2 class="cs-section-title">Key design choices</h2>
+          <div class="insight-list">
+            <div class="insight-card"><div class="insight-n">01</div><div><div class="insight-title">Decision one</div><div class="insight-body">Explain the UI decision and the reasoning behind it.</div></div></div>
+            <div class="insight-card"><div class="insight-n">02</div><div><div class="insight-title">Decision two</div><div class="insight-body">Explain the UI decision and the reasoning behind it.</div></div></div>
+            <div class="insight-card"><div class="insight-n">03</div><div><div class="insight-title">Decision three</div><div class="insight-body">Explain the UI decision and the reasoning behind it.</div></div></div>
+          </div>
+
+          <!-- Research trigger -->
+          <button class="research-trigger" onclick="openResearch()">&#128196; View Research</button>
+        </div>
+
+        <!-- Learnings -->
+        <div class="cs-section reveal" id="learnings">
+          <span class="cs-section-label">Learnings</span>
+          <h2 class="cs-section-title">What I took away</h2>
+          <div class="dot-list">
+            <div class="dot-item"><div class="dot"></div><span>Key learning point one.</span></div>
+            <div class="dot-item"><div class="dot"></div><span>Key learning point two.</span></div>
+            <div class="dot-item"><div class="dot"></div><span>Key learning point three.</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="page-footer-meta">
+        <div class="tools-row"><span class="tool-pill">Figma</span><span class="tool-pill">UI Design</span></div>
+        <a href="../index.html#work" class="btn-back">&larr; Back to Work</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Research Modal -->
+  <div class="modal-overlay" id="researchModal">
+    <div class="modal">
+      <div class="modal-header">
+        <span class="modal-title">Research Document</span>
+        <button class="modal-close" onclick="closeResearch()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <embed src="../assets/research.pdf" type="application/pdf">
+      </div>
+    </div>
+  </div>
+
+  <script src="../shared.js"></script>
+  <script>
+    function openResearch() { document.getElementById('researchModal').classList.add('active'); document.body.style.overflow = 'hidden'; }
+    function closeResearch() { document.getElementById('researchModal').classList.remove('active'); document.body.style.overflow = ''; }
+    document.getElementById('researchModal').addEventListener('click', function(e) { if (e.target === this) closeResearch(); });
+    document.addEventListener('keydown', function(e) { if (e.key === 'Escape') closeResearch(); });
+  </script>
+</body>
+</html>
