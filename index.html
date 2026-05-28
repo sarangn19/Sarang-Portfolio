@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sarang N – UI/UX Designer</title>
+    <title>Sarang N — Product Systems Designer</title>
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
         * { font-family: 'Satoshi', sans-serif !important; }
 
-        /* Nav */
+        /* Nav overrides */
         .navbar { background: rgba(254,254,254,0.92); border-bottom: 1px solid rgba(0,0,0,0.06); }
         .navbar.scrolled { background: rgba(254,254,254,0.98); }
         .logo, .nav-links a { color: #0a0a0a !important; }
@@ -17,105 +17,138 @@
         .mobile-menu-btn span { background: #0a0a0a; }
         .nav-links.active { background: rgba(254,254,254,0.98) !important; }
 
-        /* Section */
-        .sec-white { background: #fff; }
-        .sec-gray { background: #f3f3f3; }
+        /* ===== REVEAL ===== */
+        .reveal { opacity: 0; transform: translateY(32px); transition: opacity .7s cubic-bezier(.16,1,.3,1), transform .7s cubic-bezier(.16,1,.3,1); }
+        .reveal.visible { opacity: 1; transform: translateY(0); }
 
-        /* Hero */
-        .hero{padding:clamp(100px,14vw,180px) 0 clamp(80px,10vw,120px);text-align:center;background:#fff}
-        .hero h1{font-size:clamp(2.2rem,4.5vw,4.2rem);font-weight:700;letter-spacing:-.04em;line-height:1.05;color:#0a0a0a;margin-bottom:20px}
-        .hero p{max-width:700px;margin:0 auto;font-size:clamp(1rem,1.4vw,1.15rem);line-height:1.8;color:rgba(0,0,0,.45)}
+        /* ===== HERO ===== */
+        .hero { position: relative; padding: clamp(120px,16vw,200px) 0 clamp(100px,12vw,140px); text-align: center; background: #fff; overflow: hidden; }
+        .hero-orb { position: absolute; top: -30%; right: -15%; width: 700px; height: 700px; border-radius: 50%; background: radial-gradient(circle, rgba(91,124,255,.08) 0%, rgba(138,125,255,.03) 40%, transparent 70%); pointer-events: none; }
+        .hero-orb2 { position: absolute; bottom: -20%; left: -10%; width: 500px; height: 500px; border-radius: 50%; background: radial-gradient(circle, rgba(138,125,255,.05) 0%, transparent 60%); pointer-events: none; }
+        .hero-label { font-size: .65rem; font-weight: 600; letter-spacing: .15em; text-transform: uppercase; color: #5B7CFF; margin-bottom: 28px; display: block; }
+        .hero h1 { font-size: clamp(2.4rem,5vw,5rem); font-weight: 700; letter-spacing: -.04em; line-height: 1.05; color: #0a0a0a; margin-bottom: 24px; max-width: 900px; margin-left: auto; margin-right: auto; }
+        .hero-sub { font-size: clamp(1rem,1.3vw,1.1rem); line-height: 1.8; color: rgba(0,0,0,.45); max-width: 640px; margin: 0 auto; }
+        .hero-sub strong { color: rgba(0,0,0,.7); font-weight: 500; }
+        .hero-label, .hero h1, .hero-sub { opacity: 0; transform: translateY(20px); animation: heroFadeIn .8s cubic-bezier(.16,1,.3,1) forwards; }
+        .hero-label { animation-delay: .1s; }
+        .hero h1 { animation-delay: .25s; }
+        .hero-sub { animation-delay: .5s; }
+        @keyframes heroFadeIn { to { opacity: 1; transform: translateY(0); } }
 
-        /* Work cards */
-        .work-card{background:#fff;border-radius:16px;overflow:hidden;border:1px solid rgba(0,0,0,.05);transition:all .3s ease;display:block;text-decoration:none}
-        .work-card:hover{transform:translateY(-4px);box-shadow:0 16px 40px rgba(0,0,0,.06)}
-        .work-content{padding:28px}
-        .work-tag{font-size:.62rem;font-weight:600;letter-spacing:.08em;color:rgba(0,0,0,.3);text-transform:uppercase;margin-bottom:6px;display:block}
-        .work-meta{display:flex;gap:12px;align-items:center;margin-bottom:10px}
-        .work-read{font-size:.62rem;color:rgba(0,0,0,.25);letter-spacing:.02em}
-        .work-content h3{font-size:clamp(1.05rem,1.4vw,1.25rem);font-weight:600;color:#0a0a0a;margin-bottom:8px;letter-spacing:-.02em;line-height:1.3}
-        .work-content p{font-size:.82rem;color:rgba(0,0,0,.42);line-height:1.65;margin-bottom:14px}
-        .work-impact{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:14px}
-        .work-impact span{font-size:.7rem;color:rgba(0,0,0,.5);font-weight:500;background:#f5f5f5;padding:4px 12px;border-radius:100px}
-        .work-link{font-size:.8rem;font-weight:500;color:#5B7CFF;text-decoration:none;display:inline-flex;align-items:center;gap:6px}
-        .work-link::after{content:'→'}
+        /* ===== PHILOSOPHY ===== */
+        .phil { padding: 100px 0; background: #f8f8f8; text-align: center; }
+        .phil p { font-size: clamp(1.1rem,1.6vw,1.4rem); font-weight: 500; letter-spacing: -.02em; line-height: 1.6; color: #0a0a0a; max-width: 780px; margin: 0 auto 36px; }
+        .phil p em { font-style: italic; color: rgba(0,0,0,.4); font-weight: 400; }
+        .phil-domains { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+        .phil-domain { font-size: .75rem; color: rgba(0,0,0,.35); padding: 6px 16px; border: 1px solid rgba(0,0,0,.08); border-radius: 100px; }
 
-        /* Services */
-        .services-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,24px)}
-        .svc-card{border:1px solid rgba(0,0,0,.06);border-radius:14px;padding:clamp(20px,2.5vw,28px)}
-        .svc-card h4{font-size:.82rem;font-weight:600;color:#0a0a0a;margin-bottom:16px;letter-spacing:-.01em}
-        .svc-card ul{list-style:none;display:flex;flex-direction:column;gap:8px}
-        .svc-card li{font-size:.75rem;color:rgba(0,0,0,.42);line-height:1.55;padding-left:14px;position:relative}
-        .svc-card li::before{content:'';position:absolute;left:0;top:8px;width:4px;height:4px;border-radius:50%;background:rgba(0,0,0,.2)}
+        /* ===== FEATURE: SECOND BRAIN ===== */
+        .feature { background: #0a0a0a; color: #fff; padding: clamp(100px,12vw,160px) 0; }
+        .feature-inner { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+        .feature-grid { display: grid; grid-template-columns: 1fr 1.2fr; gap: 64px; align-items: center; }
+        .feature-label { font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.3); margin-bottom: 18px; display: block; }
+        .feature h2 { font-size: clamp(2rem,3.5vw,3.2rem); font-weight: 700; letter-spacing: -.03em; line-height: 1.1; margin-bottom: 16px; }
+        .feature p { font-size: .9rem; line-height: 1.8; color: rgba(255,255,255,.5); margin-bottom: 24px; max-width: 480px; }
+        .feature-metrics { display: flex; gap: 36px; margin-bottom: 32px; }
+        .feature-metrics div { text-align: left; }
+        .feature-metrics .num { font-size: 1.6rem; font-weight: 700; color: #fff; letter-spacing: -.03em; line-height: 1; }
+        .feature-metrics .lbl { font-size: .7rem; color: rgba(255,255,255,.35); margin-top: 4px; display: block; }
+        .feature-cta { display: inline-flex; align-items: center; gap: 8px; font-size: .85rem; font-weight: 500; color: #fff; text-decoration: none; padding: 12px 28px; border: 1px solid rgba(255,255,255,.15); border-radius: 100px; transition: all .3s; }
+        .feature-cta:hover { background: rgba(255,255,255,.06); border-color: rgba(255,255,255,.25); }
+        .feature-cta::after { content: '→'; transition: transform .3s; display: inline-block; }
+        .feature-cta:hover::after { transform: translateX(4px); }
+        .feature-visual { border-radius: 16px; overflow: hidden; aspect-ratio: 16/10; position: relative; display: block; }
+        .feature-visual img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+        .feature-visual:hover img { transform: scale(1.02); }
 
-        /* About stats */
-        .about-stats{display:flex;gap:48px;margin-top:32px}
-        .about-stats .stat{display:flex;flex-direction:column;gap:2px}
-        .about-stats .stat-num{font-size:1.8rem;font-weight:700;color:#0a0a0a;letter-spacing:-.03em;line-height:1}
-        .about-stats .stat-lbl{font-size:.72rem;color:rgba(0,0,0,.35)}
-        .tools-row{display:flex;gap:clamp(16px,2.5vw,32px);flex-wrap:wrap;margin-top:28px;padding-top:28px;border-top:1px solid rgba(0,0,0,.06);align-items:center}
-        .tool-item{display:flex;flex-direction:column;align-items:center;gap:6px;min-width:56px}
-        .tool-item img{width:28px;height:28px;object-fit:contain;opacity:.6;transition:opacity .2s}
-        .tool-item:hover img{opacity:1}
-        .tool-item span{font-size:.62rem;color:rgba(0,0,0,.35);white-space:nowrap}
+        /* ===== SECONDARY WORK ===== */
+        .secondary { padding: 120px 0; background: #fff; }
+        .sec-header { text-align: center; margin-bottom: 48px; }
+        .sec-label { font-size: .6rem; font-weight: 600; letter-spacing: .14em; text-transform: uppercase; color: rgba(0,0,0,.25); margin-bottom: 8px; display: block; }
+        .sec-header h2 { font-size: clamp(1.6rem,2.5vw,2.4rem); font-weight: 700; letter-spacing: -.03em; color: #0a0a0a; }
+        .sec-grid { display: grid; grid-template-columns: repeat(2,1fr); gap: 24px; }
+        .sec-card { background: #fff; border-radius: 16px; overflow: hidden; border: 1px solid rgba(0,0,0,.05); transition: all .4s ease; display: block; text-decoration: none; }
+        .sec-card:hover { transform: translateY(-4px); box-shadow: 0 20px 50px rgba(0,0,0,.08); }
+        .sec-card-img { height: 280px; overflow: hidden; }
+        .sec-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+        .sec-card:hover .sec-card-img img { transform: scale(1.03); }
+        .sec-card-body { padding: 28px; }
+        .sec-card-tag { font-size: .6rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(0,0,0,.3); display: block; margin-bottom: 8px; }
+        .sec-card-read { font-size: .6rem; color: rgba(0,0,0,.2); margin-left: 10px; }
+        .sec-card h3 { font-size: clamp(1.05rem,1.3vw,1.2rem); font-weight: 600; color: #0a0a0a; margin-bottom: 8px; letter-spacing: -.02em; }
+        .sec-card p { font-size: .82rem; color: rgba(0,0,0,.42); line-height: 1.65; margin-bottom: 14px; }
+        .sec-card-impact { display: flex; gap: 12px; flex-wrap: wrap; }
+        .sec-card-impact span { font-size: .68rem; color: rgba(0,0,0,.5); font-weight: 500; background: #f5f5f5; padding: 4px 12px; border-radius: 100px; }
+        .sec-card-link { font-size: .8rem; font-weight: 500; color: #5B7CFF; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; margin-top: 14px; }
+        .sec-card-link::after { content: '→'; }
 
-        /* Contact */
-        .contact-combined {
-            background: linear-gradient(180deg, #111111 0%, #090909 100%);
-            color: #ffffff;
-        }
-        .cc-inner { max-width:1400px; margin:0 auto; padding:0 24px; }
-        .cc-top {
-            display:grid;
-            grid-template-columns:minmax(0,1.1fr) minmax(320px,0.9fr);
-            gap:56px;
-            align-items:start;
-            padding:112px 0 72px;
-            border-bottom:1px solid rgba(255,255,255,.08);
-        }
-        .cc-heading { max-width:680px; }
-        .cc-title {
-            font-size:clamp(2.4rem,5vw,4.8rem);
-            font-weight:700;
-            letter-spacing:-.04em;
-            line-height:.98;
-            color:#fff;
-            margin-bottom:18px;
-        }
-        .cc-title em { font-style:italic; font-weight:400; color:rgba(255,255,255,.85); }
-        .cc-sub { font-size:1rem; line-height:1.8; color:rgba(255,255,255,.5); margin-bottom:0; max-width:520px; }
-        .cc-links { display:grid; gap:14px; }
-        .cc-link {
-            display:block;
-            padding:20px 24px;
-            border:1px solid rgba(255,255,255,.07);
-            border-radius:20px;
-            background:rgba(255,255,255,.02);
-            text-decoration:none;
-            transition:all .25s ease;
-        }
-        .cc-link:hover { transform:translateY(-2px); border-color:rgba(255,255,255,.14); background:rgba(255,255,255,.04); }
-        .cc-link-content { display:flex; flex-direction:column; gap:6px; }
-        .cc-link-label { font-size:.68rem; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.32); }
-        .cc-link-val { font-size:.95rem; line-height:1.5; color:rgba(255,255,255,.85); transition:color .2s; }
-        .cc-link:hover .cc-link-val { color:#fff; }
-        .cc-bottom { display:flex; align-items:center; justify-content:space-between; padding:28px 0 34px; gap:16px; flex-wrap:wrap; }
-        .cc-logo { font-size:.92rem; font-weight:600; color:rgba(255,255,255,.85); }
-        .cc-copy { font-size:.75rem; color:rgba(255,255,255,.28); }
-        .cc-nav { display:flex; gap:20px; }
-        .cc-nav a { font-size:.75rem; color:rgba(255,255,255,.35); text-decoration:none; transition:color .2s; }
-        .cc-nav a:hover { color:rgba(255,255,255,.8); }
+        /* ===== EXPERIMENTS ===== */
+        .experiments { padding: 120px 0; background: #f3f3f3; }
+        .exp-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 40px; flex-wrap: wrap; gap: 12px; }
+        .exp-header h2 { font-size: clamp(1.6rem,2.5vw,2.4rem); font-weight: 700; letter-spacing: -.03em; color: #0a0a0a; }
+        .exp-header p { font-size: .82rem; color: rgba(0,0,0,.3); }
+        .exp-grid { display: grid; grid-template-columns: repeat(4,1fr); gap: 16px; }
+        .exp-card { border-radius: 14px; overflow: hidden; border: 1px solid rgba(0,0,0,.05); background: #fff; transition: all .4s ease; display: block; text-decoration: none; }
+        .exp-card:hover { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,.06); }
+        .exp-card-img { overflow: hidden; }
+        .exp-card-img img { width: 100%; height: 100%; object-fit: cover; transition: transform .5s ease; }
+        .exp-card:hover .exp-card-img img { transform: scale(1.03); }
+        .exp-card-body { padding: 16px 18px; }
+        .exp-card-tag { font-size: .55rem; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: rgba(0,0,0,.25); margin-bottom: 4px; display: block; }
+        .exp-card h3 { font-size: .85rem; font-weight: 600; color: #0a0a0a; letter-spacing: -.01em; margin-bottom: 0; }
+        .exp-card p { font-size: .7rem; color: rgba(0,0,0,.38); line-height: 1.5; margin-top: 3px; }
+        .exp-card.featured { grid-column: span 2; display: grid; grid-template-columns: 1.3fr 1fr; }
+        .exp-card.featured .exp-card-img { height: 240px; }
+        .exp-card.featured .exp-card-body { display: flex; flex-direction: column; justify-content: center; }
+        .exp-card.featured h3 { font-size: 1.1rem; }
+        .exp-card.featured p { font-size: .78rem; }
+        .exp-card.featured .exp-card-link { font-size: .75rem; font-weight: 500; color: #5B7CFF; text-decoration: none; display: inline-flex; align-items: center; gap: 4px; margin-top: 10px; }
+        .exp-card.featured .exp-card-link::after { content: '→'; }
+        .exp-card .exp-card-img { height: 180px; }
+
+        /* ===== CONTACT ===== */
+        .contact { background: #0a0a0a; color: #fff; padding: 120px 0 0; }
+        .contact-inner { max-width: 1400px; margin: 0 auto; padding: 0 24px; }
+        .contact-top { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: start; padding-bottom: 80px; border-bottom: 1px solid rgba(255,255,255,.08); }
+        .contact-status { display: inline-flex; align-items: center; gap: 8px; font-size: .65rem; font-weight: 500; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.4); margin-bottom: 24px; }
+        .contact-status-dot { width: 6px; height: 6px; border-radius: 50%; background: #4ade80; animation: pulse 2s ease infinite; }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:.4} }
+        .contact h2 { font-size: clamp(2.4rem,5vw,4.8rem); font-weight: 700; letter-spacing: -.04em; line-height: .98; margin-bottom: 18px; }
+        .contact h2 em { font-style: italic; font-weight: 400; color: rgba(255,255,255,.75); }
+        .contact-sub { font-size: .95rem; line-height: 1.8; color: rgba(255,255,255,.4); max-width: 480px; margin-bottom: 0; }
+        .contact-links { display: flex; flex-direction: column; gap: 14px; }
+        .contact-link { display: block; padding: 20px 24px; border: 1px solid rgba(255,255,255,.07); border-radius: 20px; background: rgba(255,255,255,.02); text-decoration: none; transition: all .25s ease; }
+        .contact-link:hover { transform: translateY(-2px); border-color: rgba(255,255,255,.14); background: rgba(255,255,255,.04); }
+        .contact-link-inner { display: flex; flex-direction: column; gap: 4px; }
+        .contact-link-label { font-size: .65rem; letter-spacing: .12em; text-transform: uppercase; color: rgba(255,255,255,.3); }
+        .contact-link-val { font-size: .95rem; color: rgba(255,255,255,.8); transition: color .2s; }
+        .contact-link:hover .contact-link-val { color: #fff; }
+        .contact-bottom { display: flex; align-items: center; justify-content: space-between; padding: 28px 0 34px; gap: 16px; flex-wrap: wrap; }
+        .contact-logo { font-size: .9rem; font-weight: 600; color: rgba(255,255,255,.7); }
+        .contact-copy { font-size: .72rem; color: rgba(255,255,255,.25); }
+        .contact-nav { display: flex; gap: 20px; }
+        .contact-nav a { font-size: .72rem; color: rgba(255,255,255,.3); text-decoration: none; transition: color .2s; }
+        .contact-nav a:hover { color: rgba(255,255,255,.7); }
 
         @media(max-width:900px) {
-            .cc-top { grid-template-columns:1fr; gap:36px; padding:84px 0 56px; }
-            .services-grid{grid-template-columns:1fr 1fr}
+            .feature-grid { grid-template-columns: 1fr; gap: 32px; }
+            .contact-top { grid-template-columns: 1fr; gap: 36px; }
+            .exp-grid { grid-template-columns: 1fr 1fr; }
+            .exp-card.featured { grid-column: span 2; grid-template-columns: 1fr; }
+            .exp-card.featured .exp-card-img { height: 180px; }
+            .sec-grid { grid-template-columns: 1fr; }
         }
         @media(max-width:600px) {
-            .cc-inner { padding:0 20px; }
-            .cc-top { padding:72px 0 44px; }
-            .cc-link { padding:16px 18px; border-radius:16px; }
-            .cc-bottom { flex-direction:column; align-items:flex-start; padding:22px 0 28px; }
-            .services-grid{grid-template-columns:1fr}
+            .exp-grid { grid-template-columns: 1fr; }
+            .exp-card.featured { grid-column: span 1; }
+            .hero { padding: 100px 0 80px; }
+            .hero-orb, .hero-orb2 { display: none; }
+            .contact-top { padding-bottom: 60px; }
+            .contact-bottom { flex-direction: column; align-items: flex-start; }
+            .feature-metrics { gap: 24px; }
+            .sec-card-img { height: 200px; }
+            .experiments { padding: 80px 0; }
+            .secondary { padding: 80px 0; }
         }
     </style>
 </head>
@@ -128,7 +161,6 @@
             <a href="#" class="logo" aria-label="Home">Sarang N</a>
             <ul class="nav-links">
                 <li><a href="#work">Work</a></li>
-                <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
             <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span></button>
@@ -137,193 +169,187 @@
 
     <!-- Hero -->
     <section class="hero">
+        <div class="hero-orb"></div>
+        <div class="hero-orb2"></div>
         <div class="container">
-            <h1>Designing experiences that<br>feel <em style="font-style:italic;color:rgba(0,0,0,.6);">just right.</em></h1>
-            <p>I'm a UI/UX designer who believes great design starts with understanding people — their frustrations, mental models, and contexts. I craft thoughtful, research-backed experiences across EdTech, FinTech, and creative media.</p>
+            <span class="hero-label">Product Systems Designer</span>
+            <h1>Designing intelligent learning<br>and productivity systems for<br>real human behavior.</h1>
+            <p class="hero-sub">I craft research-backed product experiences across <strong>EdTech</strong>, <strong>FinTech</strong>, and creative media — from user research through to system design.</p>
         </div>
     </section>
 
-    <!-- About -->
-    <section id="about" class="sec-white" style="padding:100px 0;">
+    <!-- Philosophy -->
+    <section class="phil reveal">
         <div class="container" style="max-width:960px;">
-            <span class="sec-label" style="font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:8px;display:block;">About</span>
-            <p style="font-size:1.05rem;line-height:1.8;color:rgba(0,0,0,.5);margin-bottom:12px;">I'm a UI/UX designer currently at Last Minute Deal, where I own the design system and product flows. Previously shipped features for a lending app that reduced EMI drop-offs by 47% through plain-language UX and trust-focused design.</p>
-            <p style="font-size:.92rem;line-height:1.8;color:rgba(0,0,0,.38);">I've worked across EdTech, FinTech, and creative media — shaping experiences from research through to pixel-perfect execution.</p>
-            <div class="about-stats">
-                <div class="stat"><span class="stat-num">2+</span><span class="stat-lbl">Years Experience</span></div>
-                <div class="stat"><span class="stat-num">9+</span><span class="stat-lbl">Projects Shipped</span></div>
-                <div class="stat"><span class="stat-num">3</span><span class="stat-lbl">Industries Served</span></div>
-            </div>
-            <div class="tools-row">
-                <div class="tool-item"><img src="software logo/figma logo.png" alt="Figma" loading="lazy"><span>Figma</span></div>
-                <div class="tool-item"><img src="software logo/photoshop logo.png" alt="Photoshop" loading="lazy"><span>Photoshop</span></div>
-                <div class="tool-item"><img src="software logo/illustrator logo.png" alt="Illustrator" loading="lazy"><span>Illustrator</span></div>
-                <div class="tool-item"><img src="software logo/after effects.png" alt="After Effects" loading="lazy"><span>AE</span></div>
-                <div class="tool-item"><img src="software logo/rive logo.png" alt="Rive" loading="lazy"><span>Rive</span></div>
-                <div class="tool-item"><img src="software logo/windsurf logo.png" alt="Windsurf" loading="lazy"><span>Windsurf</span></div>
-                <div class="tool-item"><img src="software logo/indesign.png" alt="InDesign" loading="lazy"><span>InDesign</span></div>
-                <div class="tool-item"><img src="software logo/canva logo.png" alt="Canva" loading="lazy"><span>Canva</span></div>
-                <div class="tool-item"><img src="software logo/unity logo.webp" alt="Unity" loading="lazy"><span>Unity</span></div>
+            <p>Great design isn't about screens — it's about understanding <em>frustrations, mental models, and contexts</em>. Every product decision should be traceable back to a real human need.</p>
+            <div class="phil-domains">
+                <span class="phil-domain">UX Research &amp; Synthesis</span>
+                <span class="phil-domain">Product Design &amp; Systems</span>
+                <span class="phil-domain">Design Systems</span>
+                <span class="phil-domain">AI-Native Experiences</span>
+                <span class="phil-domain">Interaction &amp; Motion</span>
             </div>
         </div>
     </section>
 
-    <!-- What I Do -->
-    <section class="sec-gray" style="padding:100px 0;">
-        <div class="container" style="max-width:1200px;">
-            <span class="sec-label" style="font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:8px;display:block;">What I Do</span>
-            <p style="font-size:.92rem;color:rgba(0,0,0,.35);margin-bottom:36px;max-width:560px;">From user research to design systems — a full-spectrum product design practice.</p>
-            <div class="services-grid">
-                <div class="svc-card"><h4>UX/UI Design</h4><ul><li>Wireframing &amp; prototyping</li><li>Interface design for web &amp; mobile</li><li>Usability testing &amp; heuristics</li><li>Interaction design &amp; micro-animations</li></ul></div>
-                <div class="svc-card"><h4>UX Research</h4><ul><li>User interviews &amp; field studies</li><li>Affinity mapping &amp; synthesis</li><li>Personas &amp; journey mapping</li><li>Diary logs &amp; contextual inquiry</li></ul></div>
-                <div class="svc-card"><h4>Visual Design</h4><ul><li>Design systems &amp; component libraries</li><li>Brand identity &amp; style guides</li><li>Typography &amp; color systems</li><li>Data visualization</li></ul></div>
-                <div class="svc-card"><h4>Prototyping</h4><ul><li>Figma interactive prototypes</li><li>Framer website development</li><li>Motion design &amp; transitions</li><li>Responsive design execution</li></ul></div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work -->
-    <section id="work" class="sec-gray" style="padding:100px 0;">
-        <div class="container" style="max-width:1200px;">
-            <div class="work-header">
-                <span class="sec-label" style="font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:8px;display:block;">Case Studies</span>
-                <h2 style="font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:600;letter-spacing:-.03em;color:#0a0a0a;margin-bottom:6px;">Selected Work</h2>
-                <p style="font-size:.92rem;color:rgba(0,0,0,.35);line-height:1.7;max-width:580px;margin:0 auto 40px;">In-depth projects where I led research, design, and delivery.</p>
-            </div>
-            <div class="work-grid" style="grid-template-columns:repeat(2,1fr);gap:24px;">
-                <a href="case-studies/second-brain.html" class="work-card">
-                    <div style="height:280px;overflow:hidden;"><img loading="lazy" src="thumbnail/thumbnail-secondbrain.png" alt="Second Brain" style="width:100%;height:100%;object-fit:cover;"></div>
-                    <div class="work-content">
-                        <div class="work-meta"><span class="work-tag">EdTech · UX Research · Product Design</span><span class="work-read">12 min read</span></div>
-                        <h3>Second Brain</h3>
-                        <p>Designing against study overwhelm &amp; inconsistency — a structured learning companion for competitive exam students.</p>
-                        <div class="work-impact"><span>12 user interviews</span><span>6 affinity clusters</span><span>3 user personas</span></div>
-                        <span class="work-link">View case study</span>
+    <!-- Featured: Second Brain -->
+    <section id="work" class="feature reveal">
+        <div class="feature-inner">
+            <div class="feature-grid">
+                <div>
+                    <span class="feature-label">Featured Case Study</span>
+                    <h2>Second Brain</h2>
+                    <p>A structured learning companion designed to combat study overwhelm and inconsistency for competitive exam students.</p>
+                    <div class="feature-metrics">
+                        <div><span class="num">12</span><span class="lbl">User Interviews</span></div>
+                        <div><span class="num">6</span><span class="lbl">Affinity Clusters</span></div>
+                        <div><span class="num">3</span><span class="lbl">User Personas</span></div>
                     </div>
+                    <a href="case-studies/second-brain.html" class="feature-cta">View case study</a>
+                </div>
+                <a href="case-studies/second-brain.html" class="feature-visual">
+                    <img loading="lazy" src="thumbnail/thumbnail-secondbrain.png" alt="Second Brain">
                 </a>
-                <a href="case-studies/clearflow.html" class="work-card">
-                    <div style="height:280px;overflow:hidden;"><img loading="lazy" src="thumbnail/thumbnail-flow-emi.png" alt="ClearFlow" style="width:100%;height:100%;object-fit:cover;"></div>
-                    <div class="work-content">
-                        <div class="work-meta"><span class="work-tag">FinTech · UX Research · Product Design</span><span class="work-read">10 min read</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Secondary: ClearFlow -->
+    <section class="secondary reveal">
+        <div class="container" style="max-width:1200px;">
+            <div class="sec-header">
+                <span class="sec-label">More Case Studies</span>
+                <h2>Selected Work</h2>
+            </div>
+            <div class="sec-grid">
+                <a href="case-studies/clearflow.html" class="sec-card">
+                    <div class="sec-card-img"><img loading="lazy" src="thumbnail/thumbnail-flow-emi.png" alt="ClearFlow"></div>
+                    <div class="sec-card-body">
+                        <span class="sec-card-tag">FinTech · UX Research · Product Design <span class="sec-card-read">10 min read</span></span>
                         <h3>ClearFlow</h3>
                         <p>Designing against EMI blindness — helping users understand their true financial position before taking on debt.</p>
-                        <div class="work-impact"><span>47% fewer drop-offs</span><span>8 usability tests</span><span>Plain-language UX</span></div>
-                        <span class="work-link">View case study</span>
+                        <div class="sec-card-impact"><span>47% fewer drop-offs</span><span>8 usability tests</span><span>Plain-language UX</span></div>
+                        <span class="sec-card-link">View case study</span>
                     </div>
                 </a>
-            </div>
-
-            <div style="margin-top:80px;">
-                <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:32px;flex-wrap:wrap;gap:8px;">
-                    <div><span class="sec-label" style="font-size:.65rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:rgba(0,0,0,.25);margin-bottom:4px;display:block;">Explorations</span><h2 style="font-size:clamp(1.5rem,2.5vw,2.2rem);font-weight:600;letter-spacing:-.03em;color:#0a0a0a;margin-bottom:0;">Other Works</h2></div>
-                    <span style="font-size:.8rem;color:rgba(0,0,0,.3);">UI explorations and experiments</span>
-                </div>
-                <div class="other-works-grid">
-                    <a href="case-studies/epicsix.html" class="work-card">
-                        <div style="height:200px;overflow:hidden;"><img loading="lazy" src="thumbnail/thumbnail-epicsix.png" alt="EpicSix E-commerce" style="width:100%;height:100%;object-fit:cover;"></div>
-                        <div class="work-content">
-                            <span class="work-tag" style="margin-bottom:6px;display:block;">Fashion Ecommerce</span>
-                            <h3>EpicSix</h3>
-                            <p>A modern fashion e-commerce experience</p>
-                            <span class="work-link">View project</span>
-                        </div>
-                    </a>
-                    <a href="case-studies/pulse.html" class="work-card">
-                        <div style="height:200px;overflow:hidden;"><img loading="lazy" src="thumbnail/thumbnail-pulse.png" alt="Pulse Creative Agency" style="width:100%;height:100%;object-fit:cover;"></div>
-                        <div class="work-content">
-                            <span class="work-tag" style="margin-bottom:6px;display:block;">Agency Website</span>
-                            <h3>Pulse</h3>
-                            <p>Creative agency portfolio website</p>
-                            <span class="work-link">View project</span>
-                        </div>
-                    </a>
-                    <a href="case-studies/kerala-murals.html" class="work-card">
-                        <div style="height:200px;overflow:hidden;"><img loading="lazy" src="thumbnail/thumbnail-kerala-murals.png" alt="Kerala Murals" style="width:100%;height:100%;object-fit:cover;"></div>
-                        <div class="work-content">
-                            <span class="work-tag" style="margin-bottom:6px;display:block;">Cultural Commerce</span>
-                            <h3>Kerala Murals</h3>
-                            <p>Heritage art e-commerce platform</p>
-                            <span class="work-link">View project</span>
-                        </div>
-                    </a>
-                    <a href="case-studies/transparent-checkout.html" class="work-card">
-                        <div style="height:200px;overflow:hidden;"><img loading="lazy" src="thumbnail/thumbnail-checkout.png" alt="Checkout Experience" style="width:100%;height:100%;object-fit:cover;"></div>
-                        <div class="work-content">
-                            <span class="work-tag" style="margin-bottom:6px;display:block;">FinTech</span>
-                            <h3>Checkout Experience</h3>
-                            <p>Streamlined payment flow design</p>
-                            <span class="work-link">View project</span>
-                        </div>
-                    </a>
-                    <a href="case-studies/brandkit.html" class="work-card">
-                        <div style="height:200px;overflow:hidden;"><img loading="lazy" src="thumbnail/thumbnail-brandkit.png" alt="Brand Kit" style="width:100%;height:100%;object-fit:cover;"></div>
-                        <div class="work-content">
-                            <span class="work-tag" style="margin-bottom:6px;display:block;">Brand Identity</span>
-                            <h3>Brand Kit</h3>
-                            <p>Cohesive brand identity system</p>
-                            <span class="work-link">View project</span>
-                        </div>
-                    </a>
-                    <a href="case-studies/sandookchi.html" class="work-card">
-                        <div style="height:200px;overflow:hidden;"><img loading="lazy" src="thumbnail/thumbnail-sandookchi.png" alt="Sandookchi Gifting" style="width:100%;height:100%;object-fit:cover;"></div>
-                        <div class="work-content">
-                            <span class="work-tag" style="margin-bottom:6px;display:block;">Gifting Ecommerce</span>
-                            <h3>Sandookchi</h3>
-                            <p>Premium gifting e-commerce experience</p>
-                            <span class="work-link">View project</span>
-                        </div>
-                    </a>
-                    <a href="case-studies/yono.html" class="work-card">
-                        <div style="height:200px;overflow:hidden;"><img loading="lazy" src="thumbnail/thumbnail-yono.png" alt="YONO SBI Redesign" style="width:100%;height:100%;object-fit:cover;"></div>
-                        <div class="work-content">
-                            <span class="work-tag" style="margin-bottom:6px;display:block;">FinTech · Banking</span>
-                            <h3>YONO SBI Redesign</h3>
-                            <p>Banking app redesign exploration</p>
-                            <span class="work-link">View project</span>
-                        </div>
-                    </a>
-                </div>
+                <a href="#" class="sec-card" style="cursor:default;opacity:.5;pointer-events:none;">
+                    <div class="sec-card-img" style="display:flex;align-items:center;justify-content:center;background:#f8f8f8;color:rgba(0,0,0,.15);font-size:.8rem;">Coming soon</div>
+                    <div class="sec-card-body">
+                        <span class="sec-card-tag">Upcoming Project</span>
+                        <h3>New case study</h3>
+                        <p>Details will be shared once the project is ready for presentation.</p>
+                        <span class="sec-card-link" style="color:rgba(0,0,0,.2);">Coming soon</span>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact + Footer -->
-    <section id="contact" class="contact-combined">
-        <div class="cc-inner">
-            <div class="cc-top">
-                <div class="cc-heading">
-                    <h2 class="cc-title">Let's build something<br><em>together.</em></h2>
-                    <p class="cc-sub">Open to full-time roles, freelance projects, and meaningful conversations around product design, systems, and UX strategy.</p>
+    <!-- Experiments -->
+    <section class="experiments reveal">
+        <div class="container" style="max-width:1200px;">
+            <div class="exp-header">
+                <div>
+                    <span class="sec-label">Explorations</span>
+                    <h2>Experiments</h2>
                 </div>
-                <div class="cc-links">
-                    <a href="mailto:sarangn19@gmail.com" class="cc-link" aria-label="Email sarangn19@gmail.com">
-                        <div class="cc-link-content">
-                            <span class="cc-link-label">Email</span>
-                            <span class="cc-link-val">sarangn19@gmail.com ↗</span>
+                <p>UI explorations &amp; side projects</p>
+            </div>
+            <div class="exp-grid">
+                <a href="case-studies/epicsix.html" class="exp-card featured">
+                    <div class="exp-card-img"><img loading="lazy" src="thumbnail/thumbnail-epicsix.png" alt="EpicSix E-commerce"></div>
+                    <div class="exp-card-body">
+                        <span class="exp-card-tag">Fashion Ecommerce</span>
+                        <h3>EpicSix</h3>
+                        <p>A modern fashion e-commerce experience with streamlined browsing and checkout flow.</p>
+                        <span class="exp-card-link">View project</span>
+                    </div>
+                </a>
+                <a href="case-studies/pulse.html" class="exp-card tall">
+                    <div class="exp-card-img"><img loading="lazy" src="thumbnail/thumbnail-pulse.png" alt="Pulse Creative Agency"></div>
+                    <div class="exp-card-body">
+                        <span class="exp-card-tag">Agency Website</span>
+                        <h3>Pulse</h3>
+                        <p>Creative agency portfolio.</p>
+                    </div>
+                </a>
+                <a href="case-studies/kerala-murals.html" class="exp-card short">
+                    <div class="exp-card-img"><img loading="lazy" src="thumbnail/thumbnail-kerala-murals.png" alt="Kerala Murals"></div>
+                    <div class="exp-card-body">
+                        <span class="exp-card-tag">Cultural Commerce</span>
+                        <h3>Kerala Murals</h3>
+                    </div>
+                </a>
+                <a href="case-studies/transparent-checkout.html" class="exp-card short">
+                    <div class="exp-card-img"><img loading="lazy" src="thumbnail/thumbnail-checkout.png" alt="Checkout Experience"></div>
+                    <div class="exp-card-body">
+                        <span class="exp-card-tag">FinTech</span>
+                        <h3>Checkout Experience</h3>
+                    </div>
+                </a>
+                <a href="case-studies/brandkit.html" class="exp-card tall">
+                    <div class="exp-card-img"><img loading="lazy" src="thumbnail/thumbnail-brandkit.png" alt="Brand Kit"></div>
+                    <div class="exp-card-body">
+                        <span class="exp-card-tag">Brand Identity</span>
+                        <h3>Brand Kit</h3>
+                        <p>Cohesive brand identity system.</p>
+                    </div>
+                </a>
+                <a href="case-studies/sandookchi.html" class="exp-card short">
+                    <div class="exp-card-img"><img loading="lazy" src="thumbnail/thumbnail-sandookchi.png" alt="Sandookchi Gifting"></div>
+                    <div class="exp-card-body">
+                        <span class="exp-card-tag">Gifting Ecommerce</span>
+                        <h3>Sandookchi</h3>
+                    </div>
+                </a>
+                <a href="case-studies/yono.html" class="exp-card short">
+                    <div class="exp-card-img"><img loading="lazy" src="thumbnail/thumbnail-yono.png" alt="YONO SBI Redesign"></div>
+                    <div class="exp-card-body">
+                        <span class="exp-card-tag">FinTech · Banking</span>
+                        <h3>YONO SBI Redesign</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="contact">
+        <div class="contact-inner">
+            <div class="contact-top">
+                <div>
+                    <div class="contact-status"><span class="contact-status-dot"></span>Available for opportunities</div>
+                    <h2>Let's build something<br><em>together.</em></h2>
+                    <p class="contact-sub">Open to full-time roles, freelance projects, and meaningful conversations around product design, systems, and UX strategy.</p>
+                </div>
+                <div class="contact-links">
+                    <a href="mailto:sarangn19@gmail.com" class="contact-link">
+                        <div class="contact-link-inner">
+                            <span class="contact-link-label">Email</span>
+                            <span class="contact-link-val">sarangn19@gmail.com ↗</span>
                         </div>
                     </a>
-                    <a href="https://linkedin.com/in/sarang-n" class="cc-link" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
-                        <div class="cc-link-content">
-                            <span class="cc-link-label">LinkedIn</span>
-                            <span class="cc-link-val">linkedin.com/in/sarang-n ↗</span>
+                    <a href="https://linkedin.com/in/sarang-n" class="contact-link" target="_blank" rel="noreferrer">
+                        <div class="contact-link-inner">
+                            <span class="contact-link-label">LinkedIn</span>
+                            <span class="contact-link-val">linkedin.com/in/sarang-n ↗</span>
                         </div>
                     </a>
-                    <a href="tel:+919947816993" class="cc-link" aria-label="Call +91 99478 16993">
-                        <div class="cc-link-content">
-                            <span class="cc-link-label">Phone</span>
-                            <span class="cc-link-val">+91 99478 16993 ↗</span>
+                    <a href="tel:+919947816993" class="contact-link">
+                        <div class="contact-link-inner">
+                            <span class="contact-link-label">Phone</span>
+                            <span class="contact-link-val">+91 99478 16993 ↗</span>
                         </div>
                     </a>
                 </div>
             </div>
-            <div class="cc-bottom">
-                <span class="cc-logo">Sarang N</span>
-                <span class="cc-copy">© 2026 · UI/UX Designer Portfolio</span>
-                <div class="cc-nav">
+            <div class="contact-bottom">
+                <span class="contact-logo">Sarang N</span>
+                <span class="contact-copy">© 2026 · Product Systems Designer</span>
+                <div class="contact-nav">
                     <a href="#work">Work</a>
-                    <a href="#about">About</a>
                     <a href="#contact">Contact</a>
-                    <a href="#" aria-label="Back to top" style="font-size:1.1rem;">↑</a>
+                    <a href="#" aria-label="Back to top">↑</a>
                 </div>
             </div>
         </div>
@@ -331,13 +357,25 @@
 
 </div>
 <script src="script.js"></script>
-
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        document.querySelectorAll('.text-reveal').forEach(el => {
+            const span = el.querySelector('span');
+            if (span) { el.innerHTML = span.textContent; el.classList.remove('text-reveal'); }
+        });
+        const revealEls = document.querySelectorAll('.reveal');
+        if (revealEls.length) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, i) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => entry.target.classList.add('visible'), i * 120);
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.1, rootMargin: '0px 0px -80px 0px' });
+            revealEls.forEach(el => observer.observe(el));
+        }
+    });
+</script>
 </body>
 </html>
-
-
-
-
-
-
-
