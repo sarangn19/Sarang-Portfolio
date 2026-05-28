@@ -107,7 +107,8 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 /* ── persona ── */
 .persona-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(12px,1.5vw,24px)}
 .persona{border:1px solid rgba(0,0,0,.1);border-radius:4px;padding:clamp(20px,3vw,48px);display:flex;flex-direction:column;align-items:center;gap:clamp(10px,1.2vw,16px)}
-.persona-img{width:clamp(80px,10vw,160px);height:clamp(100px,13vw,200px);background:#CFCFCF;border-radius:8px}
+.persona-img{width:clamp(80px,10vw,160px);height:clamp(100px,13vw,200px);background:#CFCFCF;border-radius:8px;overflow:hidden}
+.persona-img img{width:100%;height:100%;object-fit:cover;display:block}
 .persona-name{font-size:1.125rem;font-weight:700;color:#000;align-self:flex-start}
 .persona-body{font-size:0.875rem;color:rgba(0,0,0,.7);line-height:1.75;align-self:stretch}
 
@@ -467,17 +468,17 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
     <h3 class="t-h3">User Persona</h3>
     <div class="persona-grid cs-stagger">
       <div class="persona">
-        <div class="persona-img"></div>
+        <div class="persona-img"><img src="../assets/overplanner user persona.png" alt="Overplanner persona"></div>
         <div class="persona-name">The Overplanner</div>
         <div class="persona-body"><strong>Age:</strong> 22 &nbsp;·&nbsp; <strong>Goal:</strong> Stay consistent and complete syllabus on time<br><br><strong>Behavior</strong><br>Creates detailed study plans (Notion, schedules). Spends time organizing instead of studying. Constantly restructures plans.<br><br><strong>Pain Points</strong><br>Feels overwhelmed by syllabus. Gets stuck in planning loop. Struggles to take action.<br><br><em>"I plan everything perfectly… but I don't follow it."</em><br><br><strong>Needs</strong><br>Clear daily direction · Reduced decision-making · Action-focused system</div>
       </div>
       <div class="persona">
-        <div class="persona-img"></div>
+        <div class="persona-img"><img src="../assets/passive learner.png" alt="Passive learner persona"></div>
         <div class="persona-name">The Passive Learner</div>
         <div class="persona-body"><strong>Name:</strong> Riya &nbsp;·&nbsp; <strong>Age:</strong> 21<br><strong>Goal:</strong> Understand and remember concepts effectively<br><br><strong>Behavior</strong><br>Re-reads notes multiple times. Highlights important sections. Watches lectures repeatedly.<br><br><strong>Pain Points</strong><br>Forgets information quickly. Feels prepared but performs poorly. No structured revision method.<br><br><em>"I study a lot, but I still forget everything in exams."</em><br><br><strong>Needs</strong><br>Active recall methods · Structured revision system · Feedback on understanding</div>
       </div>
       <div class="persona">
-        <div class="persona-img"></div>
+        <div class="persona-img"><img src="../assets/distracted learner.png" alt="Distracted learner persona"></div>
         <div class="persona-name">The Distracted Learner</div>
         <div class="persona-body"><strong>Name:</strong> Kabir &nbsp;·&nbsp; <strong>Age:</strong> 23<br><strong>Goal:</strong> Stay focused and build consistency<br><br><strong>Behavior</strong><br>Uses multiple tools (apps, videos, AI). Gets distracted easily. Starts strong but loses momentum.<br><br><strong>Pain Points</strong><br>Breaks focus frequently. Feels guilty after unproductive days. Inconsistent study routine.<br><br><em>"I start well, but I can't stay consistent."</em><br><br><strong>Needs</strong><br>Distraction control · Structured study flow · Motivation support</div>
       </div>
