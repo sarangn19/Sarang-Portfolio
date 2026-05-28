@@ -244,33 +244,49 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 }
 
 /* ── style guide ── */
-.sg{background:#f8f8f8;padding:clamp(48px,6vw,96px) 0}
+.sg{background:#f0f0f0;padding:clamp(48px,6vw,96px) 0;border-top:1px solid rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.06)}
 .sg .sg-inner{max-width:1400px;margin:0 auto}
-.sg .sg-label{font-size:0.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,0,0,.4);margin-bottom:4px;text-align:center}
-.sg .sg-lead{font-size:0.925rem;color:rgba(0,0,0,.55);line-height:1.65;max-width:600px;margin:0 auto;text-align:center}
-.sg h2.t-h2{text-align:center}
-.sg-gap{display:flex;flex-direction:column;gap:clamp(28px,3.5vw,56px);margin-top:clamp(24px,3vw,48px)}
-.sg-gr{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,28px)}
-.sg-gr.full{grid-template-columns:1fr}
-.sg-cd{background:#fff;border:1px solid rgba(0,0,0,.06);border-radius:14px;padding:clamp(20px,2.5vw,32px)}
-.sg-cd h4{font-size:0.7rem;font-weight:600;color:rgba(0,0,0,.4);letter-spacing:.04em;text-transform:uppercase;margin-bottom:clamp(12px,1.5vw,20px)}
-.sg-tags{display:flex;flex-wrap:wrap;gap:8px}
-.sg-tags span{display:inline-block;padding:4px 14px;border-radius:100px;font-size:0.8rem;background:rgba(0,0,0,.04);color:rgba(0,0,0,.6)}
-.sg-cd p{font-size:0.875rem;color:rgba(0,0,0,.6);line-height:1.65}
-.sg-color-row{display:flex;gap:12px;flex-wrap:wrap}
-.sg-color-row .c{display:flex;align-items:center;gap:10px;padding:8px 12px 8px 8px;border-radius:10px;border:1px solid rgba(0,0,0,.06);background:#fafafa}
-.sg-color-row .c .dot{width:28px;height:28px;border-radius:8px;flex-shrink:0}
-.sg-color-row .c .cl{font-size:0.7rem;color:rgba(0,0,0,.5)}
-.sg-color-row .c .ch{font-size:0.65rem;color:rgba(0,0,0,.3);font-family:monospace}
-.sg-typo{display:flex;flex-direction:column;gap:4px}
-.sg-typo .ty{display:flex;align-items:baseline;gap:16px}
-.sg-typo .ty .tn{width:90px;flex-shrink:0;font-size:0.7rem;color:rgba(0,0,0,.4)}
-.sg-typo .ty .ts{flex:1}
-.sg-typo .ty .ti{font-size:0.65rem;color:rgba(0,0,0,.3);white-space:nowrap}
+.sg-hdr{text-align:center;margin-bottom:clamp(32px,4vw,56px)}
+.sg-hdr .sg-label{font-size:0.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,0,0,.35);margin-bottom:4px}
+.sg-hdr .sg-lead{font-size:0.925rem;color:rgba(0,0,0,.5);line-height:1.65;max-width:560px;margin:8px auto 0}
+.sg-hdr h2.t-h2{margin-bottom:0}
+.sg-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,24px)}
+.sg-grid.wide{grid-template-columns:1fr}
+.sg-card{background:#fff;border-radius:16px;padding:clamp(20px,2.5vw,28px);box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.sg-card h4{font-size:0.7rem;font-weight:600;color:rgba(0,0,0,.35);letter-spacing:.04em;text-transform:uppercase;margin-bottom:14px}
+.sg-card p{font-size:0.875rem;color:rgba(0,0,0,.6);line-height:1.65}
+.sg-pills{display:flex;flex-wrap:wrap;gap:6px}
+.sg-pills span{padding:5px 16px;border-radius:100px;font-size:0.8rem;background:rgba(0,0,0,.04);color:rgba(0,0,0,.55)}
+.sg-colors{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.sg-colors .sw{display:flex;flex-direction:column;gap:6px}
+.sg-colors .sw .bar{height:clamp(40px,4vw,56px);border-radius:10px}
+.sg-colors .sw .sl{font-size:0.7rem;color:rgba(0,0,0,.45)}
+.sg-colors .sw .sh{font-size:0.65rem;color:rgba(0,0,0,.3);font-family:monospace}
+.sg-fonts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.sg-fonts .fn{display:flex;flex-direction:column;gap:4px}
+.sg-fonts .fn .fn-name{font-size:0.7rem;color:rgba(0,0,0,.4)}
+.sg-fonts .fn .fn-demo{font-size:1.25rem}
+.sg-fonts .fn .fn-use{font-size:0.75rem;color:rgba(0,0,0,.4)}
+.sg-fscale{display:flex;flex-direction:column;gap:6px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)}
+.sg-fscale .fs{display:flex;align-items:baseline;gap:12px}
+.sg-fscale .fs .fs-l{width:80px;flex-shrink:0;font-size:0.65rem;color:rgba(0,0,0,.35)}
+.sg-fscale .fs .fs-v{flex:1;color:#000}
+.sg-fscale .fs .fs-i{font-size:0.6rem;color:rgba(0,0,0,.25);white-space:nowrap}
+.sg-ui{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,24px)}
+.sg-ui .ui-el{display:flex;flex-direction:column;gap:8px}
+.sg-ui .ui-el .ui-lbl{font-size:0.65rem;color:rgba(0,0,0,.35);text-transform:uppercase;letter-spacing:.04em}
+.sg-ui .ui-btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 24px;border-radius:12px;font-size:0.85rem;font-weight:500;border:none;font-family:inherit;width:fit-content}
+.sg-ui .ui-btn.primary{background:#5B7CFF;color:#fff}
+.sg-ui .ui-btn.secondary{background:rgba(0,0,0,.04);color:#000;border:1px solid rgba(0,0,0,.08)}
+.sg-ui .ui-field{height:48px;border-radius:12px;border:1px solid rgba(0,0,0,.1);padding:0 16px;font-size:0.85rem;font-family:inherit;background:#fff;width:min(280px,100%)}
+.sg-ui .ui-card-s{background:#131A2E;border-radius:14px;padding:16px;color:#fff;max-width:240px}
+.sg-ui .ui-card-s .ui-cs-num{font-size:1.25rem;font-weight:700}
+.sg-ui .ui-card-s .ui-cs-lbl{font-size:0.7rem;color:rgba(255,255,255,.5);margin-top:2px}
+.sg-ui .ui-card-s .ui-cs-trend{font-size:0.7rem;color:#00D68F;margin-top:6px}
 
 @media(max-width:700px){
-  .sg-gr{grid-template-columns:1fr}
-  .sg-color-row{flex-direction:column}
+  .sg-grid,.sg-fonts,.sg-ui{grid-template-columns:1fr}
+  .sg-colors{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
@@ -574,60 +590,67 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 <!-- STYLE GUIDE / DESIGN SYSTEM -->
 <section class="sg cs-reveal">
   <div class="sg-inner">
-    <p class="sg-label">Design System</p>
-    <h2 class="t-h2">SecondBrain — Style Guide</h2>
-    <p class="sg-lead">Key visual and UX decisions for the SecondBrain AI-powered preparation ecosystem.</p>
+    <div class="sg-hdr">
+      <p class="sg-label">Design System</p>
+      <h2 class="t-h2">SecondBrain — Style Guide</h2>
+      <p class="sg-lead">Key visual and UX decisions for the AI-powered preparation ecosystem.</p>
+    </div>
 
-    <div class="sg-gap">
-      <div class="sg-gr">
-        <div class="sg-cd">
-          <h4>Brand Personality</h4>
-          <div class="sg-tags">
-            <span>Intelligent</span><span>Calm</span><span>Premium</span>
-            <span>Structured</span><span>Futuristic</span><span>Minimal</span>
-          </div>
-        </div>
-        <div class="sg-cd">
-          <h4>UI Philosophy</h4>
-          <p>Reduce clutter. Prioritize clarity. Use whitespace aggressively. Motion should feel intelligent, not playful.</p>
+    <div class="sg-grid" style="gap:clamp(16px,2vw,24px)">
+      <div class="sg-card">
+        <h4>Brand Personality</h4>
+        <div class="sg-pills">
+          <span>Intelligent</span><span>Calm</span><span>Premium</span>
+          <span>Structured</span><span>Futuristic</span><span>Minimal</span>
         </div>
       </div>
+      <div class="sg-card">
+        <h4>UI Philosophy</h4>
+        <p>Reduce clutter, prioritize clarity, use whitespace aggressively. Motion feels intelligent, not playful.</p>
+      </div>
+    </div>
 
-      <div class="sg-gr full">
-        <div class="sg-cd">
-          <h4>Color Palette</h4>
-          <div class="sg-color-row">
-            <div class="c"><div class="dot" style="background:#5B7CFF"></div><div><div class="cl">Primary</div><div class="ch">#5B7CFF</div></div></div>
-            <div class="c"><div class="dot" style="background:#0B1020"></div><div><div class="cl">Deep BG</div><div class="ch">#0B1020</div></div></div>
-            <div class="c"><div class="dot" style="background:#131A2E"></div><div><div class="cl">Surface</div><div class="ch">#131A2E</div></div></div>
-            <div class="c"><div class="dot" style="background:#1B2440"></div><div><div class="cl">Elevated</div><div class="ch">#1B2440</div></div></div>
-            <div class="c"><div class="dot" style="background:#00D68F"></div><div><div class="cl">Success</div><div class="ch">#00D68F</div></div></div>
-            <div class="c"><div class="dot" style="background:#FFB547"></div><div><div class="cl">Warning</div><div class="ch">#FFB547</div></div></div>
-            <div class="c"><div class="dot" style="background:#FF5A7A"></div><div><div class="cl">Error</div><div class="ch">#FF5A7A</div></div></div>
-            <div class="c"><div class="dot" style="background:#8A7DFF"></div><div><div class="cl">AI Purple</div><div class="ch">#8A7DFF</div></div></div>
-          </div>
+    <div class="sg-grid wide" style="margin-top:clamp(16px,2vw,24px)">
+      <div class="sg-card">
+        <h4>Color Palette</h4>
+        <div class="sg-colors">
+          <div class="sw"><div class="bar" style="background:#5B7CFF"></div><span class="sl">Primary</span><span class="sh">#5B7CFF</span></div>
+          <div class="sw"><div class="bar" style="background:#0B1020"></div><span class="sl">Deep BG</span><span class="sh">#0B1020</span></div>
+          <div class="sw"><div class="bar" style="background:#131A2E"></div><span class="sl">Surface</span><span class="sh">#131A2E</span></div>
+          <div class="sw"><div class="bar" style="background:#1B2440"></div><span class="sl">Elevated</span><span class="sh">#1B2440</span></div>
+          <div class="sw"><div class="bar" style="background:#00D68F"></div><span class="sl">Success</span><span class="sh">#00D68F</span></div>
+          <div class="sw"><div class="bar" style="background:#FFB547"></div><span class="sl">Warning</span><span class="sh">#FFB547</span></div>
+          <div class="sw"><div class="bar" style="background:#FF5A7A"></div><span class="sl">Error</span><span class="sh">#FF5A7A</span></div>
+          <div class="sw"><div class="bar" style="background:#8A7DFF"></div><span class="sl">AI Purple</span><span class="sh">#8A7DFF</span></div>
         </div>
       </div>
+    </div>
 
-      <div class="sg-gr full">
-        <div class="sg-cd">
-          <h4>Typography</h4>
-          <div class="sg-typo">
-            <div class="ty"><span class="tn">Display XL</span><span class="ts" style="font-size:clamp(1.5rem,3vw,2.5rem);font-weight:700;line-height:1.1">Aa</span><span class="ti">72px · 700</span></div>
-            <div class="ty"><span class="tn">Heading 1</span><span class="ts" style="font-size:clamp(1.25rem,2.5vw,2rem);font-weight:700">Aa</span><span class="ti">40px · 700</span></div>
-            <div class="ty"><span class="tn">Heading 2</span><span class="ts" style="font-size:clamp(1.125rem,2vw,1.5rem);font-weight:700">Aa</span><span class="ti">32px · 700</span></div>
-            <div class="ty"><span class="tn">Heading 3</span><span class="ts" style="font-size:1rem;font-weight:600">Aa</span><span class="ti">24px · 600</span></div>
-            <div class="ty"><span class="tn">Body</span><span class="ts" style="font-size:0.875rem">Aa</span><span class="ti">16px · 400</span></div>
-            <div class="ty" style="margin-top:8px;padding-top:12px;border-top:1px solid rgba(0,0,0,.06)"><span class="tn">Primary</span><span style="font-size:1rem;font-weight:500;flex:1">Inter</span><span class="ti">UI · Body · Buttons</span></div>
-            <div class="ty"><span class="tn">Secondary</span><span style="font-size:1rem;font-weight:600;flex:1">Sora</span><span class="ti">Headlines · Branding</span></div>
-          </div>
+    <div class="sg-grid wide" style="margin-top:clamp(16px,2vw,24px)">
+      <div class="sg-card">
+        <h4>Typography</h4>
+        <div class="sg-fonts">
+          <div class="fn"><span class="fn-name">Primary</span><span class="fn-demo" style="font-weight:500">Inter</span><span class="fn-use">UI · Body · Buttons</span></div>
+          <div class="fn"><span class="fn-name">Secondary</span><span class="fn-demo" style="font-weight:600">Sora</span><span class="fn-use">Headlines · Branding</span></div>
+        </div>
+        <div class="sg-fscale">
+          <div class="fs"><span class="fs-l">Display XL</span><span class="fs-v" style="font-size:1.25rem;font-weight:700">Aa</span><span class="fs-i">72px · 700</span></div>
+          <div class="fs"><span class="fs-l">Heading 1</span><span class="fs-v" style="font-size:1.125rem;font-weight:700">Aa</span><span class="fs-i">40px · 700</span></div>
+          <div class="fs"><span class="fs-l">Heading 2</span><span class="fs-v" style="font-size:1rem;font-weight:700">Aa</span><span class="fs-i">32px · 700</span></div>
+          <div class="fs"><span class="fs-l">Body</span><span class="fs-v" style="font-size:0.875rem">Aa</span><span class="fs-i">16px · 400</span></div>
+          <div class="fs"><span class="fs-l">Caption</span><span class="fs-v" style="font-size:0.75rem">Aa</span><span class="fs-i">12px · 500</span></div>
         </div>
       </div>
+    </div>
 
-      <div class="sg-gr full">
-        <div class="sg-cd">
-          <h4>Product Direction</h4>
-          <p>SecondBrain should feel like a premium AI operating system for students — an intelligent academic workspace, a calm productivity environment, and a high-performance learning cockpit. <strong style="color:#000">"You are studying smarter with AI."</strong></p>
+    <div class="sg-grid wide" style="margin-top:clamp(16px,2vw,24px)">
+      <div class="sg-card">
+        <h4>UI Components</h4>
+        <div class="sg-ui">
+          <div class="ui-el"><span class="ui-lbl">Buttons</span><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="ui-btn primary">Get Started</button><button class="ui-btn secondary">Learn More</button></div></div>
+          <div class="ui-el"><span class="ui-lbl">Input</span><input class="ui-field" placeholder="Search topics..." readonly></div>
+          <div class="ui-el"><span class="ui-lbl">Analytics Card</span><div class="ui-card-s"><div class="ui-cs-num">78%</div><div class="ui-cs-lbl">Readiness Score</div><div class="ui-cs-trend">↑ 12% this week</div></div></div>
+          <div class="ui-el"><span class="ui-lbl">Product Direction</span><p style="font-size:0.8rem;color:rgba(0,0,0,.55);line-height:1.6">"You are studying smarter with AI." — An intelligent, calm, high-performance learning cockpit.</p></div>
         </div>
       </div>
     </div>
