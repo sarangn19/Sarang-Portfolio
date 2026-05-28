@@ -254,37 +254,44 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 .sg-card{background:#fff;border-radius:16px;padding:clamp(20px,2.5vw,28px);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .sg-card h4{font-size:0.7rem;font-weight:600;color:rgba(0,0,0,.35);letter-spacing:.04em;text-transform:uppercase;margin-bottom:14px}
 .sg-card p{font-size:0.875rem;color:rgba(0,0,0,.6);line-height:1.65}
-.sg-pills{display:flex;flex-wrap:wrap;gap:6px}
-.sg-pills span{padding:5px 16px;border-radius:100px;font-size:0.8rem;background:rgba(0,0,0,.04);color:rgba(0,0,0,.55)}
-.sg-colors{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
-.sg-colors .sw{display:flex;flex-direction:column;gap:6px}
-.sg-colors .sw .bar{height:clamp(40px,4vw,56px);border-radius:10px}
-.sg-colors .sw .sl{font-size:0.7rem;color:rgba(0,0,0,.45)}
-.sg-colors .sw .sh{font-size:0.65rem;color:rgba(0,0,0,.3);font-family:monospace}
-.sg-fonts{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.sg-fonts .fn{display:flex;flex-direction:column;gap:4px}
-.sg-fonts .fn .fn-name{font-size:0.7rem;color:rgba(0,0,0,.4)}
-.sg-fonts .fn .fn-demo{font-size:1.25rem}
-.sg-fonts .fn .fn-use{font-size:0.75rem;color:rgba(0,0,0,.4)}
-.sg-fscale{display:flex;flex-direction:column;gap:6px;margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)}
-.sg-fscale .fs{display:flex;align-items:baseline;gap:12px}
-.sg-fscale .fs .fs-l{width:80px;flex-shrink:0;font-size:0.65rem;color:rgba(0,0,0,.35)}
-.sg-fscale .fs .fs-v{flex:1;color:#000}
-.sg-fscale .fs .fs-i{font-size:0.6rem;color:rgba(0,0,0,.25);white-space:nowrap}
-.sg-ui{display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,24px)}
-.sg-ui .ui-el{display:flex;flex-direction:column;gap:8px}
+.sg-tags{display:flex;flex-wrap:wrap;gap:8px}
+.sg-tags span{padding:8px 22px;border-radius:100px;font-size:0.82rem;font-weight:500;letter-spacing:-.01em}
+.sg-block{display:flex;align-items:flex-start;gap:14px}
+.sg-block .bl-icon{width:36px;height:36px;border-radius:10px;background:rgba(0,0,0,.04);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:1rem}
+.sg-block .bl-text{font-size:0.85rem;color:rgba(0,0,0,.5);line-height:1.7}
+.sg-colors{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.sg-colors .sw{position:relative;display:flex;flex-direction:column;justify-content:flex-end;gap:6px}
+.sg-colors .sw .bar{height:clamp(64px,7vw,88px);border-radius:12px}
+.sg-colors .sw .sl{font-size:0.7rem;color:rgba(0,0,0,.45);font-weight:500}
+.sg-colors .sw .sh{font-size:0.6rem;color:rgba(0,0,0,.25);font-family:monospace}
+.sg-typo-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,48px)}
+.sg-typo-grid .tg{display:flex;flex-direction:column;gap:12px}
+.sg-typo-grid .tg .tg-name{font-size:0.7rem;color:rgba(0,0,0,.35);text-transform:uppercase;letter-spacing:.04em}
+.sg-typo-grid .tg .tg-preview{font-size:2.4rem;font-weight:700;letter-spacing:-.03em;line-height:1.1;color:#000}
+.sg-typo-grid .tg .tg-body{font-size:0.95rem;color:rgba(0,0,0,.5);line-height:1.65}
+.sg-scale{display:flex;flex-direction:column;margin-top:16px;padding-top:16px;border-top:1px solid rgba(0,0,0,.06)}
+.sg-scale .gs{display:flex;align-items:baseline;gap:16px;padding:6px 0}
+.sg-scale .gs .gs-l{width:90px;flex-shrink:0;font-size:0.65rem;color:rgba(0,0,0,.35)}
+.sg-scale .gs .gs-v{flex:1;color:#000;font-weight:700}
+.sg-scale .gs .gs-i{font-size:0.6rem;color:rgba(0,0,0,.2);white-space:nowrap}
+.sg-ui{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px)}
+.sg-ui .ui-el{display:flex;flex-direction:column;gap:10px}
 .sg-ui .ui-el .ui-lbl{font-size:0.65rem;color:rgba(0,0,0,.35);text-transform:uppercase;letter-spacing:.04em}
-.sg-ui .ui-btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 24px;border-radius:12px;font-size:0.85rem;font-weight:500;border:none;font-family:inherit;width:fit-content}
+.sg-ui .ui-btn{display:inline-flex;align-items:center;justify-content:center;height:44px;padding:0 24px;border-radius:12px;font-size:0.85rem;font-weight:500;border:none;font-family:inherit;width:fit-content;transition:all .2s}
 .sg-ui .ui-btn.primary{background:#5B7CFF;color:#fff}
 .sg-ui .ui-btn.secondary{background:rgba(0,0,0,.04);color:#000;border:1px solid rgba(0,0,0,.08)}
+.sg-ui .ui-btn.ghost{background:transparent;color:rgba(0,0,0,.5)}
 .sg-ui .ui-field{height:48px;border-radius:12px;border:1px solid rgba(0,0,0,.1);padding:0 16px;font-size:0.85rem;font-family:inherit;background:#fff;width:min(280px,100%)}
-.sg-ui .ui-card-s{background:#131A2E;border-radius:14px;padding:16px;color:#fff;max-width:240px}
-.sg-ui .ui-card-s .ui-cs-num{font-size:1.25rem;font-weight:700}
-.sg-ui .ui-card-s .ui-cs-lbl{font-size:0.7rem;color:rgba(255,255,255,.5);margin-top:2px}
+.sg-ui .ui-card-s{background:#131A2E;border-radius:14px;padding:18px 20px;color:#fff;max-width:260px}
+.sg-ui .ui-card-s .ui-cs-num{font-size:1.35rem;font-weight:700}
+.sg-ui .ui-card-s .ui-cs-lbl{font-size:0.7rem;color:rgba(255,255,255,.45);margin-top:2px}
 .sg-ui .ui-card-s .ui-cs-trend{font-size:0.7rem;color:#00D68F;margin-top:6px}
+.sg-ui .ui-chip{display:inline-flex;align-items:center;gap:6px;padding:6px 14px;border-radius:100px;font-size:0.75rem;background:rgba(0,0,0,.04);color:rgba(0,0,0,.5)}
+.sg-ui .ui-chip.active{background:#5B7CFF;color:#fff}
+.sg-ui .ui-row{display:flex;gap:8px;flex-wrap:wrap}
 
 @media(max-width:700px){
-  .sg-grid,.sg-fonts,.sg-ui{grid-template-columns:1fr}
+  .sg-grid,.sg-typo-grid,.sg-ui{grid-template-columns:1fr}
   .sg-colors{grid-template-columns:repeat(2,1fr)}
 }
 </style>
@@ -580,17 +587,21 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
       <p class="sg-lead">Key visual and UX decisions for the AI-powered preparation ecosystem.</p>
     </div>
 
-    <div class="sg-grid" style="gap:clamp(16px,2vw,24px)">
+    <div class="sg-grid wide" style="gap:clamp(16px,2vw,24px)">
       <div class="sg-card">
         <h4>Brand Personality</h4>
-        <div class="sg-pills">
-          <span>Intelligent</span><span>Calm</span><span>Premium</span>
-          <span>Structured</span><span>Futuristic</span><span>Minimal</span>
+        <div class="sg-tags">
+          <span style="background:#0B1020;color:#fff">Intelligent</span>
+          <span style="background:#5B7CFF;color:#fff">Calm</span>
+          <span style="background:#131A2E;color:#fff">Premium</span>
+          <span style="background:#1B2440;color:#fff">Structured</span>
+          <span style="background:#8A7DFF;color:#fff">Futuristic</span>
+          <span style="background:#0B1020;color:#fff">Minimal</span>
         </div>
-      </div>
-      <div class="sg-card">
-        <h4>UI Philosophy</h4>
-        <p>Reduce clutter, prioritize clarity, use whitespace aggressively. Motion feels intelligent, not playful.</p>
+        <div class="sg-block" style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(0,0,0,.06)">
+          <div class="bl-icon">🎯</div>
+          <div class="bl-text">Reduce clutter, prioritize clarity, use whitespace aggressively. Motion feels intelligent, not playful.</div>
+        </div>
       </div>
     </div>
 
@@ -613,28 +624,49 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
     <div class="sg-grid wide" style="margin-top:clamp(16px,2vw,24px)">
       <div class="sg-card">
         <h4>Typography</h4>
-        <div class="sg-fonts">
-          <div class="fn"><span class="fn-name">Primary</span><span class="fn-demo" style="font-weight:500">Inter</span><span class="fn-use">UI · Body · Buttons</span></div>
-          <div class="fn"><span class="fn-name">Secondary</span><span class="fn-demo" style="font-weight:600">Sora</span><span class="fn-use">Headlines · Branding</span></div>
-        </div>
-        <div class="sg-fscale">
-          <div class="fs"><span class="fs-l">Display XL</span><span class="fs-v" style="font-size:1.25rem;font-weight:700">Aa</span><span class="fs-i">72px · 700</span></div>
-          <div class="fs"><span class="fs-l">Heading 1</span><span class="fs-v" style="font-size:1.125rem;font-weight:700">Aa</span><span class="fs-i">40px · 700</span></div>
-          <div class="fs"><span class="fs-l">Heading 2</span><span class="fs-v" style="font-size:1rem;font-weight:700">Aa</span><span class="fs-i">32px · 700</span></div>
-          <div class="fs"><span class="fs-l">Body</span><span class="fs-v" style="font-size:0.875rem">Aa</span><span class="fs-i">16px · 400</span></div>
-          <div class="fs"><span class="fs-l">Caption</span><span class="fs-v" style="font-size:0.75rem">Aa</span><span class="fs-i">12px · 500</span></div>
+        <div class="sg-typo-grid">
+          <div class="tg">
+            <span class="tg-name">Primary — Satoshi</span>
+            <span class="tg-preview">Aa</span>
+            <span class="tg-body">Used for UI, body text, buttons, and labels. Clean geometric sans with a warm personality.</span>
+            <div class="sg-scale">
+              <div class="gs"><span class="gs-l">Display</span><span class="gs-v" style="font-size:1.5rem;font-weight:700">Aa</span><span class="gs-i">72px · 700</span></div>
+              <div class="gs"><span class="gs-l">Heading 1</span><span class="gs-v" style="font-size:1.15rem;font-weight:700">Aa</span><span class="gs-i">40px · 700</span></div>
+              <div class="gs"><span class="gs-l">Heading 2</span><span class="gs-v" style="font-size:1rem;font-weight:700">Aa</span><span class="gs-i">32px · 700</span></div>
+              <div class="gs"><span class="gs-l">Body</span><span class="gs-v" style="font-size:0.85rem">Aa</span><span class="gs-i">16px · 400</span></div>
+              <div class="gs"><span class="gs-l">Caption</span><span class="gs-v" style="font-size:0.7rem">Aa</span><span class="gs-i">12px · 500</span></div>
+            </div>
+          </div>
+          <div class="tg">
+            <span class="tg-name">Usage Guidelines</span>
+            <div class="sg-block"><div class="bl-icon">🔤</div><div class="bl-text"><strong>Satoshi</strong> is the sole typeface — no secondary font. Weights: 400 (body), 500 (emphasis), 700 (headings), 900 (display only).</div></div>
+            <div class="sg-block" style="margin-top:8px"><div class="bl-icon">📏</div><div class="bl-text">Headings use tight <strong>letter-spacing: -0.03em</strong>. Body text stays at 16px with 1.65 line-height for readability.</div></div>
+            <div class="sg-block" style="margin-top:8px"><div class="bl-icon">🎨</div><div class="bl-text">Text color is white on dark surfaces, <strong>rgba(0,0,0,.85)</strong> on light surfaces for contrast.</div></div>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="sg-grid wide" style="margin-top:clamp(16px,2vw,24px)">
+    <div class="sg-grid" style="margin-top:clamp(16px,2vw,24px)">
       <div class="sg-card">
         <h4>UI Components</h4>
         <div class="sg-ui">
-          <div class="ui-el"><span class="ui-lbl">Buttons</span><div style="display:flex;gap:10px;flex-wrap:wrap"><button class="ui-btn primary">Get Started</button><button class="ui-btn secondary">Learn More</button></div></div>
-          <div class="ui-el"><span class="ui-lbl">Input</span><input class="ui-field" placeholder="Search topics..." readonly></div>
-          <div class="ui-el"><span class="ui-lbl">Analytics Card</span><div class="ui-card-s"><div class="ui-cs-num">78%</div><div class="ui-cs-lbl">Readiness Score</div><div class="ui-cs-trend">↑ 12% this week</div></div></div>
-          <div class="ui-el"><span class="ui-lbl">Product Direction</span><p style="font-size:0.8rem;color:rgba(0,0,0,.55);line-height:1.6">"You are studying smarter with AI." — An intelligent, calm, high-performance learning cockpit.</p></div>
+          <div class="ui-el">
+            <span class="ui-lbl">Buttons</span>
+            <div class="ui-row"><button class="ui-btn primary">Get Started</button><button class="ui-btn secondary">Learn More</button><button class="ui-btn ghost">Cancel</button></div>
+          </div>
+          <div class="ui-el">
+            <span class="ui-lbl">Chips / Tags</span>
+            <div class="ui-row"><span class="ui-chip active">History</span><span class="ui-chip">Polity</span><span class="ui-chip">Geography</span><span class="ui-chip">Ecology</span></div>
+          </div>
+          <div class="ui-el">
+            <span class="ui-lbl">Text Input</span>
+            <input class="ui-field" placeholder="Search topics..." readonly>
+          </div>
+          <div class="ui-el">
+            <span class="ui-lbl">Analytics Card</span>
+            <div class="ui-card-s"><div class="ui-cs-num">78%</div><div class="ui-cs-lbl">Readiness Score</div><div class="ui-cs-trend">↑ 12% this week</div></div>
+          </div>
         </div>
       </div>
     </div>

@@ -56,23 +56,21 @@
         .work-card h3 { color: #0a0a0a; }
 
         /* Skills list */
-        .sk-list { display:flex; flex-direction:column; gap:0; border:1px solid rgba(0,0,0,.07); border-radius:14px; overflow:hidden; margin-bottom:48px; }
-        .sk-row { display:flex; align-items:center; justify-content:space-between; padding:14px 22px; border-bottom:1px solid rgba(0,0,0,.05); }
-        .sk-row:last-child { border-bottom:none; }
-        .sk-name { font-size:.82rem; font-weight:500; color:#0a0a0a; }
-        .sk-bar-wrap { width:100px; height:4px; background:rgba(0,0,0,.06); border-radius:4px; overflow:hidden; }
-        .sk-bar { height:100%; background:#0a0a0a; border-radius:4px; }
-        .sk-lvl { font-size:.68rem; color:rgba(0,0,0,.3); font-weight:500; width:60px; text-align:right; }
+        .sk-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(12px,1.5vw,16px);margin-bottom:56px}
+        .sk-card{display:flex;flex-direction:column;gap:10px;border:1px solid rgba(0,0,0,.07);border-radius:14px;padding:clamp(18px,2vw,24px);background:#fff;transition:transform .25s ease,box-shadow .25s ease}
+        .sk-card:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.04)}
+        .sk-card .sk-icon{width:40px;height:40px;border-radius:10px;background:#f3f3f3;display:flex;align-items:center;justify-content:center;font-size:1.1rem}
+        .sk-card .sk-title{font-size:.85rem;font-weight:600;color:#0a0a0a;line-height:1.3}
+        .sk-card .sk-desc{font-size:.75rem;color:rgba(0,0,0,.42);line-height:1.55}
 
         /* Process track */
-        .proc-track { display:flex; gap:0; overflow:hidden; border:1px solid rgba(0,0,0,.07); border-radius:14px; }
-        .proc-step { flex:1; padding:24px 20px; border-right:1px solid rgba(0,0,0,.05); }
-        .proc-step:last-child { border-right:none; }
-        .proc-num { font-size:2rem; font-weight:600; color:rgba(0,0,0,.07); line-height:1; margin-bottom:10px; letter-spacing:-.03em; }
-        .proc-title { font-size:.82rem; font-weight:600; margin-bottom:5px; color:#0a0a0a; }
-        .proc-desc { font-size:.72rem; color:rgba(0,0,0,.38); line-height:1.6; }
-        .proc-step:hover { background:rgba(0,0,0,.02); }
-        .proc-step:hover .proc-num { color:rgba(0,0,0,.15); }
+        .proc-track{display:flex;gap:0;position:relative}
+        .proc-track::before{content:'';position:absolute;top:28px;left:clamp(32px,5vw,48px);right:clamp(32px,5vw,48px);height:2px;background:rgba(0,0,0,.06);z-index:0}
+        .proc-step{flex:1;display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;position:relative;z-index:1;padding:0 8px}
+        .proc-num{width:56px;height:56px;border-radius:50%;background:#fff;border:2px solid rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;font-size:1rem;font-weight:700;color:rgba(0,0,0,.25);transition:all .25s ease}
+        .proc-step:hover .proc-num{border-color:#0a0a0a;color:#0a0a0a;background:#fff}
+        .proc-title{font-size:.8rem;font-weight:600;color:#0a0a0a;line-height:1.3}
+        .proc-desc{font-size:.7rem;color:rgba(0,0,0,.38);line-height:1.55;max-width:180px}
 
         /* Contact */
         .contact-combined {
@@ -123,16 +121,18 @@
 
         @media(max-width:900px) {
             .cc-top { grid-template-columns:1fr; gap:36px; padding:84px 0 56px; }
-            .proc-track { flex-direction:column; }
-            .proc-step { border-right:none; border-bottom:1px solid rgba(0,0,0,.05); }
+            .proc-track{flex-direction:column;align-items:flex-start;gap:0}
+            .proc-track::before{display:none}
+            .proc-step{flex-direction:row;text-align:left;gap:16px;padding:16px 0;width:100%;border-bottom:1px solid rgba(0,0,0,.05)}
+            .proc-step:last-child{border-bottom:none}
+            .proc-step .proc-desc{max-width:none}
         }
         @media(max-width:600px) {
             .cc-inner { padding:0 20px; }
             .cc-top { padding:72px 0 44px; }
             .cc-link { padding:16px 18px; border-radius:16px; }
             .cc-bottom { flex-direction:column; align-items:flex-start; padding:22px 0 28px; }
-            .sk-row { flex-wrap:wrap; gap:8px; }
-            .sk-bar-wrap { width:60px; }
+            .sk-grid{grid-template-columns:1fr 1fr}
         }
     </style>
 </head>
@@ -307,21 +307,21 @@
             <span class="sec-label">Expertise</span>
             <h2 class="sec-h2">Skills & Process</h2>
             <p class="sec-sub" style="margin-bottom:36px;">From user empathy to usability testing — a full-spectrum UI/UX toolkit.</p>
-            <div class="sk-list">
-                <div class="sk-row"><span class="sk-name">User Research &amp; Empathy</span><div class="sk-bar-wrap"><div class="sk-bar" style="width:92%"></div></div><span class="sk-lvl">Expert</span></div>
-                <div class="sk-row"><span class="sk-name">Affinity Mapping &amp; Synthesis</span><div class="sk-bar-wrap"><div class="sk-bar" style="width:88%"></div></div><span class="sk-lvl">Advanced</span></div>
-                <div class="sk-row"><span class="sk-name">Personas &amp; Journey Mapping</span><div class="sk-bar-wrap"><div class="sk-bar" style="width:90%"></div></div><span class="sk-lvl">Advanced</span></div>
-                <div class="sk-row"><span class="sk-name">Wireframing &amp; Prototyping</span><div class="sk-bar-wrap"><div class="sk-bar" style="width:95%"></div></div><span class="sk-lvl">Expert</span></div>
-                <div class="sk-row"><span class="sk-name">Usability Testing &amp; Heuristics</span><div class="sk-bar-wrap"><div class="sk-bar" style="width:85%"></div></div><span class="sk-lvl">Advanced</span></div>
-                <div class="sk-row"><span class="sk-name">Figma &amp; Design Systems</span><div class="sk-bar-wrap"><div class="sk-bar" style="width:95%"></div></div><span class="sk-lvl">Expert</span></div>
+            <div class="sk-grid">
+                <div class="sk-card"><div class="sk-icon">🔍</div><div class="sk-title">User Research &amp; Empathy</div><div class="sk-desc">In-depth interviews, field studies, diary logs to uncover unspoken user needs.</div></div>
+                <div class="sk-card"><div class="sk-icon">🗺</div><div class="sk-title">Affinity Mapping &amp; Synthesis</div><div class="sk-desc">Pattern identification, thematic clusters, insight distillation from raw research data.</div></div>
+                <div class="sk-card"><div class="sk-icon">👤</div><div class="sk-title">Personas &amp; Journey Mapping</div><div class="sk-desc">Empathy maps, experience flows, service blueprints that align teams around the user.</div></div>
+                <div class="sk-card"><div class="sk-icon">✏️</div><div class="sk-title">Wireframing &amp; Prototyping</div><div class="sk-desc">Lo-fi sketches to hi-fi interactive mockups in Figma, iterating rapidly with feedback.</div></div>
+                <div class="sk-card"><div class="sk-icon">🧪</div><div class="sk-title">Usability Testing &amp; Heuristics</div><div class="sk-desc">Moderated/unmoderated tests, heuristic evaluations, A/B experiments to validate decisions.</div></div>
+                <div class="sk-card"><div class="sk-icon">🎨</div><div class="sk-title">Figma &amp; Design Systems</div><div class="sk-desc">Component libraries, design tokens, responsive grids — scalable systems for consistent products.</div></div>
             </div>
-            <h2 class="sec-h2" style="font-size:1.1rem;font-weight:600;margin-bottom:16px;color:rgba(0,0,0,.5);">Process</h2>
+            <h2 class="sec-h2" style="font-size:1.1rem;font-weight:600;margin-bottom:28px;color:rgba(0,0,0,.5);">Process</h2>
             <div class="proc-track">
-                <div class="proc-step"><div class="proc-num">01</div><div class="proc-title">Empathise</div><div class="proc-desc">User interviews, field studies, diary logs to uncover real needs.</div></div>
-                <div class="proc-step"><div class="proc-num">02</div><div class="proc-title">Define</div><div class="proc-desc">Affinity mapping, personas, journey maps to frame the problem.</div></div>
-                <div class="proc-step"><div class="proc-num">03</div><div class="proc-title">Ideate</div><div class="proc-desc">Sketch sessions, Crazy 8s, design studios for divergent thinking.</div></div>
-                <div class="proc-step"><div class="proc-num">04</div><div class="proc-title">Prototype</div><div class="proc-desc">Wireframes to interactive mockups, iterating with feedback loops.</div></div>
-                <div class="proc-step"><div class="proc-num">05</div><div class="proc-title">Test</div><div class="proc-desc">Usability testing, A/B experiments, heuristic reviews.</div></div>
+                <div class="proc-step"><div class="proc-num">01</div><div><div class="proc-title">Empathise</div><div class="proc-desc">User interviews, field studies, diary logs to uncover real needs.</div></div></div>
+                <div class="proc-step"><div class="proc-num">02</div><div><div class="proc-title">Define</div><div class="proc-desc">Affinity mapping, personas, journey maps to frame the problem.</div></div></div>
+                <div class="proc-step"><div class="proc-num">03</div><div><div class="proc-title">Ideate</div><div class="proc-desc">Sketch sessions, Crazy 8s, design studios for divergent thinking.</div></div></div>
+                <div class="proc-step"><div class="proc-num">04</div><div><div class="proc-title">Prototype</div><div class="proc-desc">Wireframes to interactive mockups, iterating with feedback loops.</div></div></div>
+                <div class="proc-step"><div class="proc-num">05</div><div><div class="proc-title">Test</div><div class="proc-desc">Usability testing, A/B experiments, heuristic reviews.</div></div></div>
             </div>
         </div>
     </section>
