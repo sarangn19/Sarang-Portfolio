@@ -29,19 +29,6 @@
         .nav-cta span { color: #ffffff !important; }
         .nav-cta::after, .nav-cta::before { display: none !important; }
         .nav-cta:hover { background: #1f1f1f !important; color: #fff !important; }
-        .mobile-resume-cta {
-            display: none;
-            background: #0a0a0a;
-            color: #ffffff;
-            border: 1px solid #0a0a0a;
-            border-radius: 100px;
-            padding: 8px 14px;
-            font-size: 0.8rem;
-            font-weight: 500;
-            text-decoration: none;
-            line-height: 1;
-            white-space: nowrap;
-        }
         .mobile-menu-btn span { background: #0a0a0a; }
         .nav-links.active { background: rgba(254,254,254,0.98) !important; }
 
@@ -182,23 +169,13 @@
             .cc-bottom { flex-direction:column; align-items:flex-start; padding:22px 0 28px; }
         }
 
-        @media (max-width: 768px) {
-            .mobile-resume-cta { display: inline-flex; align-items: center; justify-content: center; }
-            .nav-links.active .nav-cta-item { width: 100%; }
-            .nav-links.active .nav-cta {
-                width: 100%;
-                justify-content: center;
-            }
-        }
 
-        /* Rive Mascot - follows cursor */
+
+        /* Rive Mascot */
         .rive-mascot-container {
             position: fixed;
-            right: -150px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 600px;
-            height: 600px;
+            width: 300px;
+            height: 300px;
             z-index: 999;
             pointer-events: none;
             transition: none;
@@ -207,17 +184,8 @@
             width: 100%;
             height: 100%;
         }
-        @media (max-width: 1200px) {
-            .rive-mascot-container {
-                width: 400px;
-                height: 400px;
-            }
-        }
         @media (max-width: 768px) {
-            .rive-mascot-container {
-                width: 300px;
-                height: 300px;
-            }
+            .rive-mascot-container { display: none; }
         }
     </style>
     <script src="https://unpkg.com/@rive-app/canvas@2.9.1"></script>
@@ -226,17 +194,15 @@
 <div class="page-wrapper">
 
     <!-- Nav -->
-    <nav class="navbar">
+    <nav class="navbar" aria-label="Main navigation">
         <div class="container" style="display:flex;align-items:center;justify-content:space-between;">
-            <a href="#" class="logo">Sarang N</a>
+            <a href="#" class="logo" aria-label="Home">Sarang N</a>
             <ul class="nav-links">
                 <li><a href="#work">Work</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#contact">Contact</a></li>
-                <li class="nav-cta-item"><a href="#" class="nav-cta"><span>Resume ↗</span></a></li>
             </ul>
-            <a href="#" class="mobile-resume-cta">Resume ↗</a>
-            <button class="mobile-menu-btn"><span></span><span></span></button>
+            <button class="mobile-menu-btn" aria-label="Toggle menu"><span></span><span></span></button>
         </div>
     </nav>
 
@@ -244,17 +210,16 @@
     <section class="hero">
         <div class="container">
             <h1 class="hero-title">Designing with empathy,<br>built to scale.</h1>
-            <p class="hero-subtitle">Sarang N – B.Design (UI/UX) at LPU, CGPA 8.19. Currently interning as UI/UX Designer at Last Minute Deal, building design systems and product flows.</p>
+            <p class="hero-subtitle">Sarang N — UI/UX designer crafting thoughtful, research-backed digital experiences. Currently interning at Last Minute Deal, building design systems and product flows.</p>
             <div class="hero-cta">
                 <a href="#work" class="btn btn-primary">View Work</a>
                 <a href="#contact" class="btn btn-secondary">Let's Talk</a>
-                <a href="#" class="btn btn-outline">↗ Resume</a>
             </div>
         </div>
     </section>
 
     <!-- Tools -->
-    <section class="tools" id="about">
+    <section class="tools" id="tools">
         <div class="container">
             <h2 class="section-title">Tools & Software</h2>
             <div class="tools-grid">
@@ -271,6 +236,15 @@
         </div>
     </section>
 
+    <!-- About -->
+    <section id="about" class="tools" style="background:#fefefe;border-top:none;">
+        <div class="container" style="max-width:900px;">
+            <h2 class="section-title" style="text-align:left;margin-bottom:16px;">About</h2>
+            <p style="font-size:1.125rem;line-height:1.8;color:rgba(0,0,0,0.5);margin-bottom:20px;">I'm a UI/UX designer who believes great design starts with understanding people — their frustrations, mental models, and contexts. I've worked across EdTech, FinTech, and creative media, shaping experiences from research through to pixel-perfect execution.</p>
+            <p style="font-size:1rem;line-height:1.8;color:rgba(0,0,0,0.4);">Currently interning at Last Minute Deal, where I own the design system and product flows. Previously shipped features for a lending app that reduced EMI drop-offs by 47% through plain-language UX and trust-focused design.</p>
+        </div>
+    </section>
+
     <!-- Work -->
     <section id="work" class="work">
         <div class="container">
@@ -279,7 +253,7 @@
             </div>
             <div class="work-grid" style="grid-template-columns:repeat(2,1fr);">
                 <a href="case-studies/second-brain.html" class="work-card" style="text-decoration:none;display:block;">
-                    <div class="work-image" style="height:280px;overflow:hidden;border-radius:20px 20px 0 0;"><img src="thumbnail/thumbnail-secondbrain.png" alt="Second Brain Thumbnail" style="width:100%;height:100%;object-fit:cover;"></div>
+                    <div class="work-image" style="height:280px;overflow:hidden;border-radius:20px 20px 0 0;"><img loading="lazy" src="thumbnail/thumbnail-secondbrain.png" alt="Second Brain Thumbnail" style="width:100%;height:100%;object-fit:cover;"></div>
                     <div class="work-content">
                         <span class="work-tag">EdTech · UX Research · Product Design</span>
                         <h3>Second Brain</h3>
@@ -288,7 +262,7 @@
                     </div>
                 </a>
                 <a href="case-studies/clearflow.html" class="work-card" style="text-decoration:none;display:block;">
-                    <div class="work-image" style="height:280px;overflow:hidden;border-radius:20px 20px 0 0;"><img src="thumbnail/thumbnail-flow-emi.png" alt="ClearFlow Thumbnail" style="width:100%;height:100%;object-fit:cover;"></div>
+                    <div class="work-image" style="height:280px;overflow:hidden;border-radius:20px 20px 0 0;"><img loading="lazy" src="thumbnail/thumbnail-flow-emi.png" alt="ClearFlow Thumbnail" style="width:100%;height:100%;object-fit:cover;"></div>
                     <div class="work-content">
                         <span class="work-tag">Fintech · UX Research · Product Design</span>
                         <h3>ClearFlow</h3>
@@ -309,7 +283,7 @@
             </div>
             <div class="other-works-grid">
                 <a href="case-studies/epicsix.html" class="work-card" style="text-decoration:none;display:block;">
-                    <div class="work-image" style="height:200px;overflow:hidden;border-radius:12px;"><img src="thumbnail/thumbnail-epicsix.png" alt="EpicSix E-commerce" style="width:100%;height:100%;object-fit:cover;"></div>
+                    <div class="work-image" style="height:200px;overflow:hidden;border-radius:12px;"><img loading="lazy" src="thumbnail/thumbnail-epicsix.png" alt="EpicSix E-commerce" style="width:100%;height:100%;object-fit:cover;"></div>
                     <div class="work-content">
                         <span class="work-tag">FASHION ECOMMERCE</span>
                         <h3>EpicSix - Ecommerce UI</h3>
@@ -318,7 +292,7 @@
                     </div>
                 </a>
                 <a href="case-studies/pulse.html" class="work-card" style="text-decoration:none;display:block;">
-                    <div class="work-image" style="height:200px;overflow:hidden;border-radius:12px;"><img src="thumbnail/thumbnail-pulse.png" alt="Pulse Creative Agency" style="width:100%;height:100%;object-fit:cover;"></div>
+                    <div class="work-image" style="height:200px;overflow:hidden;border-radius:12px;"><img loading="lazy" src="thumbnail/thumbnail-pulse.png" alt="Pulse Creative Agency" style="width:100%;height:100%;object-fit:cover;"></div>
                     <div class="work-content">
                         <span class="work-tag">AGENCY WEBSITE</span>
                         <h3>Pulse - Creative Agency</h3>
@@ -327,7 +301,7 @@
                     </div>
                 </a>
                 <a href="case-studies/kerala-murals.html" class="work-card" style="text-decoration:none;display:block;">
-                    <div class="work-image" style="height:200px;overflow:hidden;border-radius:12px;"><img src="thumbnail/thumbnail-kerala-murals.png" alt="Kerala Murals" style="width:100%;height:100%;object-fit:cover;"></div>
+                    <div class="work-image" style="height:200px;overflow:hidden;border-radius:12px;"><img loading="lazy" src="thumbnail/thumbnail-kerala-murals.png" alt="Kerala Murals" style="width:100%;height:100%;object-fit:cover;"></div>
                     <div class="work-content">
                         <span class="work-tag">CULTURAL COMMERCE</span>
                         <h3>Kerala Murals</h3>
@@ -336,7 +310,7 @@
                     </div>
                 </a>
                 <a href="case-studies/transparent-checkout.html" class="work-card" style="text-decoration:none;display:block;">
-                    <div class="work-image" style="height:200px;overflow:hidden;border-radius:12px;"><img src="thumbnail/thumbnail-checkout.png" alt="Checkout Experience" style="width:100%;height:100%;object-fit:cover;"></div>
+                    <div class="work-image" style="height:200px;overflow:hidden;border-radius:12px;"><img loading="lazy" src="thumbnail/thumbnail-checkout.png" alt="Checkout Experience" style="width:100%;height:100%;object-fit:cover;"></div>
                     <div class="work-content">
                         <span class="work-tag">FINTECH</span>
                         <h3>Checkout Experience</h3>
@@ -345,7 +319,7 @@
                     </div>
                 </a>
                 <a href="case-studies/brandkit.html" class="work-card" style="text-decoration:none;display:block;">
-                    <div class="work-image" style="height:200px;overflow:hidden;border-radius:12px;"><img src="thumbnail/thumbnail-brandkit.png" alt="Brand Kit" style="width:100%;height:100%;object-fit:cover;"></div>
+                    <div class="work-image" style="height:200px;overflow:hidden;border-radius:12px;"><img loading="lazy" src="thumbnail/thumbnail-brandkit.png" alt="Brand Kit" style="width:100%;height:100%;object-fit:cover;"></div>
                     <div class="work-content">
                         <span class="work-tag">BRAND IDENTITY</span>
                         <h3>Brand Kit</h3>
@@ -354,7 +328,7 @@
                     </div>
                 </a>
                 <a href="case-studies/sandookchi.html" class="work-card" style="text-decoration:none;display:block;">
-                    <div class="work-image" style="height:200px;overflow:hidden;border-radius:12px;"><img src="thumbnail/thumbnail-sandookchi.png" alt="Sandookchi Gifting" style="width:100%;height:100%;object-fit:cover;"></div>
+                    <div class="work-image" style="height:200px;overflow:hidden;border-radius:12px;"><img loading="lazy" src="thumbnail/thumbnail-sandookchi.png" alt="Sandookchi Gifting" style="width:100%;height:100%;object-fit:cover;"></div>
                     <div class="work-content">
                         <span class="work-tag">GIFTING ECOMMERCE</span>
                         <h3>Sandookchi</h3>
@@ -363,7 +337,7 @@
                     </div>
                 </a>
                 <a href="case-studies/yono.html" class="work-card" style="text-decoration:none;display:block;">
-                    <div class="work-image" style="height:200px;overflow:hidden;border-radius:12px;"><img src="thumbnail/thumbnail-yono.png" alt="YONO SBI Redesign" style="width:100%;height:100%;object-fit:cover;"></div>
+                    <div class="work-image" style="height:200px;overflow:hidden;border-radius:12px;"><img loading="lazy" src="thumbnail/thumbnail-yono.png" alt="YONO SBI Redesign" style="width:100%;height:100%;object-fit:cover;"></div>
                     <div class="work-content">
                         <span class="work-tag">FINTECH · BANKING</span>
                         <h3>YONO SBI Redesign</h3>
@@ -371,15 +345,7 @@
                         <span class="work-link">View project</span>
                     </div>
                 </a>
-                <a href="case-studies/project-template.html" class="work-card" style="text-decoration:none;display:block;">
-                    <div class="work-image" style="height:200px;overflow:hidden;border-radius:12px;background:#f0f0f0;display:flex;align-items:center;justify-content:center;"><span style="font-size:.75rem;color:#999;font-family:sans-serif;">Thumbnail</span></div>
-                    <div class="work-content">
-                        <span class="work-tag">UI EXPLORATION</span>
-                        <h3>Project Template</h3>
-                        <p>Dummy project with PDF research popup</p>
-                        <span class="work-link">View project</span>
-                    </div>
-                </a>
+
             </div>
         </div>
     </section>
@@ -433,19 +399,19 @@
                     <p class="cc-sub">Open to full-time roles, freelance projects, and meaningful conversations around product design, systems, and UX strategy.</p>
                 </div>
                 <div class="cc-links">
-                    <a href="mailto:sarangn19@gmail.com" class="cc-link">
+                    <a href="mailto:sarangn19@gmail.com" class="cc-link" aria-label="Email sarangn19@gmail.com">
                         <div class="cc-link-content">
                             <span class="cc-link-label">Email</span>
                             <span class="cc-link-val">sarangn19@gmail.com ↗</span>
                         </div>
                     </a>
-                    <a href="https://linkedin.com/in/sarang-n" class="cc-link" target="_blank" rel="noreferrer">
+                    <a href="https://linkedin.com/in/sarang-n" class="cc-link" target="_blank" rel="noreferrer" aria-label="LinkedIn profile">
                         <div class="cc-link-content">
                             <span class="cc-link-label">LinkedIn</span>
                             <span class="cc-link-val">linkedin.com/in/sarang-n ↗</span>
                         </div>
                     </a>
-                    <a href="tel:+919947816993" class="cc-link">
+                    <a href="tel:+919947816993" class="cc-link" aria-label="Call +91 99478 16993">
                         <div class="cc-link-content">
                             <span class="cc-link-label">Phone</span>
                             <span class="cc-link-val">+91 99478 16993 ↗</span>
@@ -460,6 +426,7 @@
                     <a href="#work">Work</a>
                     <a href="#about">About</a>
                     <a href="#contact">Contact</a>
+                    <a href="#" aria-label="Back to top" style="font-size:1.1rem;">↑</a>
                 </div>
             </div>
         </div>
@@ -531,24 +498,24 @@
     container.className = 'rive-mascot-container';
     document.body.appendChild(container);
     
-    // Create canvas - higher resolution for larger display
+    // Create canvas
     const canvas = document.createElement('canvas');
-    canvas.width = 800;
-    canvas.height = 800;
+    canvas.width = 400;
+    canvas.height = 400;
     container.appendChild(canvas);
     
     let riveInstance = null;
     let lastScrollY = window.scrollY;
     let scrollTimeout = null;
     
-    // Cursor following - start with mascot visible on right side of screen
-    const mascotWidth = 600;
-    let mouseX = window.innerWidth - 400;
+    // Cursor following
+    const mascotWidth = 300;
+    let mouseX = window.innerWidth - 200;
     let mouseY = window.innerHeight / 2;
-    let currentX = window.innerWidth - mascotWidth + 150; // Partially off-screen right
-    let currentY = window.innerHeight / 2 - 300;
-    const followSpeed = 0.08;
-    const cursorDistance = -350; // negative = mascot stays to left of cursor
+    let currentX = window.innerWidth - mascotWidth - 40;
+    let currentY = window.innerHeight / 2 - 150;
+    const followSpeed = 0.06;
+    const cursorDistance = -80;
     
     // Initialize Rive
     function initRive() {
@@ -622,8 +589,7 @@
         let targetX = mouseX + cursorDistance;
         let targetY = mouseY;
         
-        // Keep within viewport bounds (mascotWidth declared above)
-        const mascotHeight = 600;
+            const mascotHeight = 300;
         const minX = 50;
         const maxX = window.innerWidth - mascotWidth - 50; // Keep right edge on screen
         const minY = 50;
