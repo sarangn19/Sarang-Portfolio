@@ -152,11 +152,12 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 .jrn td:first-child{font-weight:600;color:#000;white-space:nowrap}
 
 /* ── screen rows ── */
-.screen-row{display:flex;flex-direction:column;align-items:center;gap:clamp(16px,2vw,24px);padding:clamp(24px,3vw,48px) 0}
-.screen-img{width:min(1120px,100%);background:transparent;border-radius:12px;overflow:visible;flex-shrink:0}
+.screen-row{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.5vw,40px);padding:clamp(24px,3vw,48px) 0}
+.screen-row .sc{display:flex;flex-direction:column;gap:clamp(12px,1.5vw,20px)}
+.screen-img{width:100%;background:transparent;border-radius:12px;overflow:visible;flex-shrink:0}
 .screen-img img{width:100%;height:auto;display:block;border-radius:12px}
-.bubble-wrap{width:min(1120px,100%);flex-shrink:0;display:flex;flex-direction:column;justify-content:center}
-.bubble{background:#EEEEEE;border-radius:8px;padding:clamp(16px,2vw,24px);font-size:1rem;color:rgba(0,0,0,.75);line-height:1.65;font-weight:500;text-align:center}
+.bubble-wrap{width:100%;flex-shrink:0;display:flex;flex-direction:column;justify-content:center}
+.bubble{background:#eeeeee;border-radius:8px;padding:clamp(14px,1.5vw,20px);font-size:0.85rem;color:rgba(0,0,0,.7);line-height:1.6;font-weight:500;text-align:center}
 .bubble-r{border-radius:8px}
 
 /* ── nav ── */
@@ -240,6 +241,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
   .flow-name{width:auto}
   .screen-img{width:100%}
   .bubble-wrap{width:100%}
+  .screen-row{grid-template-columns:1fr}
 }
 
 /* ── style guide ── */
@@ -679,38 +681,43 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
     <h2 class="t-h2">Design</h2>
     
     <div class="screen-row">
-      <div class="screen-img"><img src="../upsc app images/image 20.png" alt="Dashboard"></div>
-      <div class="bubble-wrap"><div class="bubble">Dashboard showing daily study tasks with guided learning path and progress overview.</div></div>
+      <div class="sc">
+        <div class="screen-img"><img src="../upsc app images/image 20.png" alt="Dashboard"></div>
+        <div class="bubble-wrap"><div class="bubble">Dashboard showing daily study tasks with guided learning path and progress overview.</div></div>
+      </div>
+      <div class="sc">
+        <div class="screen-img"><img src="../upsc app images/image 21.png" alt="Active Recall"></div>
+        <div class="bubble-wrap"><div class="bubble">Active recall interface with flashcards and quiz-based revision system.</div></div>
+      </div>
     </div>
     
     <div class="screen-row">
-      <div class="screen-img"><img src="../upsc app images/image 21.png" alt="Active Recall"></div>
-      <div class="bubble-wrap"><div class="bubble">Active recall interface with flashcards and quiz-based revision system.</div></div>
+      <div class="sc">
+        <div class="screen-img"><img src="../upsc app images/image 22.png" alt="Note Reading"></div>
+        <div class="bubble-wrap"><div class="bubble">Note reading mode with AI-generated flashcards and MCQs from uploaded content.</div></div>
+      </div>
+      <div class="sc">
+        <div class="screen-img"><img src="../upsc app images/image 23.png" alt="Spaced Repetition"></div>
+        <div class="bubble-wrap"><div class="bubble">Spaced repetition queue prioritizing weak topics for optimal revision timing.</div></div>
+      </div>
     </div>
     
     <div class="screen-row">
-      <div class="screen-img"><img src="../upsc app images/image 22.png" alt="Note Reading"></div>
-      <div class="bubble-wrap"><div class="bubble">Note reading mode with AI-generated flashcards and MCQs from uploaded content.</div></div>
+      <div class="sc">
+        <div class="screen-img"><img src="../upsc app images/image 24.png" alt="Mastery Map"></div>
+        <div class="bubble-wrap"><div class="bubble">Mastery map visualization showing topic-wise understanding and readiness scores.</div></div>
+      </div>
+      <div class="sc">
+        <div class="screen-img"><img src="../upsc app images/image 25.png" alt="AI Assistant"></div>
+        <div class="bubble-wrap"><div class="bubble">Context-aware AI assistant providing personalized explanations based on study history.</div></div>
+      </div>
     </div>
     
-    <div class="screen-row">
-      <div class="screen-img"><img src="../upsc app images/image 23.png" alt="Spaced Repetition"></div>
-      <div class="bubble-wrap"><div class="bubble">Spaced repetition queue prioritizing weak topics for optimal revision timing.</div></div>
-    </div>
-    
-    <div class="screen-row">
-      <div class="screen-img"><img src="../upsc app images/image 24.png" alt="Mastery Map"></div>
-      <div class="bubble-wrap"><div class="bubble">Mastery map visualization showing topic-wise understanding and readiness scores.</div></div>
-    </div>
-    
-    <div class="screen-row">
-      <div class="screen-img"><img src="../upsc app images/image 25.png" alt="AI Assistant"></div>
-      <div class="bubble-wrap"><div class="bubble">Context-aware AI assistant providing personalized explanations based on study history.</div></div>
-    </div>
-    
-    <div class="screen-row">
-      <div class="screen-img"><img src="../upsc app images/image 26.png" alt="Motivation Dashboard"></div>
-      <div class="bubble-wrap"><div class="bubble">Motivation dashboard with streak tracking, small wins, and encouragement features.</div></div>
+    <div class="screen-row" style="grid-template-columns:1fr;justify-items:center">
+      <div class="sc" style="max-width:580px">
+        <div class="screen-img"><img src="../upsc app images/image 26.png" alt="Motivation Dashboard"></div>
+        <div class="bubble-wrap"><div class="bubble">Motivation dashboard with streak tracking, small wins, and encouragement features.</div></div>
+      </div>
     </div>
   </div>
 </section>
