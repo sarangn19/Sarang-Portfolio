@@ -7,30 +7,43 @@
     <link href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        /* Satoshi override */
         * { font-family: 'Satoshi', sans-serif !important; }
 
-        /* Nav fix â€” use existing .navbar + .container */
+        /* Nav */
         .navbar { background: rgba(254,254,254,0.92); border-bottom: 1px solid rgba(0,0,0,0.06); }
         .navbar.scrolled { background: rgba(254,254,254,0.98); }
         .logo, .nav-links a { color: #0a0a0a !important; }
         .nav-links a::after, .nav-links a::before { background: #0a0a0a !important; }
-        .nav-cta-item { list-style: none; }
-        .nav-cta {
-            background: #0a0a0a !important;
-            color: #ffffff !important;
-            border-color: #0a0a0a !important;
-            padding: 10px 20px !important;
-            border-radius: 100px !important;
-            text-decoration: none !important;
-            font-size: 0.875rem !important;
-            font-weight: 500 !important;
-        }
-        .nav-cta span { color: #ffffff !important; }
-        .nav-cta::after, .nav-cta::before { display: none !important; }
-        .nav-cta:hover { background: #1f1f1f !important; color: #fff !important; }
         .mobile-menu-btn span { background: #0a0a0a; }
         .nav-links.active { background: rgba(254,254,254,0.98) !important; }
+
+        /* Section rhythm */
+        .sec-white { background: #fff; }
+        .sec-gray { background: #f7f7f7; }
+
+        /* Section title */
+        .sec-label {
+            font-size: .65rem;
+            font-weight: 600;
+            letter-spacing: .12em;
+            text-transform: uppercase;
+            color: rgba(0,0,0,.25);
+            margin-bottom: 8px;
+            display: block;
+        }
+        .sec-h2 {
+            font-size: clamp(1.5rem,2.5vw,2.2rem);
+            font-weight: 600;
+            letter-spacing: -.03em;
+            color: #0a0a0a;
+            margin-bottom: 6px;
+        }
+        .sec-sub {
+            font-size: .92rem;
+            color: rgba(0,0,0,.35);
+            line-height: 1.7;
+            max-width: 580px;
+        }
 
         /* Hero */
         .hero { background: #fefefe; }
@@ -42,150 +55,86 @@
         .work-card { background: #fff; border-radius: 20px; overflow: hidden; }
         .work-card h3 { color: #0a0a0a; }
 
-        /* Tools */
-        .tools { background: #fff; }
+        /* Skills list */
+        .sk-list { display:flex; flex-direction:column; gap:0; border:1px solid rgba(0,0,0,.07); border-radius:14px; overflow:hidden; margin-bottom:48px; }
+        .sk-row { display:flex; align-items:center; justify-content:space-between; padding:14px 22px; border-bottom:1px solid rgba(0,0,0,.05); }
+        .sk-row:last-child { border-bottom:none; }
+        .sk-name { font-size:.82rem; font-weight:500; color:#0a0a0a; }
+        .sk-bar-wrap { width:100px; height:4px; background:rgba(0,0,0,.06); border-radius:4px; overflow:hidden; }
+        .sk-bar { height:100%; background:#0a0a0a; border-radius:4px; }
+        .sk-lvl { font-size:.68rem; color:rgba(0,0,0,.3); font-weight:500; width:60px; text-align:right; }
 
-        /* Combined contact+footer */
+        /* Process track */
+        .proc-track { display:flex; gap:0; overflow:hidden; border:1px solid rgba(0,0,0,.07); border-radius:14px; }
+        .proc-step { flex:1; padding:24px 20px; border-right:1px solid rgba(0,0,0,.05); }
+        .proc-step:last-child { border-right:none; }
+        .proc-num { font-size:2rem; font-weight:600; color:rgba(0,0,0,.07); line-height:1; margin-bottom:10px; letter-spacing:-.03em; }
+        .proc-title { font-size:.82rem; font-weight:600; margin-bottom:5px; color:#0a0a0a; }
+        .proc-desc { font-size:.72rem; color:rgba(0,0,0,.38); line-height:1.6; }
+        .proc-step:hover { background:rgba(0,0,0,.02); }
+        .proc-step:hover .proc-num { color:rgba(0,0,0,.15); }
+
+        /* Contact */
         .contact-combined {
             background: linear-gradient(180deg, #111111 0%, #090909 100%);
             color: #ffffff;
         }
-        .cc-inner {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 24px;
-        }
+        .cc-inner { max-width:1400px; margin:0 auto; padding:0 24px; }
         .cc-top {
-            display: grid;
-            grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
-            gap: 56px;
-            align-items: start;
-            padding: 112px 0 72px;
-            border-bottom: 1px solid rgba(255,255,255,0.08);
+            display:grid;
+            grid-template-columns:minmax(0,1.1fr) minmax(320px,0.9fr);
+            gap:56px;
+            align-items:start;
+            padding:112px 0 72px;
+            border-bottom:1px solid rgba(255,255,255,.08);
         }
-        .cc-heading {
-            max-width: 680px;
-        }
+        .cc-heading { max-width:680px; }
         .cc-title {
-            font-size: clamp(2.6rem,5vw,5rem);
-            font-weight: 700;
-            letter-spacing: -.04em;
-            line-height: 0.98;
-            color: #fff;
-            margin-bottom: 18px;
+            font-size:clamp(2.4rem,5vw,4.8rem);
+            font-weight:700;
+            letter-spacing:-.04em;
+            line-height:.98;
+            color:#fff;
+            margin-bottom:18px;
         }
-        .cc-title em {
-            font-style: italic;
-            font-weight: 400;
-            color: rgba(255,255,255,0.9);
-        }
-        .cc-sub {
-            font-size: 1rem;
-            line-height: 1.8;
-            color: rgba(255,255,255,.56);
-            margin-bottom: 0;
-            max-width: 520px;
-        }
-        .cc-links {
-            display: grid;
-            gap: 16px;
-        }
+        .cc-title em { font-style:italic; font-weight:400; color:rgba(255,255,255,.85); }
+        .cc-sub { font-size:1rem; line-height:1.8; color:rgba(255,255,255,.5); margin-bottom:0; max-width:520px; }
+        .cc-links { display:grid; gap:14px; }
         .cc-link {
-            display: block;
-            padding: 22px 24px;
-            border: 1px solid rgba(255,255,255,.08);
-            border-radius: 22px;
-            background: rgba(255,255,255,.03);
-            text-decoration: none;
-            transition: transform .2s ease, border-color .2s ease, background .2s ease;
-        }
-        .cc-link:hover {
-            transform: translateY(-2px);
-            border-color: rgba(255,255,255,.16);
-            background: rgba(255,255,255,.05);
-        }
-        .cc-link-content {
-            display: flex;
-            flex-direction: column;
-            gap: 8px;
-        }
-        .cc-link-label {
-            font-size: .7rem;
-            letter-spacing: .14em;
-            text-transform: uppercase;
-            color: rgba(255,255,255,.38);
-        }
-        .cc-link-val {
-            font-size: 1rem;
-            line-height: 1.5;
-            color: rgba(255,255,255,.9);
-            transition: color .2s ease;
-        }
-        .cc-link:hover .cc-link-val { color:#fff; }
-        .cc-bottom {
-            display:flex;
-            align-items:center;
-            justify-content:space-between;
-            padding:28px 0 34px;
-            gap:16px;
-            flex-wrap:wrap;
-        }
-        .cc-logo {
-            font-size: .95rem;
-            font-weight: 600;
-            color: rgba(255,255,255,.88);
-        }
-        .cc-copy {
-            font-size: .78rem;
-            color: rgba(255,255,255,.34);
-        }
-        .cc-nav {
-            display:flex;
-            gap:22px;
-        }
-        .cc-nav a {
-            font-size: .78rem;
-            color: rgba(255,255,255,.42);
+            display:block;
+            padding:20px 24px;
+            border:1px solid rgba(255,255,255,.07);
+            border-radius:20px;
+            background:rgba(255,255,255,.02);
             text-decoration:none;
-            transition:color .2s ease;
+            transition:all .25s ease;
         }
-        .cc-nav a:hover { color:rgba(255,255,255,.82); }
+        .cc-link:hover { transform:translateY(-2px); border-color:rgba(255,255,255,.14); background:rgba(255,255,255,.04); }
+        .cc-link-content { display:flex; flex-direction:column; gap:6px; }
+        .cc-link-label { font-size:.68rem; letter-spacing:.13em; text-transform:uppercase; color:rgba(255,255,255,.32); }
+        .cc-link-val { font-size:.95rem; line-height:1.5; color:rgba(255,255,255,.85); transition:color .2s; }
+        .cc-link:hover .cc-link-val { color:#fff; }
+        .cc-bottom { display:flex; align-items:center; justify-content:space-between; padding:28px 0 34px; gap:16px; flex-wrap:wrap; }
+        .cc-logo { font-size:.92rem; font-weight:600; color:rgba(255,255,255,.85); }
+        .cc-copy { font-size:.75rem; color:rgba(255,255,255,.28); }
+        .cc-nav { display:flex; gap:20px; }
+        .cc-nav a { font-size:.75rem; color:rgba(255,255,255,.35); text-decoration:none; transition:color .2s; }
+        .cc-nav a:hover { color:rgba(255,255,255,.8); }
 
         @media(max-width:900px) {
-            .cc-top {
-                grid-template-columns: 1fr;
-                gap: 36px;
-                padding: 84px 0 56px;
-            }
+            .cc-top { grid-template-columns:1fr; gap:36px; padding:84px 0 56px; }
+            .proc-track { flex-direction:column; }
+            .proc-step { border-right:none; border-bottom:1px solid rgba(0,0,0,.05); }
         }
-
         @media(max-width:600px) {
-            .cc-inner { padding: 0 20px; }
+            .cc-inner { padding:0 20px; }
             .cc-top { padding:72px 0 44px; }
-            .cc-link { padding: 18px 18px; border-radius: 18px; }
+            .cc-link { padding:16px 18px; border-radius:16px; }
             .cc-bottom { flex-direction:column; align-items:flex-start; padding:22px 0 28px; }
-        }
-
-
-
-        /* Rive Mascot */
-        .rive-mascot-container {
-            position: fixed;
-            width: 300px;
-            height: 300px;
-            z-index: 999;
-            pointer-events: none;
-            transition: none;
-        }
-        .rive-mascot-container canvas {
-            width: 100%;
-            height: 100%;
-        }
-        @media (max-width: 768px) {
-            .rive-mascot-container { display: none; }
+            .sk-row { flex-wrap:wrap; gap:8px; }
+            .sk-bar-wrap { width:60px; }
         }
     </style>
-    <script src="https://unpkg.com/@rive-app/canvas@2.9.1"></script>
 </head>
 <body>
 <div class="page-wrapper">
@@ -216,9 +165,11 @@
     </section>
 
     <!-- Tools -->
-    <section class="tools" id="tools">
+    <section class="sec-white" id="tools" style="padding:100px 0;">
         <div class="container">
-            <h2 class="section-title">Tools & Software</h2>
+            <span class="sec-label">Toolchain</span>
+            <h2 class="sec-h2" style="text-align:center;margin-bottom:6px;">Tools & Software</h2>
+            <p class="sec-sub" style="text-align:center;margin:0 auto 40px;">The instruments I use daily to research, design, prototype, and build.</p>
             <div class="tools-grid">
                 <div class="tool-item"><img src="software logo/photoshop logo.png" alt="Adobe Photoshop"><span>Adobe Photoshop</span></div>
                 <div class="tool-item"><img src="software logo/illustrator logo.png" alt="Adobe Illustrator"><span>Adobe Illustrator</span></div>
@@ -234,19 +185,22 @@
     </section>
 
     <!-- About -->
-    <section id="about" class="tools" style="background:#fefefe;border-top:none;">
+    <section id="about" class="sec-white" style="padding:100px 0;border-top:1px solid rgba(0,0,0,.04);">
         <div class="container" style="max-width:900px;">
-            <h2 class="section-title" style="text-align:left;margin-bottom:16px;">About</h2>
-            <p style="font-size:1.125rem;line-height:1.8;color:rgba(0,0,0,0.5);margin-bottom:20px;">I'm a UI/UX designer who believes great design starts with understanding people — their frustrations, mental models, and contexts. I've worked across EdTech, FinTech, and creative media, shaping experiences from research through to pixel-perfect execution.</p>
-            <p style="font-size:1rem;line-height:1.8;color:rgba(0,0,0,0.4);">Currently interning at Last Minute Deal, where I own the design system and product flows. Previously shipped features for a lending app that reduced EMI drop-offs by 47% through plain-language UX and trust-focused design.</p>
+            <span class="sec-label">About</span>
+            <h2 class="sec-h2" style="margin-bottom:16px;">Design is thinking made visible.</h2>
+            <p style="font-size:1.05rem;line-height:1.8;color:rgba(0,0,0,.5);margin-bottom:18px;">I'm a UI/UX designer who believes great design starts with understanding people — their frustrations, mental models, and contexts. I've worked across EdTech, FinTech, and creative media, shaping experiences from research through to pixel-perfect execution.</p>
+            <p style="font-size:.92rem;line-height:1.8;color:rgba(0,0,0,.38);">Currently interning at Last Minute Deal, where I own the design system and product flows. Previously shipped features for a lending app that reduced EMI drop-offs by 47% through plain-language UX and trust-focused design.</p>
         </div>
     </section>
 
     <!-- Work -->
-    <section id="work" class="work">
+    <section id="work" class="sec-gray" style="padding:100px 0;">
         <div class="container">
             <div class="work-header">
-                <h2 class="section-title">Selected Work</h2>
+                <span class="sec-label">Case Studies</span>
+                <h2 class="sec-h2">Selected Work</h2>
+                <p class="sec-sub" style="margin:0 auto 40px;">In-depth projects where I led research, design, and delivery.</p>
             </div>
             <div class="work-grid" style="grid-template-columns:repeat(2,1fr);">
                 <a href="case-studies/second-brain.html" class="work-card" style="text-decoration:none;display:block;">
@@ -272,11 +226,11 @@
     </section>
 
     <!-- Other Works -->
-    <section id="other-works" class="other-works">
+    <section id="other-works" class="sec-gray" style="padding:0 0 100px;margin-top:-1px;">
         <div class="container">
             <div class="other-works-header">
-                <span class="other-works-label">OTHER WORKS</span>
-                <span class="other-works-subtitle">UI explorations and experiments</span>
+                <div><span class="sec-label">Explorations</span><h2 class="sec-h2">Other Works</h2></div>
+                <span class="other-works-subtitle" style="font-size:.8rem;color:rgba(0,0,0,.3);">UI explorations and experiments</span>
             </div>
             <div class="other-works-grid">
                 <a href="case-studies/epicsix.html" class="work-card" style="text-decoration:none;display:block;">
@@ -348,24 +302,26 @@
     </section>
 
     <!-- Skills -->
-    <section id="skills" class="tools" style="background:#fefefe;border-top:none;">
-        <div class="container" style="max-width:900px;">
-            <h2 class="section-title" style="text-align:left;margin-bottom:32px;">Skills & Process</h2>
-            <div style="display:flex;flex-direction:column;gap:0;border:1px solid rgba(0,0,0,.08);border-radius:12px;overflow:hidden;margin-bottom:48px;">
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid rgba(0,0,0,.06);background:#fafafa;"><span style="font-size:.85rem;font-weight:500;color:#0a0a0a;">User Research &amp; Empathy</span><div style="width:120px;height:4px;background:rgba(0,0,0,.06);border-radius:4px;overflow:hidden;"><div style="height:100%;width:92%;background:#0a0a0a;border-radius:4px;"></div></div><span style="font-size:.7rem;color:rgba(0,0,0,.35);font-weight:500;width:60px;text-align:right;">Expert</span></div>
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid rgba(0,0,0,.06);"><span style="font-size:.85rem;font-weight:500;color:#0a0a0a;">Affinity Mapping &amp; Synthesis</span><div style="width:120px;height:4px;background:rgba(0,0,0,.06);border-radius:4px;overflow:hidden;"><div style="height:100%;width:88%;background:#0a0a0a;border-radius:4px;"></div></div><span style="font-size:.7rem;color:rgba(0,0,0,.35);font-weight:500;width:60px;text-align:right;">Advanced</span></div>
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid rgba(0,0,0,.06);"><span style="font-size:.85rem;font-weight:500;color:#0a0a0a;">Personas &amp; Journey Mapping</span><div style="width:120px;height:4px;background:rgba(0,0,0,.06);border-radius:4px;overflow:hidden;"><div style="height:100%;width:90%;background:#0a0a0a;border-radius:4px;"></div></div><span style="font-size:.7rem;color:rgba(0,0,0,.35);font-weight:500;width:60px;text-align:right;">Advanced</span></div>
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid rgba(0,0,0,.06);"><span style="font-size:.85rem;font-weight:500;color:#0a0a0a;">Wireframing &amp; Prototyping</span><div style="width:120px;height:4px;background:rgba(0,0,0,.06);border-radius:4px;overflow:hidden;"><div style="height:100%;width:95%;background:#0a0a0a;border-radius:4px;"></div></div><span style="font-size:.7rem;color:rgba(0,0,0,.35);font-weight:500;width:60px;text-align:right;">Expert</span></div>
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 24px;border-bottom:1px solid rgba(0,0,0,.06);"><span style="font-size:.85rem;font-weight:500;color:#0a0a0a;">Usability Testing &amp; Heuristics</span><div style="width:120px;height:4px;background:rgba(0,0,0,.06);border-radius:4px;overflow:hidden;"><div style="height:100%;width:85%;background:#0a0a0a;border-radius:4px;"></div></div><span style="font-size:.7rem;color:rgba(0,0,0,.35);font-weight:500;width:60px;text-align:right;">Advanced</span></div>
-                <div style="display:flex;align-items:center;justify-content:space-between;padding:16px 24px;"><span style="font-size:.85rem;font-weight:500;color:#0a0a0a;">Figma &amp; Design Systems</span><div style="width:120px;height:4px;background:rgba(0,0,0,.06);border-radius:4px;overflow:hidden;"><div style="height:100%;width:95%;background:#0a0a0a;border-radius:4px;"></div></div><span style="font-size:.7rem;color:rgba(0,0,0,.35);font-weight:500;width:60px;text-align:right;">Expert</span></div>
+    <section id="skills" class="sec-white" style="padding:100px 0;">
+        <div class="container" style="max-width:960px;">
+            <span class="sec-label">Expertise</span>
+            <h2 class="sec-h2">Skills & Process</h2>
+            <p class="sec-sub" style="margin-bottom:36px;">From user empathy to usability testing — a full-spectrum UI/UX toolkit.</p>
+            <div class="sk-list">
+                <div class="sk-row"><span class="sk-name">User Research &amp; Empathy</span><div class="sk-bar-wrap"><div class="sk-bar" style="width:92%"></div></div><span class="sk-lvl">Expert</span></div>
+                <div class="sk-row"><span class="sk-name">Affinity Mapping &amp; Synthesis</span><div class="sk-bar-wrap"><div class="sk-bar" style="width:88%"></div></div><span class="sk-lvl">Advanced</span></div>
+                <div class="sk-row"><span class="sk-name">Personas &amp; Journey Mapping</span><div class="sk-bar-wrap"><div class="sk-bar" style="width:90%"></div></div><span class="sk-lvl">Advanced</span></div>
+                <div class="sk-row"><span class="sk-name">Wireframing &amp; Prototyping</span><div class="sk-bar-wrap"><div class="sk-bar" style="width:95%"></div></div><span class="sk-lvl">Expert</span></div>
+                <div class="sk-row"><span class="sk-name">Usability Testing &amp; Heuristics</span><div class="sk-bar-wrap"><div class="sk-bar" style="width:85%"></div></div><span class="sk-lvl">Advanced</span></div>
+                <div class="sk-row"><span class="sk-name">Figma &amp; Design Systems</span><div class="sk-bar-wrap"><div class="sk-bar" style="width:95%"></div></div><span class="sk-lvl">Expert</span></div>
             </div>
-            <h2 class="section-title" style="text-align:left;margin-bottom:24px;font-size:1.25rem;color:rgba(0,0,0,.6);font-weight:500;">Process</h2>
-            <div style="display:flex;gap:0;overflow:hidden;border:1px solid rgba(0,0,0,.08);border-radius:12px;">
-                <div style="flex:1;padding:24px 20px;border-right:1px solid rgba(0,0,0,.06);"><div style="font-size:2.2rem;font-weight:500;color:rgba(0,0,0,.08);line-height:1;margin-bottom:10px;letter-spacing:-.03em;">01</div><div style="font-size:.85rem;font-weight:600;margin-bottom:6px;color:#0a0a0a;">Empathise</div><div style="font-size:.75rem;color:rgba(0,0,0,.4);line-height:1.6;">User interviews, field studies, diary logs to uncover real needs.</div></div>
-                <div style="flex:1;padding:24px 20px;border-right:1px solid rgba(0,0,0,.06);"><div style="font-size:2.2rem;font-weight:500;color:rgba(0,0,0,.08);line-height:1;margin-bottom:10px;letter-spacing:-.03em;">02</div><div style="font-size:.85rem;font-weight:600;margin-bottom:6px;color:#0a0a0a;">Define</div><div style="font-size:.75rem;color:rgba(0,0,0,.4);line-height:1.6;">Affinity mapping, personas, journey maps to frame the problem.</div></div>
-                <div style="flex:1;padding:24px 20px;border-right:1px solid rgba(0,0,0,.06);"><div style="font-size:2.2rem;font-weight:500;color:rgba(0,0,0,.08);line-height:1;margin-bottom:10px;letter-spacing:-.03em;">03</div><div style="font-size:.85rem;font-weight:600;margin-bottom:6px;color:#0a0a0a;">Ideate</div><div style="font-size:.75rem;color:rgba(0,0,0,.4);line-height:1.6;">Sketch sessions, Crazy 8s, design studios for divergent thinking.</div></div>
-                <div style="flex:1;padding:24px 20px;border-right:1px solid rgba(0,0,0,.06);"><div style="font-size:2.2rem;font-weight:500;color:rgba(0,0,0,.08);line-height:1;margin-bottom:10px;letter-spacing:-.03em;">04</div><div style="font-size:.85rem;font-weight:600;margin-bottom:6px;color:#0a0a0a;">Prototype</div><div style="font-size:.75rem;color:rgba(0,0,0,.4);line-height:1.6;">Wireframes to interactive mockups, iterating with feedback loops.</div></div>
-                <div style="flex:1;padding:24px 20px;"><div style="font-size:2.2rem;font-weight:500;color:rgba(0,0,0,.08);line-height:1;margin-bottom:10px;letter-spacing:-.03em;">05</div><div style="font-size:.85rem;font-weight:600;margin-bottom:6px;color:#0a0a0a;">Test</div><div style="font-size:.75rem;color:rgba(0,0,0,.4);line-height:1.6;">Usability testing, A/B experiments, heuristic reviews.</div></div>
+            <h2 class="sec-h2" style="font-size:1.1rem;font-weight:600;margin-bottom:16px;color:rgba(0,0,0,.5);">Process</h2>
+            <div class="proc-track">
+                <div class="proc-step"><div class="proc-num">01</div><div class="proc-title">Empathise</div><div class="proc-desc">User interviews, field studies, diary logs to uncover real needs.</div></div>
+                <div class="proc-step"><div class="proc-num">02</div><div class="proc-title">Define</div><div class="proc-desc">Affinity mapping, personas, journey maps to frame the problem.</div></div>
+                <div class="proc-step"><div class="proc-num">03</div><div class="proc-title">Ideate</div><div class="proc-desc">Sketch sessions, Crazy 8s, design studios for divergent thinking.</div></div>
+                <div class="proc-step"><div class="proc-num">04</div><div class="proc-title">Prototype</div><div class="proc-desc">Wireframes to interactive mockups, iterating with feedback loops.</div></div>
+                <div class="proc-step"><div class="proc-num">05</div><div class="proc-title">Test</div><div class="proc-desc">Usability testing, A/B experiments, heuristic reviews.</div></div>
             </div>
         </div>
     </section>
@@ -414,153 +370,7 @@
 
 </div>
 <script src="script.js"></script>
-<script>
-// Rive Mascot - Default idle, scroll down animation on scroll, return to default when stop
-(function() {
-    const RIVE_FILE_PATH = 'mascot.riv';
-    
-    // Animation names from Rive file
-    const ANIMATIONS = {
-        DEFAULT: 'Timeline 1',
-        SCROLL_DOWN: 'scroll down',
-        SCROLL_UP: 'Timeline 2'
-    };
-    
-    // Create container
-    const container = document.createElement('div');
-    container.className = 'rive-mascot-container';
-    document.body.appendChild(container);
-    
-    // Create canvas
-    const canvas = document.createElement('canvas');
-    canvas.width = 400;
-    canvas.height = 400;
-    container.appendChild(canvas);
-    
-    let riveInstance = null;
-    let lastScrollY = window.scrollY;
-    let scrollTimeout = null;
-    
-    // Cursor following
-    const mascotWidth = 300;
-    let mouseX = window.innerWidth - 200;
-    let mouseY = window.innerHeight / 2;
-    let currentX = window.innerWidth - mascotWidth - 40;
-    let currentY = window.innerHeight / 2 - 150;
-    const followSpeed = 0.06;
-    const cursorDistance = -80;
-    
-    // Initialize Rive
-    function initRive() {
-        if (!window.rive) {
-            setTimeout(initRive, 100);
-            return;
-        }
-        
-        riveInstance = new rive.Rive({
-            src: RIVE_FILE_PATH,
-            canvas: canvas,
-            autoplay: false,
-            onLoad: function() {
-                console.log('Rive loaded. Animations:', riveInstance.animationNames);
-                // Start with default animation
-                playAnimation(ANIMATIONS.DEFAULT);
-            },
-            onError: function(err) {
-                console.error('Rive error:', err);
-                container.style.display = 'none';
-            }
-        });
-    }
-    
-    let currentAnimation = null;
-    
-    // Play animation helper
-    function playAnimation(animationName) {
-        if (!riveInstance || currentAnimation === animationName) return;
-        
-        console.log('Playing:', animationName);
-        currentAnimation = animationName;
-        riveInstance.stop();
-        riveInstance.play(animationName);
-    }
-    
-    // Scroll handler - direct animation switching
-    window.addEventListener('scroll', function() {
-        const currentScrollY = window.scrollY;
-        const delta = currentScrollY - lastScrollY; // Positive = scrolling down
-        
-        // Clear any pending return to default
-        clearTimeout(scrollTimeout);
-        
-        // Scrolling down
-        if (delta > 3) {
-            playAnimation(ANIMATIONS.SCROLL_DOWN);
-        }
-        // Scrolling up
-        else if (delta < -3) {
-            playAnimation(ANIMATIONS.SCROLL_UP);
-        }
-        
-        lastScrollY = currentScrollY;
-        
-        // Return to default when scroll stops
-        scrollTimeout = setTimeout(() => {
-            playAnimation(ANIMATIONS.DEFAULT);
-        }, 800);
-    }, { passive: true });
-    
-    // Mouse tracking
-    document.addEventListener('mousemove', function(e) {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-    
-    // Smooth follow animation
-    function updatePosition() {
-        // Calculate target position with offset (negative = left of cursor)
-        let targetX = mouseX + cursorDistance;
-        let targetY = mouseY;
-        
-            const mascotHeight = 300;
-        const minX = 50;
-        const maxX = window.innerWidth - mascotWidth - 50; // Keep right edge on screen
-        const minY = 50;
-        const maxY = window.innerHeight - mascotHeight - 50;
-        targetX = Math.max(minX, Math.min(targetX, maxX));
-        targetY = Math.max(minY, Math.min(targetY, maxY));
-        
-        // Smooth lerp
-        currentX += (targetX - currentX) * followSpeed;
-        currentY += (targetY - currentY) * followSpeed;
-        
-        // Apply position
-        container.style.left = currentX + 'px';
-        container.style.top = currentY + 'px';
-        container.style.right = 'auto';
-        container.style.transform = 'none';
-        
-        requestAnimationFrame(updatePosition);
-    }
-    
-    // Apply initial position immediately
-    container.style.left = currentX + 'px';
-    container.style.top = currentY + 'px';
-    container.style.right = 'auto';
-    console.log('Mascot initial position:', currentX, currentY);
-    console.log('Window size:', window.innerWidth, window.innerHeight);
-    
-    // Start position update loop
-    requestAnimationFrame(updatePosition);
-    
-    // Initialize
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initRive);
-    } else {
-        initRive();
-    }
-})();
-</script>
+
 </body>
 </html>
 
