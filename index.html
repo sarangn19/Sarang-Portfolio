@@ -58,9 +58,6 @@
         /* Tools */
         .tools { background: #fff; }
 
-        /* Capabilities â€” items layout fix */
-        .cap-item { max-width: 520px; }
-
         /* Combined contact+footer */
         .contact-combined {
             background: linear-gradient(180deg, #111111 0%, #090909 100%);
@@ -167,6 +164,106 @@
         }
         .cc-nav a:hover { color:rgba(255,255,255,.82); }
 
+        /* Expertise section */
+        .expertise {
+            padding: 100px 0;
+            background: #fff;
+            border-top: 1px solid var(--border-color);
+            border-bottom: 1px solid var(--border-color);
+        }
+        .expertise-title {
+            text-align: center;
+            margin-bottom: 48px;
+        }
+        .expertise-title .section-title {
+            margin-bottom: 0;
+        }
+        .expertise-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+            max-width: 860px;
+            margin: 0 auto 40px;
+        }
+        .exp-card {
+            padding: 28px 24px;
+            background: #fafafa;
+            border: 1px solid #eee;
+            border-radius: 16px;
+            transition: all .35s cubic-bezier(.16,1,.3,1);
+        }
+        .exp-card:hover {
+            background: #0a0a0a;
+            border-color: #0a0a0a;
+            transform: translateY(-4px);
+        }
+        .exp-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            background: rgba(0,0,0,.06);
+            font-size: .75rem;
+            font-weight: 700;
+            letter-spacing: -.02em;
+            color: #0a0a0a;
+            margin-bottom: 14px;
+            transition: background .3s ease, color .3s ease;
+        }
+        .exp-card:hover .exp-badge {
+            background: rgba(255,255,255,.15);
+            color: #fff;
+        }
+        .exp-name {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #0a0a0a;
+            transition: color .3s ease;
+        }
+        .exp-card:hover .exp-name {
+            color: #fff;
+        }
+        .exp-sub {
+            font-size: .78rem;
+            color: rgba(0,0,0,.45);
+            margin-top: 4px;
+            line-height: 1.5;
+            transition: color .3s ease;
+        }
+        .exp-card:hover .exp-sub {
+            color: rgba(255,255,255,.55);
+        }
+        .ux-skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 8px;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+        .ux-skill-pill {
+            padding: 6px 16px;
+            background: #f3f3f3;
+            border-radius: 100px;
+            font-size: .78rem;
+            font-weight: 500;
+            color: rgba(0,0,0,.55);
+            transition: all .25s ease;
+        }
+        .ux-skill-pill:hover {
+            background: #0a0a0a;
+            color: #fff;
+        }
+        @media(max-width:768px) {
+            .expertise-grid { grid-template-columns: repeat(2,1fr); gap: 12px; }
+            .exp-card { padding: 22px 18px; }
+        }
+        @media(max-width:480px) {
+            .expertise-grid { grid-template-columns: 1fr; }
+        }
+
         @media(max-width:900px) {
             .cc-top {
                 grid-template-columns: 1fr;
@@ -191,36 +288,8 @@
             }
         }
 
-        /* Rive Mascot - follows cursor */
-        .rive-mascot-container {
-            position: fixed;
-            right: -150px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 600px;
-            height: 600px;
-            z-index: 999;
-            pointer-events: none;
-            transition: none;
-        }
-        .rive-mascot-container canvas {
-            width: 100%;
-            height: 100%;
-        }
-        @media (max-width: 1200px) {
-            .rive-mascot-container {
-                width: 400px;
-                height: 400px;
-            }
-        }
-        @media (max-width: 768px) {
-            .rive-mascot-container {
-                width: 300px;
-                height: 300px;
-            }
-        }
+
     </style>
-    <script src="https://unpkg.com/@rive-app/canvas@2.9.1"></script>
 </head>
 <body>
 <div class="page-wrapper">
@@ -267,6 +336,61 @@
                 <div class="tool-item"><img src="software logo/figma logo.png" alt="Figma"><span>Figma</span></div>
                 <div class="tool-item"><img src="software logo/canva logo.png" alt="Canva"><span>Canva</span></div>
                 <div class="tool-item"><img src="software logo/unity logo.webp" alt="Unity"><span>Unity</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise -->
+    <section class="expertise">
+        <div class="container">
+            <div class="expertise-title">
+                <h2 class="section-title">What I Do</h2>
+            </div>
+            <div class="expertise-grid">
+                <div class="exp-card">
+                    <div class="exp-badge">UX</div>
+                    <div class="exp-name">UI/UX Designing</div>
+                    <div class="exp-sub">User research, wireframes, prototypes, and pixel-perfect interfaces</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-badge">GD</div>
+                    <div class="exp-name">Graphic Designing</div>
+                    <div class="exp-sub">Branding, posters, social media visuals, and print design</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-badge">VE</div>
+                    <div class="exp-name">Video Editing</div>
+                    <div class="exp-sub">Short-form &amp; long-form edits, storytelling, and post-production</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-badge">MG</div>
+                    <div class="exp-name">Motion Graphics</div>
+                    <div class="exp-sub">Kinetic typography, explainers, transitions, and animated assets</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-badge">UG</div>
+                    <div class="exp-name">Unity Gaming</div>
+                    <div class="exp-sub">2D/3D game design, interactive experiences, and prototyping</div>
+                </div>
+                <div class="exp-card">
+                    <div class="exp-badge">VC</div>
+                    <div class="exp-name">Vibecoding</div>
+                    <div class="exp-sub">Rapid prototyping with AI tools and modern front-end stacks</div>
+                </div>
+            </div>
+            <div class="ux-skills">
+                <span class="ux-skill-pill">User Research</span>
+                <span class="ux-skill-pill">Wireframing</span>
+                <span class="ux-skill-pill">Prototyping</span>
+                <span class="ux-skill-pill">Design Systems</span>
+                <span class="ux-skill-pill">Information Architecture</span>
+                <span class="ux-skill-pill">Usability Testing</span>
+                <span class="ux-skill-pill">Interaction Design</span>
+                <span class="ux-skill-pill">Visual Design</span>
+                <span class="ux-skill-pill">Figma</span>
+                <span class="ux-skill-pill">User Flows</span>
+                <span class="ux-skill-pill">Responsive Design</span>
+                <span class="ux-skill-pill">Accessibility</span>
             </div>
         </div>
     </section>
@@ -384,46 +508,6 @@
         </div>
     </section>
 
-    <!-- Capabilities -->
-    <section class="capabilities-section">
-        <div class="cap-inner">
-            <div class="cap-left-spacer"></div>
-            <div class="cap-left">
-                <span class="cap-label">Capabilities</span>
-                <div class="cap-words">
-                    <div class="cap-word" data-cap="research">Research</div>
-                    <div class="cap-word" data-cap="strategy">Strategy</div>
-                    <div class="cap-word" data-cap="design">Design</div>
-                    <div class="cap-word" data-cap="build">Build</div>
-                </div>
-            </div>
-            <div class="cap-right">
-                <div class="cap-group" data-group="research">
-                    <div class="cap-item"><div class="cap-icon"><img src="capabilities icon/user interview.png" alt="User Interviews"></div><div><div class="cap-item-title">User Interviews</div><div class="cap-item-sub">Qualitative insight gathering</div></div></div>
-                    <div class="cap-item"><div class="cap-icon"><img src="capabilities icon/usability testing.png" alt="Usability Testing"></div><div><div class="cap-item-title">Usability Testing</div><div class="cap-item-sub">Evaluating existing offerings</div></div></div>
-                    <div class="cap-item"><div class="cap-icon"><img src="capabilities icon/affinity mapping.png" alt="Affinity Mapping"></div><div><div class="cap-item-title">Affinity Mapping</div><div class="cap-item-sub">Synthesising research findings</div></div></div>
-                </div>
-                <div class="cap-group" data-group="strategy">
-                    <div class="cap-item"><div class="cap-icon"><img src="capabilities icon/product strategy.png" alt="Product Strategy"></div><div><div class="cap-item-title">Product Strategy</div><div class="cap-item-sub">Vision, goals and roadmaps</div></div></div>
-                    <div class="cap-item"><div class="cap-icon"><img src="capabilities icon/information architecture.png" alt="Information Architecture"></div><div><div class="cap-item-title">Information Architecture</div><div class="cap-item-sub">Structure and navigation design</div></div></div>
-                    <div class="cap-item"><div class="cap-icon"><img src="capabilities icon/product requirement.png" alt="Product Requirements"></div><div><div class="cap-item-title">Product Requirements</div><div class="cap-item-sub">Feature definitions and specs</div></div></div>
-                </div>
-                <div class="cap-group" data-group="design">
-                    <div class="cap-item"><div class="cap-icon"><img src="capabilities icon/ui design.png" alt="UI Design"></div><div><div class="cap-item-title">UI Design</div><div class="cap-item-sub">Pixel-perfect visual interfaces</div></div></div>
-                    <div class="cap-item"><div class="cap-icon"><img src="capabilities icon/prototyping.png" alt="Prototyping"></div><div><div class="cap-item-title">Prototyping</div><div class="cap-item-sub">Interactive flows and demos</div></div></div>
-                    <div class="cap-item"><div class="cap-icon"><img src="capabilities icon/design systems.png" alt="Design Systems"></div><div><div class="cap-item-title">Design Systems</div><div class="cap-item-sub">Scalable component libraries</div></div></div>
-                    <div class="cap-item"><div class="cap-icon"><img src="capabilities icon/branding.png" alt="Branding"></div><div><div class="cap-item-title">Branding</div><div class="cap-item-sub">Visual identity and language</div></div></div>
-                </div>
-                <div class="cap-group" data-group="build">
-                    <div class="cap-item"><div class="cap-icon"><img src="capabilities icon/figma handoff.png" alt="Figma Handoff"></div><div><div class="cap-item-title">Figma Handoff</div><div class="cap-item-sub">Dev-ready specs and assets</div></div></div>
-                    <div class="cap-item"><div class="cap-icon"><img src="capabilities icon/htmlcss.png" alt="HTML / CSS"></div><div><div class="cap-item-title">HTML / CSS</div><div class="cap-item-sub">Front-end implementation</div></div></div>
-                    <div class="cap-item"><div class="cap-icon"><img src="capabilities icon/motion design.png" alt="Motion Design"></div><div><div class="cap-item-title">Motion Design</div><div class="cap-item-sub">Animations with Rive &amp; AE</div></div></div>
-                    <div class="cap-item"><div class="cap-icon"><img src="capabilities icon/pitch desks.png" alt="Pitch Decks"></div><div><div class="cap-item-title">Pitch Decks</div><div class="cap-item-sub">Investment and capability decks</div></div></div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <!-- Contact + Footer -->
     <section id="contact" class="contact-combined">
         <div class="cc-inner">
@@ -467,201 +551,7 @@
 
 </div>
 <script src="script.js"></script>
-<script>
-(function(){
-    var left = document.querySelector('.cap-left');
-    var spacer = document.querySelector('.cap-left-spacer');
-    var section = document.querySelector('.capabilities-section');
-    if (!left || !section) return;
 
-    function update(){
-        var isMobile = window.matchMedia('(max-width: 900px)').matches;
-        if (isMobile) {
-            left.style.position = 'relative';
-            left.style.top = 'auto';
-            left.style.left = 'auto';
-            left.style.width = '100%';
-            return;
-        }
-
-        var leftWidth = Math.max(260, left.offsetWidth || 300);
-        var sr = section.getBoundingClientRect();
-        var vh = window.innerHeight;
-
-        if (sr.top <= 0 && sr.bottom >= vh) {
-            // Scrolling through â€” fix to viewport
-            var ref = spacer ? spacer.getBoundingClientRect() : sr;
-            left.style.position = 'fixed';
-            left.style.top = '0';
-            left.style.left = ref.left + 'px';
-            left.style.width = leftWidth + 'px';
-        } else if (sr.bottom < vh) {
-            // Past section â€” anchor to bottom of section
-            left.style.position = 'absolute';
-            left.style.top = (section.offsetHeight - vh) + 'px';
-            left.style.left = '40px';
-            left.style.width = leftWidth + 'px';
-        } else {
-            // Before section â€” normal flow
-            left.style.position = 'absolute';
-            left.style.top = '0';
-            left.style.left = '40px';
-            left.style.width = leftWidth + 'px';
-        }
-    }
-
-    window.addEventListener('scroll', update, {passive:true});
-    window.addEventListener('resize', update);
-    update();
-})();
-
-// Rive Mascot - Default idle, scroll down animation on scroll, return to default when stop
-(function() {
-    const RIVE_FILE_PATH = 'mascot.riv';
-    
-    // Animation names from Rive file
-    const ANIMATIONS = {
-        DEFAULT: 'Timeline 1',
-        SCROLL_DOWN: 'scroll down',
-        SCROLL_UP: 'Timeline 2'
-    };
-    
-    // Create container
-    const container = document.createElement('div');
-    container.className = 'rive-mascot-container';
-    document.body.appendChild(container);
-    
-    // Create canvas - higher resolution for larger display
-    const canvas = document.createElement('canvas');
-    canvas.width = 800;
-    canvas.height = 800;
-    container.appendChild(canvas);
-    
-    let riveInstance = null;
-    let lastScrollY = window.scrollY;
-    let scrollTimeout = null;
-    
-    // Cursor following - start with mascot visible on right side of screen
-    const mascotWidth = 600;
-    let mouseX = window.innerWidth - 400;
-    let mouseY = window.innerHeight / 2;
-    let currentX = window.innerWidth - mascotWidth + 150; // Partially off-screen right
-    let currentY = window.innerHeight / 2 - 300;
-    const followSpeed = 0.08;
-    const cursorDistance = -350; // negative = mascot stays to left of cursor
-    
-    // Initialize Rive
-    function initRive() {
-        if (!window.rive) {
-            setTimeout(initRive, 100);
-            return;
-        }
-        
-        riveInstance = new rive.Rive({
-            src: RIVE_FILE_PATH,
-            canvas: canvas,
-            autoplay: false,
-            onLoad: function() {
-                console.log('Rive loaded. Animations:', riveInstance.animationNames);
-                // Start with default animation
-                playAnimation(ANIMATIONS.DEFAULT);
-            },
-            onError: function(err) {
-                console.error('Rive error:', err);
-                container.style.display = 'none';
-            }
-        });
-    }
-    
-    let currentAnimation = null;
-    
-    // Play animation helper
-    function playAnimation(animationName) {
-        if (!riveInstance || currentAnimation === animationName) return;
-        
-        console.log('Playing:', animationName);
-        currentAnimation = animationName;
-        riveInstance.stop();
-        riveInstance.play(animationName);
-    }
-    
-    // Scroll handler - direct animation switching
-    window.addEventListener('scroll', function() {
-        const currentScrollY = window.scrollY;
-        const delta = currentScrollY - lastScrollY; // Positive = scrolling down
-        
-        // Clear any pending return to default
-        clearTimeout(scrollTimeout);
-        
-        // Scrolling down
-        if (delta > 3) {
-            playAnimation(ANIMATIONS.SCROLL_DOWN);
-        }
-        // Scrolling up
-        else if (delta < -3) {
-            playAnimation(ANIMATIONS.SCROLL_UP);
-        }
-        
-        lastScrollY = currentScrollY;
-        
-        // Return to default when scroll stops
-        scrollTimeout = setTimeout(() => {
-            playAnimation(ANIMATIONS.DEFAULT);
-        }, 800);
-    }, { passive: true });
-    
-    // Mouse tracking
-    document.addEventListener('mousemove', function(e) {
-        mouseX = e.clientX;
-        mouseY = e.clientY;
-    });
-    
-    // Smooth follow animation
-    function updatePosition() {
-        // Calculate target position with offset (negative = left of cursor)
-        let targetX = mouseX + cursorDistance;
-        let targetY = mouseY;
-        
-        // Keep within viewport bounds (mascotWidth declared above)
-        const mascotHeight = 600;
-        const minX = 50;
-        const maxX = window.innerWidth - mascotWidth - 50; // Keep right edge on screen
-        const minY = 50;
-        const maxY = window.innerHeight - mascotHeight - 50;
-        targetX = Math.max(minX, Math.min(targetX, maxX));
-        targetY = Math.max(minY, Math.min(targetY, maxY));
-        
-        // Smooth lerp
-        currentX += (targetX - currentX) * followSpeed;
-        currentY += (targetY - currentY) * followSpeed;
-        
-        // Apply position
-        container.style.left = currentX + 'px';
-        container.style.top = currentY + 'px';
-        container.style.right = 'auto';
-        container.style.transform = 'none';
-        
-        requestAnimationFrame(updatePosition);
-    }
-    
-    // Apply initial position immediately
-    container.style.left = currentX + 'px';
-    container.style.top = currentY + 'px';
-    container.style.right = 'auto';
-    console.log('Mascot initial position:', currentX, currentY);
-    console.log('Window size:', window.innerWidth, window.innerHeight);
-    
-    // Start position update loop
-    requestAnimationFrame(updatePosition);
-    
-    // Initialize
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initRive);
-    } else {
-        initRive();
-    }
-})();
-</script>
 </body>
 </html>
 
