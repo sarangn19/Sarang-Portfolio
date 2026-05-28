@@ -113,8 +113,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 .persona-body{font-size:0.875rem;color:rgba(0,0,0,.7);line-height:1.75;align-self:stretch}
 
 /* ── ideation ── */
-.hmw-row{display:grid;grid-template-columns:minmax(0,2fr) minmax(0,1fr);gap:clamp(24px,4vw,80px);align-items:start}
-.hmw-placeholder{background:#EEEEEE;border-radius:4px;aspect-ratio:2/1;min-height:120px}
+.hmw-row{display:flex;flex-direction:column;gap:clamp(24px,4vw,80px)}
 .sol-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(12px,1.5vw,24px)}
 .sol-card{border:1px solid rgba(0,0,0,.1);border-radius:4px;padding:clamp(16px,2vw,32px);display:flex;flex-direction:column;gap:10px}
 .sol-title{font-size:1.125rem;font-weight:700;color:rgba(0,0,0,.8)}
@@ -232,7 +231,6 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
   .hero-meta{grid-template-columns:1fr}
   .meta-cols{grid-template-columns:1fr 1fr}
   .two-col{grid-template-columns:1fr}
-  .hmw-row{grid-template-columns:1fr}
 }
 @media(max-width:600px){
   .meta-cols{grid-template-columns:1fr}
@@ -506,7 +504,6 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
         How might we guide students daily without overwhelming them?<br>
         How might we make revision active and effective?<br>
         How might we show real progress to keep students motivated?</p>
-        <div class="hmw-placeholder"></div>
       </div>
     </div>
 
