@@ -318,11 +318,29 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 .ft-sub{font-size:1.25rem;font-weight:400;color:rgba(0,0,0,.5);line-height:1.4;margin-top:-12px}
 .ft-impact{background:#f5f5f5;border-radius:12px;padding:clamp(20px,3vw,40px);margin-top:clamp(16px,2vw,32px)}
 .ft-impact p{font-style:italic;color:rgba(0,0,0,.5)}
+
+/* ── sidebar ── */
+.cs-sidebar{position:fixed;left:clamp(12px,2vw,40px);top:50%;transform:translateY(-50%);z-index:10;display:flex;flex-direction:column;gap:10px}
+.cs-sidebar a{text-decoration:none;font-size:0.68rem;font-weight:500;color:rgba(0,0,0,.18);font-family:'Satoshi',sans-serif;transition:color .3s ease;letter-spacing:.01em;text-transform:uppercase}
+.cs-sidebar a:hover{color:rgba(0,0,0,.4)}
+.cs-sidebar a.active{color:#000}
+@media(max-width:1100px){.cs-sidebar{display:none}}
 </style>
 </head>
 <body class="cs-page">
 <div class="page-wrapper">
 <div class="cursor"></div><div class="cursor-dot"></div>
+
+<nav class="cs-sidebar" id="csSidebar">
+  <a href="#overview" class="active">Overview</a>
+  <a href="#dashboard">Dashboard</a>
+  <a href="#learn">Learn</a>
+  <a href="#calendar">Calendar</a>
+  <a href="#chatbot">AI Chatbot</a>
+  <a href="#statistics">Analytics</a>
+  <a href="#current-affairs">Current Affairs</a>
+  <a href="#impact">Impact</a>
+</nav>
 
 <!-- NAV -->
 <nav class="navbar">
@@ -361,7 +379,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 </div>
 
 <!-- OVERVIEW -->
-<section class="sec cs-reveal">
+<section class="sec cs-reveal" id="overview">
   <div class="w sec-gap">
     <div class="ft-hdr">
       <span class="ft-label">Overview</span>
@@ -373,7 +391,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 </section>
 
 <!-- FEATURE: DASHBOARD -->
-<section class="sec cs-reveal">
+<section class="sec cs-reveal" id="dashboard">
   <div class="w sec-gap">
     <div class="ft-hdr">
       <span class="ft-label">Feature</span>
@@ -411,7 +429,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 </section>
 
 <!-- FEATURE: LEARN -->
-<section class="sec cs-reveal">
+<section class="sec cs-reveal" id="learn">
   <div class="w sec-gap">
     <div class="ft-hdr">
       <span class="ft-label">Feature</span>
@@ -449,7 +467,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 </section>
 
 <!-- FEATURE: CALENDAR & REVISION -->
-<section class="sec cs-reveal">
+<section class="sec cs-reveal" id="calendar">
   <div class="w sec-gap">
     <div class="ft-hdr">
       <span class="ft-label">Feature</span>
@@ -480,7 +498,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 </section>
 
 <!-- FEATURE: AI CHATBOT -->
-<section class="sec cs-reveal">
+<section class="sec cs-reveal" id="chatbot">
   <div class="w sec-gap">
     <div class="ft-hdr">
       <span class="ft-label">Feature</span>
@@ -526,7 +544,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 </section>
 
 <!-- FEATURE: STATISTICS -->
-<section class="sec cs-reveal">
+<section class="sec cs-reveal" id="statistics">
   <div class="w sec-gap">
     <div class="ft-hdr">
       <span class="ft-label">Feature</span>
@@ -564,7 +582,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 </section>
 
 <!-- FEATURE: CURRENT AFFAIRS -->
-<section class="sec cs-reveal">
+<section class="sec cs-reveal" id="current-affairs">
   <div class="w sec-gap">
     <div class="ft-hdr">
       <span class="ft-label">Feature</span>
@@ -595,7 +613,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 </section>
 
 <!-- IMPACT -->
-<section class="sec cs-reveal">
+<section class="sec cs-reveal" id="impact">
   <div class="w sec-gap">
     <div class="ft-hdr">
       <span class="ft-label">Outcome</span>
@@ -854,6 +872,22 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
         if (e.target === modal || e.target.classList.contains('cs-modal-bg')) closeModal();
     });
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
+})();
+
+// ── Sidebar scroll-spy ──
+(function(){
+    const links = document.querySelectorAll('.cs-sidebar a');
+    if (!links.length) return;
+    const sections = Array.from(links).map(a => document.getElementById(a.getAttribute('href').slice(1))).filter(Boolean);
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) return;
+            links.forEach(l => l.classList.remove('active'));
+            const active = document.querySelector(`.cs-sidebar a[href="#${entry.target.id}"]`);
+            if (active) active.classList.add('active');
+        });
+    }, { threshold: 0.2, rootMargin: '-80px 0px -40% 0px' });
+    sections.forEach(s => io.observe(s));
 })();
 </script>
 </div>
