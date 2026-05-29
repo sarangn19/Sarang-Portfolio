@@ -197,24 +197,17 @@
             border-color: #0a0a0a;
             transform: translateY(-4px);
         }
-        .exp-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 36px;
-            height: 36px;
-            border-radius: 10px;
-            background: rgba(0,0,0,.06);
-            font-size: .75rem;
-            font-weight: 700;
-            letter-spacing: -.02em;
-            color: #0a0a0a;
+        .exp-icon {
+            width: 42px;
+            height: 42px;
+            object-fit: contain;
+            display: block;
             margin-bottom: 14px;
-            transition: background .3s ease, color .3s ease;
+            border-radius: 8px;
+            transition: transform .3s ease;
         }
-        .exp-card:hover .exp-badge {
-            background: rgba(255,255,255,.15);
-            color: #fff;
+        .exp-card:hover .exp-icon {
+            transform: scale(1.1);
         }
         .exp-name {
             font-size: 1rem;
@@ -348,32 +341,32 @@
             </div>
             <div class="expertise-grid">
                 <div class="exp-card">
-                    <div class="exp-badge">UX</div>
+                    <img src="uiux.png" alt="" class="exp-icon">
                     <div class="exp-name">UI/UX Designing</div>
                     <div class="exp-sub">User research, wireframes, prototypes, and pixel-perfect interfaces</div>
                 </div>
                 <div class="exp-card">
-                    <div class="exp-badge">GD</div>
+                    <img src="graphic designing.png" alt="" class="exp-icon">
                     <div class="exp-name">Graphic Designing</div>
                     <div class="exp-sub">Branding, posters, social media visuals, and print design</div>
                 </div>
                 <div class="exp-card">
-                    <div class="exp-badge">VE</div>
+                    <img src="video editing.png" alt="" class="exp-icon">
                     <div class="exp-name">Video Editing</div>
                     <div class="exp-sub">Short-form &amp; long-form edits, storytelling, and post-production</div>
                 </div>
                 <div class="exp-card">
-                    <div class="exp-badge">MG</div>
+                    <img src="motion graphics.png" alt="" class="exp-icon">
                     <div class="exp-name">Motion Graphics</div>
                     <div class="exp-sub">Kinetic typography, explainers, transitions, and animated assets</div>
                 </div>
                 <div class="exp-card">
-                    <div class="exp-badge">UG</div>
+                    <img src="unity gaming.png" alt="" class="exp-icon">
                     <div class="exp-name">Unity Gaming</div>
                     <div class="exp-sub">2D/3D game design, interactive experiences, and prototyping</div>
                 </div>
                 <div class="exp-card">
-                    <div class="exp-badge">VC</div>
+                    <img src="vibe coding.png" alt="" class="exp-icon">
                     <div class="exp-name">Vibecoding</div>
                     <div class="exp-sub">Rapid prototyping with AI tools and modern front-end stacks</div>
                 </div>
