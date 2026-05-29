@@ -301,6 +301,23 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
   .sg-grid,.sg-typo-grid,.sg-ui{grid-template-columns:1fr}
   .sg-colors{grid-template-columns:repeat(2,1fr)}
 }
+
+/* ── modal ── */
+.cs-modal{position:fixed;inset:0;z-index:9999;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:opacity .35s ease,visibility .35s ease}
+.cs-modal.open{opacity:1;visibility:visible}
+.cs-modal-bg{position:absolute;inset:0;background:rgba(0,0,0,.65);backdrop-filter:blur(6px)}
+.cs-modal-wrap{position:relative;width:min(95vw,1100px);max-height:90vh;overflow-y:auto;background:#fff;border-radius:20px;padding:clamp(24px,4vw,56px) clamp(20px,4vw,48px);transform:translateY(24px);transition:transform .4s cubic-bezier(.22,1,.36,1)}
+.cs-modal.open .cs-modal-wrap{transform:translateY(0)}
+.cs-modal-x{position:sticky;top:0;float:right;width:40px;height:40px;border-radius:50%;border:none;background:rgba(0,0,0,.06);color:#000;font-size:1.2rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .25s;z-index:2}
+.cs-modal-x:hover{background:rgba(0,0,0,.12)}
+.cs-modal-inner{clear:right}
+
+/* ── feature section ── */
+.ft-hdr{display:flex;flex-direction:column;gap:8px;margin-bottom:clamp(24px,3vw,48px)}
+.ft-label{font-size:0.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,0,0,.35)}
+.ft-sub{font-size:1.25rem;font-weight:400;color:rgba(0,0,0,.5);line-height:1.4;margin-top:-12px}
+.ft-impact{background:#f5f5f5;border-radius:12px;padding:clamp(20px,3vw,40px);margin-top:clamp(16px,2vw,32px)}
+.ft-impact p{font-style:italic;color:rgba(0,0,0,.5)}
 </style>
 </head>
 <body class="cs-page">
@@ -328,7 +345,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
     <p class="t-eyebrow" style="margin-bottom:clamp(16px,2vw,32px);">Case Study · EdTech · UX Research + Product Design</p>
     <h1 class="t-h1" style="margin-bottom:clamp(24px,3vw,48px);">Second Brain: Designing Against Study Overwhelm &amp; Inconsistency</h1>
     <div class="hero-meta">
-      <p class="t-body-lg" style="color:rgba(0,0,0,.6);">Students preparing for competitive exams appear productive — they create study plans, use multiple apps, and spend hours studying. However, this effort rarely translates into consistent progress or real mastery.</p>
+      <p class="t-body-lg" style="color:rgba(0,0,0,.6);">SecondBrain is an intelligent UPSC preparation platform that helps aspirants manage their entire learning journey in one place — from daily planning and AI-powered revision to performance analytics and current affairs intelligence.</p>
       <div class="meta-cols">
         <div class="meta-col"><span class="t-label">Role</span><span class="t-meta-val">UI/UX Designer</span></div>
         <div class="meta-col"><span class="t-label">Method</span><span class="t-meta-val">Interviews, Affinity mapping, Secondary research</span></div>
@@ -343,390 +360,446 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
   </div>
 </div>
 
-<!-- PROBLEM -->
+<!-- OVERVIEW -->
 <section class="sec cs-reveal">
   <div class="w sec-gap">
-    <h2 class="t-h2">Problem</h2>
-    <p class="t-body-lg">Students preparing for competitive exams appear productive — they create study plans, use multiple apps, and spend hours studying. However, this effort rarely translates into consistent progress or real mastery. Despite having access to tools like note-taking apps, flashcards, and AI assistants, students struggle to maintain an effective study system.</p>
+    <div class="ft-hdr">
+      <span class="ft-label">Overview</span>
+      <h2 class="t-h2">Project Overview</h2>
+    </div>
+    <p class="t-body-lg">SecondBrain is an intelligent UPSC preparation platform designed to help aspirants manage their entire learning journey in one place. Instead of switching between notes, current affairs websites, PDFs, coaching materials, and multiple productivity tools, students can learn, revise, track progress, and generate study resources through a single AI-powered ecosystem.</p>
+    <p class="t-body-lg">The platform combines personalized learning, AI-assisted content generation, progress analytics, and structured revision systems to improve preparation efficiency and reduce information overload.</p>
   </div>
 </section>
 
-<!-- RESEARCH -->
+<!-- FEATURE: DASHBOARD -->
 <section class="sec cs-reveal">
   <div class="w sec-gap">
-    <h2 class="t-h2">Research</h2>
-
-    <!-- Secondary Research -->
-    <div class="sec-gap gap-md">
-      <h3 class="t-h3">Secondary Research (Indian Context)</h3>
-      <p class="t-body-lg">Students preparing for competitive exams rely on a combination of tools like Notion for planning, Anki for revision, Forest for focus, Unacademy for structured learning, and ChatGPT for instant doubt-solving. While each tool is effective in its own domain, they operate in isolation and fail to support the complete learning journey. This fragmented ecosystem increases cognitive load, disrupts consistency, and prevents students from translating effort into meaningful progress.</p>
+    <div class="ft-hdr">
+      <span class="ft-label">Feature</span>
+      <h2 class="t-h2">Dashboard</h2>
+      <p class="ft-sub">The Student's Command Center</p>
     </div>
-
-    <!-- Comparison Table -->
-    <div class="tbl-wrap">
-      <table class="tbl">
-        <thead>
-          <tr>
-            <th style="min-width:90px">Product</th>
-            <th>Daily Planning</th><th>Active Recall</th><th>Spaced Repetition</th>
-            <th>Progress Tracking</th><th>Focus / Distraction Control</th>
-            <th>Context-aware AI</th><th>All-in-one System</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr><td>Notion</td><td class="ok">Strong</td><td>—</td><td>—</td><td>Basic</td><td>—</td><td>—</td><td>—</td></tr>
-          <tr><td>Anki</td><td>—</td><td class="ok">Strong</td><td class="ok">Strong</td><td>Limited</td><td>—</td><td>—</td><td>—</td></tr>
-          <tr><td>Forest</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="ok">Strong</td><td>—</td><td>—</td></tr>
-          <tr><td>Unacademy</td><td>Limited</td><td>Partial</td><td>—</td><td>Basic</td><td>—</td><td>—</td><td>—</td></tr>
-          <tr><td>ChatGPT</td><td>—</td><td>Limited</td><td>—</td><td>—</td><td>—</td><td>Limited</td><td>—</td></tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- User Survey -->
-    <div class="sec-gap gap-md" style="margin-top:clamp(16px,2vw,32px)">
-      <h3 class="t-h3">User Survey (Quantitative Research)</h3>
-      <div class="stat-row">
-        <div class="stat-block"><span class="stat-lbl">Participants</span><span class="stat-num">32</span></div>
-        <div class="stat-div"></div>
-        <div class="stat-block"><span class="stat-lbl">Age</span><span class="stat-num">15–25</span></div>
-        <p class="t-body-lg" style="flex:1;min-width:200px;">The goal of this survey was to identify patterns in study behavior, challenges, and motivation. Insights helped uncover why students struggle with consistency despite using multiple tools.</p>
-      </div>
-
-      <div class="cards-3 cs-stagger">
-        <div class="card">
-          <div class="card-head"><span class="t-h4">Study Planning Behavior</span><span class="t-body">How students approach planning</span></div>
-          <div class="dot-list">
-            <div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">70% create detailed study plans</span></div>
-            <div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">40% spend more time planning than studying</span></div>
-            <div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">52% fail to follow them consistently</span></div>
-          </div>
-          <span class="card-note">Planning becomes a form of procrastination</span>
-        </div>
-        <div class="card">
-          <div class="card-head"><span class="t-h4">Revision Behavior</span><span class="t-body">How students revise topics</span></div>
-          <div class="dot-list">
-            <div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">65% rely on re-reading notes</span></div>
-            <div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">48% use highlighting as main method</span></div>
-            <div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">25% use active recall (flashcards/tests)</span></div>
-          </div>
-          <span class="card-note">Most students use passive learning methods</span>
-        </div>
-        <div class="card">
-          <div class="card-head"><span class="t-h4">Tool Usage Behavior</span><span class="t-body">Tools students use while studying</span></div>
-          <div class="dot-list">
-            <div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">72% use YouTube / EdTech platforms</span></div>
-            <div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">60% use note-taking apps (Notion, etc.)</span></div>
-            <div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">45% use AI tools like ChatGPT</span></div>
-            <div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">35% use flashcards (Anki)</span></div>
-          </div>
-          <span class="card-note">High dependency but fragmented usage</span>
+    <p class="t-body-lg">The Dashboard acts as the central hub of the platform, helping students stay focused on what matters most every day.</p>
+    <div class="cards-3 cs-stagger">
+      <div class="card">
+        <div class="card-head"><span class="t-h4">Daily Guidance</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Displays daily study goals and progress</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Highlights pending revisions and overdue topics</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Shows AI-generated study recommendations</span></div>
         </div>
       </div>
-
-      <div class="cards-2 cs-stagger">
-        <div class="card">
-          <div class="card-head"><span class="t-h4">Motivation &amp; Consistency</span><span class="t-body">What affects consistency</span></div>
-          <div class="dot-list">
-            <div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">68% lose motivation after small failures</span></div>
-            <div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">55% feel overwhelmed by syllabus</span></div>
-            <div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">47% compare themselves with others</span></div>
-          </div>
-          <span class="card-note">Motivation is emotionally fragile</span>
+      <div class="card">
+        <div class="card-head"><span class="t-h4">Quick Access</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Current affairs, notes, flashcards, chatbot</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Tracks daily consistency and study streaks</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Surfaces important UPSC updates</span></div>
         </div>
-        <div class="card">
-          <div class="card-head"><span class="t-h4">Progress Tracking Behavior</span><span class="t-body">How students measure progress</span></div>
-          <div class="dot-list">
-            <div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">66% track hours studied</span></div>
-            <div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">42% track completed tasks</span></div>
-            <div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">18% track actual understanding</span></div>
-          </div>
-          <span class="card-note">Shows illusion of productivity</span>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="t-h4">Planning</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Displays upcoming tasks and calendar events</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Shows what to study next</span></div>
         </div>
       </div>
     </div>
-
-    <!-- User Interviews -->
-    <div class="sec-gap gap-md" style="margin-top:clamp(16px,2vw,32px)">
-      <h3 class="t-h3">User Interviews</h3>
-      <div class="stat-row">
-        <div class="stat-block"><span class="stat-lbl">Participants</span><span class="stat-num">30</span></div>
-        <p class="t-body-lg" style="flex:1;min-width:200px;">The goal of these interviews was to understand deep behavioral patterns, emotional triggers, and real study habits beyond surface-level survey data. What I explored: how students actually study daily, how they revise and retain information, what breaks their focus and motivation, how they measure progress, and emotional struggles during preparation.</p>
-      </div>
-    </div>
-
-    <!-- Affinity Mapping -->
-    <div class="sec-gap gap-md" style="margin-top:clamp(16px,2vw,32px)">
-      <h3 class="t-h3">Affinity Mapping</h3>
-      <div class="affinity-grid cs-stagger">
-        <div class="affinity-card"><div class="affinity-img"><img src="../assets/planning= execution icon.png" alt="Planning icon"></div><div class="affinity-body"><div class="affinity-title">Planning ≠ Execution</div><div class="affinity-text">Students invest time in planning (Notion, timetables), but struggle to act. "I spend more time organizing my study plan than actually studying."</div></div></div>
-        <div class="affinity-card"><div class="affinity-img"><img src="../assets/passive revision is common.png" alt="Passive revision icon"></div><div class="affinity-body"><div class="affinity-title">Passive Revision is Common</div><div class="affinity-text">Most students re-read or highlight instead of testing themselves. "I keep reading my notes again and again, but I still forget in exams."</div></div></div>
-        <div class="affinity-card"><div class="affinity-img"><img src="../assets/environment.png" alt="Environment icon"></div><div class="affinity-body"><div class="affinity-title">Environment Strongly Affects Focus</div><div class="affinity-text">Distractions vary widely: phone notifications, noisy surroundings, messy study spaces. "Even a small distraction breaks my flow completely."</div></div></div>
-        <div class="affinity-card"><div class="affinity-img"><img src="../assets/motivation.png" alt="Motivation icon"></div><div class="affinity-body"><div class="affinity-title">Motivation is Emotion-Driven</div><div class="affinity-text">One wrong answer → self-doubt. Peer comparison → stress. "When others are ahead, I feel like I'm already behind."</div></div></div>
-        <div class="affinity-card"><div class="affinity-img"><img src="../assets/tools are.png" alt="Tools icon"></div><div class="affinity-body"><div class="affinity-title">Tools Are Fragmented</div><div class="affinity-text">Students switch between notes apps, flashcards, videos, AI tools. "I use so many apps, but nothing connects properly."</div></div></div>
-        <div class="affinity-card"><div class="affinity-img"><img src="../assets/revision strategies.png" alt="Revision icon"></div><div class="affinity-body"><div class="affinity-title">Revision Strategies Are Inconsistent</div><div class="affinity-text">Students use mixed methods: flashcards, mind maps, teaching others. No structured system.</div></div></div>
-      </div>
-      <div class="two-col" style="margin-top:clamp(12px,1.5vw,24px)">
-        <div><div class="insight-title">Key Insight</div><p class="t-body">Students are highly active but lack direction and feedback. Their study journey is unstructured, emotionally unstable, and hard to measure.</p></div>
-        <div><div class="insight-title">Conclusion</div><p class="t-body">The interviews revealed that the core issue is not lack of effort, but the absence of a guided, connected learning system that supports execution over planning, active learning over passive reading, and confidence over anxiety.</p></div>
-      </div>
-    </div>
+    <div class="ft-impact"><p class="t-body-lg">Most students struggle with knowing what to study next. The Dashboard eliminates decision fatigue by creating a clear roadmap for the day.</p></div>
   </div>
 </section>
 
-<!-- USER PERSONA -->
+<!-- FEATURE: LEARN -->
 <section class="sec cs-reveal">
   <div class="w sec-gap">
-    <h3 class="t-h3">User Persona</h3>
-    <div class="persona-grid cs-stagger">
-      <div class="persona">
-        <div class="persona-img"><img src="../assets/overplanner user persona.png" alt="Overplanner persona"></div>
-        <div class="persona-name">The Overplanner</div>
-        <div class="persona-body"><strong>Age:</strong> 22 &nbsp;·&nbsp; <strong>Goal:</strong> Stay consistent and complete syllabus on time<br><br><strong>Behavior</strong><br>Creates detailed study plans (Notion, schedules). Spends time organizing instead of studying. Constantly restructures plans.<br><br><strong>Pain Points</strong><br>Feels overwhelmed by syllabus. Gets stuck in planning loop. Struggles to take action.<br><br><em>"I plan everything perfectly… but I don't follow it."</em><br><br><strong>Needs</strong><br>Clear daily direction · Reduced decision-making · Action-focused system</div>
-      </div>
-      <div class="persona">
-        <div class="persona-img"><img src="../assets/passive learner.png" alt="Passive learner persona"></div>
-        <div class="persona-name">The Passive Learner</div>
-        <div class="persona-body"><strong>Name:</strong> Riya &nbsp;·&nbsp; <strong>Age:</strong> 21<br><strong>Goal:</strong> Understand and remember concepts effectively<br><br><strong>Behavior</strong><br>Re-reads notes multiple times. Highlights important sections. Watches lectures repeatedly.<br><br><strong>Pain Points</strong><br>Forgets information quickly. Feels prepared but performs poorly. No structured revision method.<br><br><em>"I study a lot, but I still forget everything in exams."</em><br><br><strong>Needs</strong><br>Active recall methods · Structured revision system · Feedback on understanding</div>
-      </div>
-      <div class="persona">
-        <div class="persona-img"><img src="../assets/distracted learner.png" alt="Distracted learner persona"></div>
-        <div class="persona-name">The Distracted Learner</div>
-        <div class="persona-body"><strong>Name:</strong> Kabir &nbsp;·&nbsp; <strong>Age:</strong> 23<br><strong>Goal:</strong> Stay focused and build consistency<br><br><strong>Behavior</strong><br>Uses multiple tools (apps, videos, AI). Gets distracted easily. Starts strong but loses momentum.<br><br><strong>Pain Points</strong><br>Breaks focus frequently. Feels guilty after unproductive days. Inconsistent study routine.<br><br><em>"I start well, but I can't stay consistent."</em><br><br><strong>Needs</strong><br>Distraction control · Structured study flow · Motivation support</div>
-      </div>
+    <div class="ft-hdr">
+      <span class="ft-label">Feature</span>
+      <h2 class="t-h2">Learn Page</h2>
+      <p class="ft-sub">Personal Knowledge Repository</p>
     </div>
-  </div>
-</section>
-
-<!-- FINAL PROBLEM STATEMENT -->
-<section class="sec cs-reveal">
-  <div class="w sec-gap">
-    <h3 class="t-h3">Final Problem Statement</h3>
-    <p class="t-body-lg">Students preparing for competitive exams struggle to plan their daily study, revise effectively, and track meaningful progress, because their learning process is fragmented across multiple tools, relies heavily on passive methods, and lacks clear feedback on actual understanding. As a result, they experience cognitive overload, inconsistent study habits, and declining motivation, making it difficult to sustain long-term preparation and achieve mastery.</p>
-  </div>
-</section>
-
-<!-- IDEATION -->
-<section class="sec cs-reveal">
-  <div class="w sec-gap">
-    <h2 class="t-h2">Ideation</h2>
-
-    <div class="sec-gap gap-md">
-      <h3 class="t-h3">How Might We (HMW) Questions</h3>
-      <div class="hmw-row">
-        <p class="t-body-lg">Based on the research insights, the following questions were framed to guide the design direction:<br><br>
-        How might we guide students daily without overwhelming them?<br>
-        How might we make revision active and effective?<br>
-        How might we show real progress to keep students motivated?</p>
-      </div>
-    </div>
-
-    <div class="sec-gap gap-md">
-      <h3 class="t-h3" style="opacity:.8">Key Solution Ideas</h3>
-      <div class="sol-grid cs-stagger">
-        <div class="sol-card"><div class="sol-title">Guided Daily Study Flow</div><div class="sol-body">Instead of asking students to plan everything, the system provides a clear daily path. Shows "What to study today", breaks syllabus into manageable tasks, removes decision-making.</div><div class="sol-note">💡 Solves: Overplanning &amp; decision fatigue</div></div>
-        <div class="sol-card"><div class="sol-title">Built-in Active Recall System</div><div class="sol-body">Replace passive revision with question-based learning. Converts notes into questions automatically, quiz-based revision, instant feedback on answers.</div><div class="sol-note">💡 Solves: Passive learning &amp; poor retention</div></div>
-        <div class="sol-card"><div class="sol-title">Smart Revision (Spaced Repetition)</div><div class="sol-body">System decides when to revise. Schedules revision automatically, prioritizes weak topics, repeats content at optimal intervals.</div><div class="sol-note">💡 Solves: Forgetting &amp; unstructured revision</div></div>
-        <div class="sol-card"><div class="sol-title">Motivation Protection Layer</div><div class="sol-body">Designed to support users emotionally, not punish them. Encourages after mistakes, tracks streaks without pressure, shows small wins.</div><div class="sol-note">💡 Solves: Low confidence &amp; inconsistency</div></div>
-        <div class="sol-card"><div class="sol-title">Mastery-Based Progress Tracking</div><div class="sol-body">Track learning, not time. Shows topic-wise understanding, readiness score, highlights weak areas.</div><div class="sol-note">💡 Solves: Illusion of productivity</div></div>
-        <div class="sol-card"><div class="sol-title">Context-Aware AI Assistant</div><div class="sol-body">AI that understands your learning journey. Explains concepts based on your level, generates quizzes from your notes, suggests what to study next.</div><div class="sol-note">💡 Solves: Generic AI help &amp; lack of guidance</div></div>
-        <div class="sol-card"><div class="sol-title">Unified Learning System</div><div class="sol-body">Everything in one place. Connects planning, studying, revision, and tracking.</div><div class="sol-note">💡 Solves: Fragmented tools &amp; switching fatigue</div></div>
-      </div>
-    </div>
-
-    <div class="core-idea">
-      <div class="core-label">Core Idea</div>
-      <div class="core-text">From "multiple disconnected tools" → to "one guided learning system"</div>
-    </div>
-  </div>
-</section>
-
-<!-- INFORMATION ARCHITECTURE -->
-<section class="sec cs-reveal">
-  <div class="w sec-gap">
-    <h3 class="t-h3" style="opacity:.8">Information Architecture</h3>
-    <img src="../assets/information architecture.png" alt="Information Architecture diagram" style="width:100%;max-width:1200px;display:block;margin:0 auto;border-radius:12px">
-  </div>
-</section>
-
-<!-- USER FLOW -->
-<section class="sec cs-reveal">
-  <div class="w sec-gap">
-    <h3 class="t-h3" style="opacity:.8">User Flow</h3>
-    <div class="flow-list">
-      <div class="flow-item"><span class="flow-num">01</span><span class="flow-name">Onboarding flow</span><span class="flow-steps">Welcome → Goal Selection → Profile Setup → SWOT Mapping → Study Preferences → AI Setup → First Output → Dashboard</span></div>
-      <div class="flow-item"><span class="flow-num">02</span><span class="flow-name">Revision flow</span><span class="flow-steps">Trigger Revision → Select Content → Revise Mode → Active Recall → Performance Check → AI Feedback → Reschedule</span></div>
-      <div class="flow-item"><span class="flow-num">03</span><span class="flow-name">Note reading flow</span><span class="flow-steps">Learn Section → Select Note → Reading Mode → Interaction Layer → Action Layer → Exit with Outcome</span></div>
-      <div class="flow-item"><span class="flow-num">04</span><span class="flow-name">Note generation flow</span><span class="flow-steps">Input → AI Processing → Output (Flashcards / MCQs) → Edit → Save → Revise</span></div>
-      <div class="flow-item"><span class="flow-num">05</span><span class="flow-name">MCQ / flashcard flow</span><span class="flow-steps">User asks question → AI responds (structured answer) → User interacts with response → User converts / saves content</span></div>
-    </div>
-  </div>
-</section>
-
-<!-- USER JOURNEY MAPPING -->
-<section class="sec cs-reveal">
-  <div class="w sec-gap">
-    <h3 class="t-h3" style="opacity:.8">User Journey Mapping</h3>
-    <div class="jrn-wrap">
-      <table class="jrn">
-        <thead><tr><th>Stage</th><th>User Action</th><th>Thought</th><th>Pain Point</th><th>Opportunity</th></tr></thead>
-        <tbody>
-          <tr><td>Awareness</td><td>Discovers app via social or peer</td><td>"Maybe this will help me stay consistent"</td><td>Skeptical after trying many tools</td><td>Clear value prop showing unified system</td></tr>
-          <tr><td>Onboarding</td><td>Sets up goal, exam, subjects</td><td>"This feels personalized"</td><td>Long setup feels tedious</td><td>Progressive onboarding with immediate value</td></tr>
-          <tr><td>Daily Study</td><td>Opens dashboard, sees today's tasks</td><td>"I know exactly what to do today"</td><td>Distraction during sessions</td><td>Focus mode with distraction blocking</td></tr>
-          <tr><td>Note Taking</td><td>Uploads notes, AI generates cards</td><td>"My notes are ready for revision automatically"</td><td>Manual conversion is tedious</td><td>One-click AI conversion</td></tr>
-          <tr><td>Revision</td><td>System prompts, user completes cards</td><td>"I'm actually testing myself"</td><td>Forgetting to revise</td><td>Smart spaced repetition reminders</td></tr>
-          <tr><td>Progress Check</td><td>Views mastery map, readiness score</td><td>"I can see where I'm strong and weak"</td><td>Tracking hours not understanding</td><td>Mastery-based progress visualization</td></tr>
-          <tr><td>AI Help</td><td>Asks AI for concept explanation</td><td>"The AI knows my context"</td><td>Generic AI responses</td><td>Context-aware AI tied to notes and progress</td></tr>
-          <tr><td>Motivation</td><td>Sees streak, small wins, encouragement</td><td>"Even when I fail, the app supports me"</td><td>Guilt after missed days</td><td>Compassionate streak system with recovery mode</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-</section>
-
-<!-- STYLE GUIDE / DESIGN SYSTEM -->
-<section class="sg cs-reveal">
-  <div class="sg-inner">
-    <div class="sg-hdr">
-      <p class="sg-label">Design System</p>
-      <h2 class="t-h2">SecondBrain — Style Guide</h2>
-      <p class="sg-lead">Key visual and UX decisions for the AI-powered preparation ecosystem.</p>
-    </div>
-
-    <div class="sg-grid wide" style="gap:clamp(16px,2vw,24px)">
-      <div class="sg-card">
-        <h4>Brand Personality</h4>
-        <div class="sg-tags">
-          <span style="background:#5B7CFF;color:#fff">Intelligent</span>
-          <span style="background:rgba(0,0,0,.06);color:rgba(0,0,0,.55)">Calm</span>
-          <span style="background:#8A7DFF;color:#fff">Premium</span>
-          <span style="background:rgba(0,0,0,.06);color:rgba(0,0,0,.55)">Structured</span>
-          <span style="background:rgba(0,0,0,.06);color:rgba(0,0,0,.55)">Futuristic</span>
-          <span style="background:rgba(0,0,0,.06);color:rgba(0,0,0,.55)">Minimal</span>
+    <p class="t-body-lg">The Learn Page serves as the student's digital library where all learning resources are automatically organized and stored.</p>
+    <div class="cards-3 cs-stagger">
+      <div class="card">
+        <div class="card-head"><span class="t-h4">Content Storage</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Stores AI-generated notes and summaries</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Saves flashcards from PDFs, articles, chats</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Organizes MCQs and practice questions</span></div>
         </div>
-        <div class="sg-block" style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(0,0,0,.06)">
-          <div class="bl-text">Reduce clutter, prioritize clarity, use whitespace aggressively. Motion feels intelligent, not playful.</div>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="t-h4">Organization</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Categorized by subject, topic, and exam stage</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Quick search across all study materials</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Continuous knowledge accumulation</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="t-h4">Access</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Revisit previously generated content anytime</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Organized browsing experience</span></div>
         </div>
       </div>
     </div>
-
-    <div class="sg-grid wide" style="margin-top:clamp(16px,2vw,24px)">
-      <div class="sg-card">
-        <h4>Color Palette</h4>
-        <div class="sg-colors">
-          <div class="sw"><div class="bar" style="background:#5B7CFF"></div><span class="sl">Primary</span><span class="sh">#5B7CFF</span></div>
-          <div class="sw"><div class="bar" style="background:#0B1020"></div><span class="sl">Deep BG</span><span class="sh">#0B1020</span></div>
-          <div class="sw"><div class="bar" style="background:#131A2E"></div><span class="sl">Surface</span><span class="sh">#131A2E</span></div>
-          <div class="sw"><div class="bar" style="background:#1B2440"></div><span class="sl">Elevated</span><span class="sh">#1B2440</span></div>
-          <div class="sw"><div class="bar" style="background:#00D68F"></div><span class="sl">Success</span><span class="sh">#00D68F</span></div>
-          <div class="sw"><div class="bar" style="background:#FFB547"></div><span class="sl">Warning</span><span class="sh">#FFB547</span></div>
-          <div class="sw"><div class="bar" style="background:#FF5A7A"></div><span class="sl">Error</span><span class="sh">#FF5A7A</span></div>
-          <div class="sw"><div class="bar" style="background:#8A7DFF"></div><span class="sl">AI Purple</span><span class="sh">#8A7DFF</span></div>
-        </div>
-      </div>
-    </div>
-
-    <div class="sg-grid wide" style="margin-top:clamp(16px,2vw,24px)">
-      <div class="sg-card">
-        <h4>Typography</h4>
-        <div class="sg-typo-grid">
-          <div class="tg">
-            <span class="tg-name">Primary — Satoshi</span>
-            <span class="tg-preview">Aa</span>
-            <span class="tg-body">Used for UI, body text, buttons, and labels. Clean geometric sans with a warm personality.</span>
-            <div class="sg-scale">
-              <div class="gs"><span class="gs-l">Display</span><span class="gs-v" style="font-size:1.5rem;font-weight:700">Aa</span><span class="gs-i">72px · 700</span></div>
-              <div class="gs"><span class="gs-l">Heading 1</span><span class="gs-v" style="font-size:1.15rem;font-weight:700">Aa</span><span class="gs-i">40px · 700</span></div>
-              <div class="gs"><span class="gs-l">Heading 2</span><span class="gs-v" style="font-size:1rem;font-weight:700">Aa</span><span class="gs-i">32px · 700</span></div>
-              <div class="gs"><span class="gs-l">Body</span><span class="gs-v" style="font-size:0.85rem">Aa</span><span class="gs-i">16px · 400</span></div>
-              <div class="gs"><span class="gs-l">Caption</span><span class="gs-v" style="font-size:0.7rem">Aa</span><span class="gs-i">12px · 500</span></div>
-            </div>
-          </div>
-          <div class="tg">
-            <span class="tg-name">Usage Guidelines</span>
-            <div class="sg-usage">
-              <div class="gu"><strong>Satoshi</strong> is the sole typeface — no secondary font. Weights: 400 (body), 500 (emphasis), 700 (headings), 900 (display only).</div>
-              <div class="gu">Headings use tight <strong>letter-spacing: -0.03em</strong>. Body text stays at 16px with 1.65 line-height for readability.</div>
-              <div class="gu">Text color is white on dark surfaces, <strong>rgba(255,255,255,.85)</strong> on light surfaces.</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="sg-grid wide" style="margin-top:clamp(16px,2vw,24px)">
-      <div class="sg-card">
-        <h4>UI Components</h4>
-        <div class="sg-ui">
-          <div class="ui-el">
-            <span class="ui-lbl">Buttons</span>
-            <div class="ui-row"><button class="ui-btn primary">Get Started</button><button class="ui-btn secondary">Learn More</button><button class="ui-btn ghost">Cancel</button></div>
-          </div>
-          <div class="ui-el">
-            <span class="ui-lbl">Chips / Tags</span>
-            <div class="ui-row"><span class="ui-chip active">History</span><span class="ui-chip">Polity</span><span class="ui-chip">Geography</span><span class="ui-chip">Ecology</span></div>
-          </div>
-          <div class="ui-el">
-            <span class="ui-lbl">Text Input</span>
-            <input class="ui-field" placeholder="Search topics..." readonly>
-          </div>
-          <div class="ui-el">
-            <span class="ui-lbl">Analytics Card</span>
-            <div class="ui-card-s"><div class="ui-cs-num">78%</div><div class="ui-cs-lbl">Readiness Score</div><div class="ui-cs-trend">↑ 12% this week</div></div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <div class="ft-impact"><p class="t-body-lg">Students often lose valuable insights generated during study sessions. The Learn Page ensures every piece of knowledge remains searchable and accessible.</p></div>
   </div>
 </section>
 
-<!-- DESIGN -->
+<!-- FEATURE: CALENDAR & REVISION -->
 <section class="sec cs-reveal">
   <div class="w sec-gap">
-    <h2 class="t-h2">Design</h2>
-    
-    <div class="screen-row">
-      <div class="sc">
-        <div class="screen-img"><img src="../upsc app images/image 20.png" alt="Dashboard"></div>
-        <div class="bubble-wrap"><div class="bubble">Dashboard showing daily study tasks with guided learning path and progress overview.</div></div>
+    <div class="ft-hdr">
+      <span class="ft-label">Feature</span>
+      <h2 class="t-h2">Calendar &amp; Revision Planner</h2>
+      <p class="ft-sub">Structured Preparation System</p>
+    </div>
+    <p class="t-body-lg">The Calendar helps students maintain consistency through intelligent planning and revision scheduling.</p>
+    <div class="cards-2 cs-stagger">
+      <div class="card">
+        <div class="card-head"><span class="t-h4">Planning</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Creates personalized study schedules</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Tracks upcoming tests and deadlines</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Visualizes completed and pending sessions</span></div>
+        </div>
       </div>
-      <div class="sc">
-        <div class="screen-img"><img src="../upsc app images/image 21.png" alt="Active Recall"></div>
-        <div class="bubble-wrap"><div class="bubble">Active recall interface with flashcards and quiz-based revision system.</div></div>
+      <div class="card">
+        <div class="card-head"><span class="t-h4">Revision Intelligence</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Auto-schedules revisions via spaced repetition</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Sends reminders for revision cycles</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Balances static subjects with current affairs</span></div>
+        </div>
       </div>
     </div>
-    
-    <div class="screen-row">
-      <div class="sc">
-        <div class="screen-img"><img src="../upsc app images/image 22.png" alt="Note Reading"></div>
-        <div class="bubble-wrap"><div class="bubble">Note reading mode with AI-generated flashcards and MCQs from uploaded content.</div></div>
+    <div class="ft-impact"><p class="t-body-lg">UPSC preparation is a long-term process. The Calendar transforms scattered studying into a structured and sustainable system.</p></div>
+  </div>
+</section>
+
+<!-- FEATURE: AI CHATBOT -->
+<section class="sec cs-reveal">
+  <div class="w sec-gap">
+    <div class="ft-hdr">
+      <span class="ft-label">Feature</span>
+      <h2 class="t-h2">AI Chatbot</h2>
+      <p class="ft-sub">UPSC-Specialized Learning Assistant</p>
+    </div>
+    <p class="t-body-lg">The AI Chatbot acts as a personal mentor trained specifically for UPSC preparation, providing instant help across concept learning, answer writing, content generation, and current affairs assistance.</p>
+    <div class="cards-2 cs-stagger">
+      <div class="card">
+        <div class="card-head"><span class="t-h4">Concept Learning</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Explains difficult topics in simple language</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Provides examples and real-world connections</span></div>
+        </div>
       </div>
-      <div class="sc">
-        <div class="screen-img"><img src="../upsc app images/image 23.png" alt="Spaced Repetition"></div>
-        <div class="bubble-wrap"><div class="bubble">Spaced repetition queue prioritizing weak topics for optimal revision timing.</div></div>
+      <div class="card">
+        <div class="card-head"><span class="t-h4">Answer Writing Support</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Generates model answers</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Evaluates student-written responses</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Suggests improvements in structure and content</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="t-h4">Content Generation</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Creates notes from uploaded PDFs</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Generates flashcards and MCQs instantly</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Converts sessions into structured material</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="t-h4">Current Affairs Assistance</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Explains news from UPSC perspective</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Connects events with syllabus topics</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Generates exam-relevant insights</span></div>
+        </div>
       </div>
     </div>
-    
-    <div class="screen-row">
-      <div class="sc">
-        <div class="screen-img"><img src="../upsc app images/image 24.png" alt="Mastery Map"></div>
-        <div class="bubble-wrap"><div class="bubble">Mastery map visualization showing topic-wise understanding and readiness scores.</div></div>
+    <div class="ft-impact"><p class="t-body-lg">Instead of searching across multiple platforms, students receive personalized guidance and content generation within seconds.</p></div>
+  </div>
+</section>
+
+<!-- FEATURE: STATISTICS -->
+<section class="sec cs-reveal">
+  <div class="w sec-gap">
+    <div class="ft-hdr">
+      <span class="ft-label">Feature</span>
+      <h2 class="t-h2">Statistics &amp; Performance Analytics</h2>
+      <p class="ft-sub">Data-Driven Improvement System</p>
+    </div>
+    <p class="t-body-lg">The Statistics Page helps students understand their strengths, weaknesses, and preparation trends through data-driven insights.</p>
+    <div class="cards-3 cs-stagger">
+      <div class="card">
+        <div class="card-head"><span class="t-h4">Performance Tracking</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Tracks subject-wise performance</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Monitors quiz and MCQ accuracy</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Identifies weak topics needing attention</span></div>
+        </div>
       </div>
-      <div class="sc">
-        <div class="screen-img"><img src="../upsc app images/image 25.png" alt="AI Assistant"></div>
-        <div class="bubble-wrap"><div class="bubble">Context-aware AI assistant providing personalized explanations based on study history.</div></div>
+      <div class="card">
+        <div class="card-head"><span class="t-h4">Visual Analytics</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Visualizes progress through charts and insights</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Measures revision effectiveness</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Analyzes consistency and productivity trends</span></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-head"><span class="t-h4">AI Recommendations</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Personalized improvement suggestions</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Data-backed study optimization</span></div>
+        </div>
       </div>
     </div>
-    
-    <div class="screen-row" style="grid-template-columns:1fr;justify-items:center">
-      <div class="sc" style="max-width:580px">
-        <div class="screen-img"><img src="../upsc app images/image 26.png" alt="Motivation Dashboard"></div>
-        <div class="bubble-wrap"><div class="bubble">Motivation dashboard with streak tracking, small wins, and encouragement features.</div></div>
+    <div class="ft-impact"><p class="t-body-lg">Most aspirants know how much they study but not how effectively they study. Statistics convert study activity into actionable insights.</p></div>
+  </div>
+</section>
+
+<!-- FEATURE: CURRENT AFFAIRS -->
+<section class="sec cs-reveal">
+  <div class="w sec-gap">
+    <div class="ft-hdr">
+      <span class="ft-label">Feature</span>
+      <h2 class="t-h2">Current Affairs Engine</h2>
+      <p class="ft-sub">UPSC-Ready News Intelligence</p>
+    </div>
+    <p class="t-body-lg">A dedicated current affairs system transforms daily news into exam-focused study material, saving hours of manual filtering and note-making.</p>
+    <div class="cards-2 cs-stagger">
+      <div class="card">
+        <div class="card-head"><span class="t-h4">Intelligent Processing</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Updates news automatically</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Filters irrelevant information</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Generates UPSC-focused summaries</span></div>
+        </div>
       </div>
+      <div class="card">
+        <div class="card-head"><span class="t-h4">Exam Integration</span></div>
+        <div class="dot-list">
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Creates flashcards and MCQs from news</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Links current events with syllabus topics</span></div>
+          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Builds a searchable current affairs archive</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="ft-impact"><p class="t-body-lg">Students spend less time collecting information and more time understanding and revising it.</p></div>
+  </div>
+</section>
+
+<!-- IMPACT -->
+<section class="sec cs-reveal">
+  <div class="w sec-gap">
+    <div class="ft-hdr">
+      <span class="ft-label">Outcome</span>
+      <h2 class="t-h2">Impact</h2>
+    </div>
+    <p class="t-body-lg">SecondBrain transforms UPSC preparation from a fragmented process into an integrated learning ecosystem where:</p>
+    <div class="cards-3 cs-stagger">
+      <div class="card" style="background:#f5f5f5;border:none"><div class="card-head"><span class="t-h4">AI-Powered Learning</span></div><p class="t-body">Learning happens through AI — personalized, adaptive, and always available.</p></div>
+      <div class="card" style="background:#f5f5f5;border:none"><div class="card-head"><span class="t-h4">Auto Content</span></div><p class="t-body">Notes are generated automatically from any source material.</p></div>
+      <div class="card" style="background:#f5f5f5;border:none"><div class="card-head"><span class="t-h4">Smart Revision</span></div><p class="t-body">Revision is intelligently scheduled with spaced repetition.</p></div>
+      <div class="card" style="background:#f5f5f5;border:none"><div class="card-head"><span class="t-h4">Continuous Analysis</span></div><p class="t-body">Performance is continuously analyzed to identify weak areas.</p></div>
+      <div class="card" style="background:#f5f5f5;border:none"><div class="card-head"><span class="t-h4">News Intelligence</span></div><p class="t-body">Current affairs become exam-ready content automatically.</p></div>
+      <div class="card" style="background:#f5f5f5;border:none"><div class="card-head"><span class="t-h4">Knowledge Base</span></div><p class="t-body">Every study session contributes to a growing personal knowledge base.</p></div>
     </div>
   </div>
 </section>
+
+<!-- VIEW DETAILED CASE STUDY -->
+<section class="sec" style="padding-top:0">
+  <div class="w" style="text-align:center">
+    <p class="t-body-lg" style="margin-bottom:clamp(16px,2vw,24px);color:rgba(0,0,0,.45)">Want to see the full research, personas, and design process?</p>
+    <button id="viewFullCsBtn" style="background:#0a0a0a;color:#fff;border:none;padding:14px 36px;border-radius:100px;font-size:.95rem;font-weight:500;cursor:pointer;font-family:'Satoshi',sans-serif;transition:opacity .25s ease" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">View Detailed Case Study</button>
+  </div>
+</section>
+
+<!-- MODAL OVERLAY -->
+<div id="csModal" class="cs-modal">
+  <div class="cs-modal-bg"></div>
+  <div class="cs-modal-wrap">
+    <button class="cs-modal-x" id="closeCsModal" aria-label="Close">✕</button>
+    <div class="cs-modal-inner">
+
+<!-- MODAL: PROBLEM -->
+<section class="sec"><div class="w sec-gap">
+  <h2 class="t-h2">Problem</h2>
+  <p class="t-body-lg">Students preparing for competitive exams appear productive — they create study plans, use multiple apps, and spend hours studying. However, this effort rarely translates into consistent progress or real mastery. Despite having access to tools like note-taking apps, flashcards, and AI assistants, students struggle to maintain an effective study system.</p>
+</div></section>
+
+<!-- MODAL: RESEARCH -->
+<section class="sec"><div class="w sec-gap">
+  <h2 class="t-h2">Research</h2>
+  <div class="sec-gap gap-md">
+    <h3 class="t-h3">Secondary Research (Indian Context)</h3>
+    <p class="t-body-lg">Students preparing for competitive exams rely on a combination of tools like Notion for planning, Anki for revision, Forest for focus, Unacademy for structured learning, and ChatGPT for instant doubt-solving. While each tool is effective in its own domain, they operate in isolation and fail to support the complete learning journey. This fragmented ecosystem increases cognitive load, disrupts consistency, and prevents students from translating effort into meaningful progress.</p>
+  </div>
+  <div class="tbl-wrap">
+    <table class="tbl">
+      <thead><tr><th style="min-width:90px">Product</th><th>Daily Planning</th><th>Active Recall</th><th>Spaced Repetition</th><th>Progress Tracking</th><th>Focus / Distraction Control</th><th>Context-aware AI</th><th>All-in-one System</th></tr></thead>
+      <tbody>
+        <tr><td>Notion</td><td class="ok">Strong</td><td>—</td><td>—</td><td>Basic</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>Anki</td><td>—</td><td class="ok">Strong</td><td class="ok">Strong</td><td>Limited</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>Forest</td><td>—</td><td>—</td><td>—</td><td>—</td><td class="ok">Strong</td><td>—</td><td>—</td></tr>
+        <tr><td>Unacademy</td><td>Limited</td><td>Partial</td><td>—</td><td>Basic</td><td>—</td><td>—</td><td>—</td></tr>
+        <tr><td>ChatGPT</td><td>—</td><td>Limited</td><td>—</td><td>—</td><td>—</td><td>Limited</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="sec-gap gap-md" style="margin-top:clamp(16px,2vw,32px)">
+    <h3 class="t-h3">User Survey (Quantitative Research)</h3>
+    <div class="stat-row">
+      <div class="stat-block"><span class="stat-lbl">Participants</span><span class="stat-num">32</span></div>
+      <div class="stat-div"></div>
+      <div class="stat-block"><span class="stat-lbl">Age</span><span class="stat-num">15–25</span></div>
+      <p class="t-body-lg" style="flex:1;min-width:200px;">The goal of this survey was to identify patterns in study behavior, challenges, and motivation. Insights helped uncover why students struggle with consistency despite using multiple tools.</p>
+    </div>
+    <div class="cards-3 cs-stagger">
+      <div class="card"><div class="card-head"><span class="t-h4">Study Planning Behavior</span><span class="t-body">How students approach planning</span></div><div class="dot-list"><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">70% create detailed study plans</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">40% spend more time planning than studying</span></div><div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">52% fail to follow them consistently</span></div></div><span class="card-note">Planning becomes a form of procrastination</span></div>
+      <div class="card"><div class="card-head"><span class="t-h4">Revision Behavior</span><span class="t-body">How students revise topics</span></div><div class="dot-list"><div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">65% rely on re-reading notes</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">48% use highlighting as main method</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">25% use active recall (flashcards/tests)</span></div></div><span class="card-note">Most students use passive learning methods</span></div>
+      <div class="card"><div class="card-head"><span class="t-h4">Tool Usage Behavior</span><span class="t-body">Tools students use while studying</span></div><div class="dot-list"><div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">72% use YouTube / EdTech platforms</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">60% use note-taking apps (Notion, etc.)</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">45% use AI tools like ChatGPT</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">35% use flashcards (Anki)</span></div></div><span class="card-note">High dependency but fragmented usage</span></div>
+    </div>
+    <div class="cards-2 cs-stagger">
+      <div class="card"><div class="card-head"><span class="t-h4">Motivation &amp; Consistency</span><span class="t-body">What affects consistency</span></div><div class="dot-list"><div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">68% lose motivation after small failures</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">55% feel overwhelmed by syllabus</span></div><div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">47% compare themselves with others</span></div></div><span class="card-note">Motivation is emotionally fragile</span></div>
+      <div class="card"><div class="card-head"><span class="t-h4">Progress Tracking Behavior</span><span class="t-body">How students measure progress</span></div><div class="dot-list"><div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">66% track hours studied</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">42% track completed tasks</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">18% track actual understanding</span></div></div><span class="card-note">Shows illusion of productivity</span></div>
+    </div>
+  </div>
+  <div class="sec-gap gap-md" style="margin-top:clamp(16px,2vw,32px)">
+    <h3 class="t-h3">User Interviews</h3>
+    <div class="stat-row">
+      <div class="stat-block"><span class="stat-lbl">Participants</span><span class="stat-num">30</span></div>
+      <p class="t-body-lg" style="flex:1;min-width:200px;">The goal of these interviews was to understand deep behavioral patterns, emotional triggers, and real study habits beyond surface-level survey data. What I explored: how students actually study daily, how they revise and retain information, what breaks their focus and motivation, how they measure progress, and emotional struggles during preparation.</p>
+    </div>
+  </div>
+  <div class="sec-gap gap-md" style="margin-top:clamp(16px,2vw,32px)">
+    <h3 class="t-h3">Affinity Mapping</h3>
+    <div class="affinity-grid cs-stagger">
+      <div class="affinity-card"><div class="affinity-img"><img src="../assets/planning= execution icon.png" alt="Planning icon"></div><div class="affinity-body"><div class="affinity-title">Planning ≠ Execution</div><div class="affinity-text">Students invest time in planning (Notion, timetables), but struggle to act. "I spend more time organizing my study plan than actually studying."</div></div></div>
+      <div class="affinity-card"><div class="affinity-img"><img src="../assets/passive revision is common.png" alt="Passive revision icon"></div><div class="affinity-body"><div class="affinity-title">Passive Revision is Common</div><div class="affinity-text">Most students re-read or highlight instead of testing themselves. "I keep reading my notes again and again, but I still forget in exams."</div></div></div>
+      <div class="affinity-card"><div class="affinity-img"><img src="../assets/environment.png" alt="Environment icon"></div><div class="affinity-body"><div class="affinity-title">Environment Strongly Affects Focus</div><div class="affinity-text">Distractions vary widely: phone notifications, noisy surroundings, messy study spaces. "Even a small distraction breaks my flow completely."</div></div></div>
+      <div class="affinity-card"><div class="affinity-img"><img src="../assets/motivation.png" alt="Motivation icon"></div><div class="affinity-body"><div class="affinity-title">Motivation is Emotion-Driven</div><div class="affinity-text">One wrong answer → self-doubt. Peer comparison → stress. "When others are ahead, I feel like I'm already behind."</div></div></div>
+      <div class="affinity-card"><div class="affinity-img"><img src="../assets/tools are.png" alt="Tools icon"></div><div class="affinity-body"><div class="affinity-title">Tools Are Fragmented</div><div class="affinity-text">Students switch between notes apps, flashcards, videos, AI tools. "I use so many apps, but nothing connects properly."</div></div></div>
+      <div class="affinity-card"><div class="affinity-img"><img src="../assets/revision strategies.png" alt="Revision icon"></div><div class="affinity-body"><div class="affinity-title">Revision Strategies Are Inconsistent</div><div class="affinity-text">Students use mixed methods: flashcards, mind maps, teaching others. No structured system.</div></div></div>
+    </div>
+    <div class="two-col" style="margin-top:clamp(12px,1.5vw,24px)">
+      <div><div class="insight-title">Key Insight</div><p class="t-body">Students are highly active but lack direction and feedback. Their study journey is unstructured, emotionally unstable, and hard to measure.</p></div>
+      <div><div class="insight-title">Conclusion</div><p class="t-body">The interviews revealed that the core issue is not lack of effort, but the absence of a guided, connected learning system that supports execution over planning, active learning over passive reading, and confidence over anxiety.</p></div>
+    </div>
+  </div>
+</div></section>
+
+<!-- MODAL: PERSONAS -->
+<section class="sec"><div class="w sec-gap">
+  <h3 class="t-h3">User Persona</h3>
+  <div class="persona-grid cs-stagger">
+    <div class="persona"><div class="persona-img"><img src="../assets/overplanner user persona.png" alt="Overplanner persona"></div><div class="persona-name">The Overplanner</div><div class="persona-body"><strong>Age:</strong> 22 &nbsp;·&nbsp; <strong>Goal:</strong> Stay consistent and complete syllabus on time<br><br><strong>Behavior</strong><br>Creates detailed study plans (Notion, schedules). Spends time organizing instead of studying. Constantly restructures plans.<br><br><strong>Pain Points</strong><br>Feels overwhelmed by syllabus. Gets stuck in planning loop. Struggles to take action.<br><br><em>"I plan everything perfectly… but I don't follow it."</em><br><br><strong>Needs</strong><br>Clear daily direction · Reduced decision-making · Action-focused system</div></div>
+    <div class="persona"><div class="persona-img"><img src="../assets/passive learner.png" alt="Passive learner persona"></div><div class="persona-name">The Passive Learner</div><div class="persona-body"><strong>Name:</strong> Riya &nbsp;·&nbsp; <strong>Age:</strong> 21<br><strong>Goal:</strong> Understand and remember concepts effectively<br><br><strong>Behavior</strong><br>Re-reads notes multiple times. Highlights important sections. Watches lectures repeatedly.<br><br><strong>Pain Points</strong><br>Forgets information quickly. Feels prepared but performs poorly. No structured revision method.<br><br><em>"I study a lot, but I still forget everything in exams."</em><br><br><strong>Needs</strong><br>Active recall methods · Structured revision system · Feedback on understanding</div></div>
+    <div class="persona"><div class="persona-img"><img src="../assets/distracted learner.png" alt="Distracted learner persona"></div><div class="persona-name">The Distracted Learner</div><div class="persona-body"><strong>Name:</strong> Kabir &nbsp;·&nbsp; <strong>Age:</strong> 23<br><strong>Goal:</strong> Stay focused and build consistency<br><br><strong>Behavior</strong><br>Uses multiple tools (apps, videos, AI). Gets distracted easily. Starts strong but loses momentum.<br><br><strong>Pain Points</strong><br>Breaks focus frequently. Feels guilty after unproductive days. Inconsistent study routine.<br><br><em>"I start well, but I can't stay consistent."</em><br><br><strong>Needs</strong><br>Distraction control · Structured study flow · Motivation support</div></div>
+  </div>
+</div></section>
+
+<!-- MODAL: PROBLEM STATEMENT -->
+<section class="sec"><div class="w sec-gap">
+  <h3 class="t-h3">Final Problem Statement</h3>
+  <p class="t-body-lg">Students preparing for competitive exams struggle to plan their daily study, revise effectively, and track meaningful progress, because their learning process is fragmented across multiple tools, relies heavily on passive methods, and lacks clear feedback on actual understanding. As a result, they experience cognitive overload, inconsistent study habits, and declining motivation, making it difficult to sustain long-term preparation and achieve mastery.</p>
+</div></section>
+
+<!-- MODAL: IDEATION -->
+<section class="sec"><div class="w sec-gap">
+  <h2 class="t-h2">Ideation</h2>
+  <div class="sec-gap gap-md">
+    <h3 class="t-h3">How Might We (HMW) Questions</h3>
+    <p class="t-body-lg">Based on the research insights, the following questions were framed to guide the design direction:<br><br>How might we guide students daily without overwhelming them?<br>How might we make revision active and effective?<br>How might we show real progress to keep students motivated?</p>
+  </div>
+  <div class="sec-gap gap-md">
+    <h3 class="t-h3" style="opacity:.8">Key Solution Ideas</h3>
+    <div class="sol-grid cs-stagger">
+      <div class="sol-card"><div class="sol-title">Guided Daily Study Flow</div><div class="sol-body">Instead of asking students to plan everything, the system provides a clear daily path. Shows "What to study today", breaks syllabus into manageable tasks, removes decision-making.</div><div class="sol-note">💡 Solves: Overplanning &amp; decision fatigue</div></div>
+      <div class="sol-card"><div class="sol-title">Built-in Active Recall System</div><div class="sol-body">Replace passive revision with question-based learning. Converts notes into questions automatically, quiz-based revision, instant feedback on answers.</div><div class="sol-note">💡 Solves: Passive learning &amp; poor retention</div></div>
+      <div class="sol-card"><div class="sol-title">Smart Revision (Spaced Repetition)</div><div class="sol-body">System decides when to revise. Schedules revision automatically, prioritizes weak topics, repeats content at optimal intervals.</div><div class="sol-note">💡 Solves: Forgetting &amp; unstructured revision</div></div>
+      <div class="sol-card"><div class="sol-title">Motivation Protection Layer</div><div class="sol-body">Designed to support users emotionally, not punish them. Encourages after mistakes, tracks streaks without pressure, shows small wins.</div><div class="sol-note">💡 Solves: Low confidence &amp; inconsistency</div></div>
+      <div class="sol-card"><div class="sol-title">Mastery-Based Progress Tracking</div><div class="sol-body">Track learning, not time. Shows topic-wise understanding, readiness score, highlights weak areas.</div><div class="sol-note">💡 Solves: Illusion of productivity</div></div>
+      <div class="sol-card"><div class="sol-title">Context-Aware AI Assistant</div><div class="sol-body">AI that understands your learning journey. Explains concepts based on your level, generates quizzes from your notes, suggests what to study next.</div><div class="sol-note">💡 Solves: Generic AI help &amp; lack of guidance</div></div>
+      <div class="sol-card"><div class="sol-title">Unified Learning System</div><div class="sol-body">Everything in one place. Connects planning, studying, revision, and tracking.</div><div class="sol-note">💡 Solves: Fragmented tools &amp; switching fatigue</div></div>
+    </div>
+  </div>
+  <div class="core-idea"><div class="core-label">Core Idea</div><div class="core-text">From "multiple disconnected tools" → to "one guided learning system"</div></div>
+</div></section>
+
+<!-- MODAL: IA -->
+<section class="sec"><div class="w sec-gap">
+  <h3 class="t-h3" style="opacity:.8">Information Architecture</h3>
+  <img src="../assets/information architecture.png" alt="Information Architecture diagram" style="width:100%;max-width:1200px;display:block;margin:0 auto;border-radius:12px">
+</div></section>
+
+<!-- MODAL: USER FLOW -->
+<section class="sec"><div class="w sec-gap">
+  <h3 class="t-h3" style="opacity:.8">User Flow</h3>
+  <div class="flow-list">
+    <div class="flow-item"><span class="flow-num">01</span><span class="flow-name">Onboarding flow</span><span class="flow-steps">Welcome → Goal Selection → Profile Setup → SWOT Mapping → Study Preferences → AI Setup → First Output → Dashboard</span></div>
+    <div class="flow-item"><span class="flow-num">02</span><span class="flow-name">Revision flow</span><span class="flow-steps">Trigger Revision → Select Content → Revise Mode → Active Recall → Performance Check → AI Feedback → Reschedule</span></div>
+    <div class="flow-item"><span class="flow-num">03</span><span class="flow-name">Note reading flow</span><span class="flow-steps">Learn Section → Select Note → Reading Mode → Interaction Layer → Action Layer → Exit with Outcome</span></div>
+    <div class="flow-item"><span class="flow-num">04</span><span class="flow-name">Note generation flow</span><span class="flow-steps">Input → AI Processing → Output (Flashcards / MCQs) → Edit → Save → Revise</span></div>
+    <div class="flow-item"><span class="flow-num">05</span><span class="flow-name">MCQ / flashcard flow</span><span class="flow-steps">User asks question → AI responds (structured answer) → User interacts with response → User converts / saves content</span></div>
+  </div>
+</div></section>
+
+<!-- MODAL: JOURNEY MAP -->
+<section class="sec"><div class="w sec-gap">
+  <h3 class="t-h3" style="opacity:.8">User Journey Mapping</h3>
+  <div class="jrn-wrap">
+    <table class="jrn">
+      <thead><tr><th>Stage</th><th>User Action</th><th>Thought</th><th>Pain Point</th><th>Opportunity</th></tr></thead>
+      <tbody>
+        <tr><td>Awareness</td><td>Discovers app via social or peer</td><td>"Maybe this will help me stay consistent"</td><td>Skeptical after trying many tools</td><td>Clear value prop showing unified system</td></tr>
+        <tr><td>Onboarding</td><td>Sets up goal, exam, subjects</td><td>"This feels personalized"</td><td>Long setup feels tedious</td><td>Progressive onboarding with immediate value</td></tr>
+        <tr><td>Daily Study</td><td>Opens dashboard, sees today's tasks</td><td>"I know exactly what to do today"</td><td>Distraction during sessions</td><td>Focus mode with distraction blocking</td></tr>
+        <tr><td>Note Taking</td><td>Uploads notes, AI generates cards</td><td>"My notes are ready for revision automatically"</td><td>Manual conversion is tedious</td><td>One-click AI conversion</td></tr>
+        <tr><td>Revision</td><td>System prompts, user completes cards</td><td>"I'm actually testing myself"</td><td>Forgetting to revise</td><td>Smart spaced repetition reminders</td></tr>
+        <tr><td>Progress Check</td><td>Views mastery map, readiness score</td><td>"I can see where I'm strong and weak"</td><td>Tracking hours not understanding</td><td>Mastery-based progress visualization</td></tr>
+        <tr><td>AI Help</td><td>Asks AI for concept explanation</td><td>"The AI knows my context"</td><td>Generic AI responses</td><td>Context-aware AI tied to notes and progress</td></tr>
+        <tr><td>Motivation</td><td>Sees streak, small wins, encouragement</td><td>"Even when I fail, the app supports me"</td><td>Guilt after missed days</td><td>Compassionate streak system with recovery mode</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div></section>
+
+<!-- MODAL: DESIGN SYSTEM -->
+<section class="sg"><div class="sg-inner">
+  <div class="sg-hdr"><p class="sg-label">Design System</p><h2 class="t-h2">SecondBrain — Style Guide</h2><p class="sg-lead">Key visual and UX decisions for the AI-powered preparation ecosystem.</p></div>
+  <div class="sg-grid wide" style="gap:clamp(16px,2vw,24px)">
+    <div class="sg-card"><h4>Brand Personality</h4><div class="sg-tags"><span style="background:#5B7CFF;color:#fff">Intelligent</span><span style="background:rgba(0,0,0,.06);color:rgba(0,0,0,.55)">Calm</span><span style="background:#8A7DFF;color:#fff">Premium</span><span style="background:rgba(0,0,0,.06);color:rgba(0,0,0,.55)">Structured</span><span style="background:rgba(0,0,0,.06);color:rgba(0,0,0,.55)">Futuristic</span><span style="background:rgba(0,0,0,.06);color:rgba(0,0,0,.55)">Minimal</span></div><div class="sg-block" style="margin-top:16px;padding-top:16px;border-top:1px solid rgba(0,0,0,.06)"><div class="bl-text">Reduce clutter, prioritize clarity, use whitespace aggressively. Motion feels intelligent, not playful.</div></div></div>
+  </div>
+  <div class="sg-grid wide" style="margin-top:clamp(16px,2vw,24px)">
+    <div class="sg-card"><h4>Color Palette</h4><div class="sg-colors"><div class="sw"><div class="bar" style="background:#5B7CFF"></div><span class="sl">Primary</span><span class="sh">#5B7CFF</span></div><div class="sw"><div class="bar" style="background:#0B1020"></div><span class="sl">Deep BG</span><span class="sh">#0B1020</span></div><div class="sw"><div class="bar" style="background:#131A2E"></div><span class="sl">Surface</span><span class="sh">#131A2E</span></div><div class="sw"><div class="bar" style="background:#1B2440"></div><span class="sl">Elevated</span><span class="sh">#1B2440</span></div><div class="sw"><div class="bar" style="background:#00D68F"></div><span class="sl">Success</span><span class="sh">#00D68F</span></div><div class="sw"><div class="bar" style="background:#FFB547"></div><span class="sl">Warning</span><span class="sh">#FFB547</span></div><div class="sw"><div class="bar" style="background:#FF5A7A"></div><span class="sl">Error</span><span class="sh">#FF5A7A</span></div><div class="sw"><div class="bar" style="background:#8A7DFF"></div><span class="sl">AI Purple</span><span class="sh">#8A7DFF</span></div></div></div>
+  </div>
+  <div class="sg-grid wide" style="margin-top:clamp(16px,2vw,24px)">
+    <div class="sg-card"><h4>Typography</h4><div class="sg-typo-grid"><div class="tg"><span class="tg-name">Primary — Satoshi</span><span class="tg-preview">Aa</span><span class="tg-body">Used for UI, body text, buttons, and labels. Clean geometric sans with a warm personality.</span><div class="sg-scale"><div class="gs"><span class="gs-l">Display</span><span class="gs-v" style="font-size:1.5rem;font-weight:700">Aa</span><span class="gs-i">72px · 700</span></div><div class="gs"><span class="gs-l">Heading 1</span><span class="gs-v" style="font-size:1.15rem;font-weight:700">Aa</span><span class="gs-i">40px · 700</span></div><div class="gs"><span class="gs-l">Heading 2</span><span class="gs-v" style="font-size:1rem;font-weight:700">Aa</span><span class="gs-i">32px · 700</span></div><div class="gs"><span class="gs-l">Body</span><span class="gs-v" style="font-size:0.85rem">Aa</span><span class="gs-i">16px · 400</span></div><div class="gs"><span class="gs-l">Caption</span><span class="gs-v" style="font-size:0.7rem">Aa</span><span class="gs-i">12px · 500</span></div></div></div><div class="tg"><span class="tg-name">Usage Guidelines</span><div class="sg-usage"><div class="gu"><strong>Satoshi</strong> is the sole typeface — no secondary font. Weights: 400 (body), 500 (emphasis), 700 (headings), 900 (display only).</div><div class="gu">Headings use tight <strong>letter-spacing: -0.03em</strong>. Body text stays at 16px with 1.65 line-height for readability.</div><div class="gu">Text color is white on dark surfaces, <strong>rgba(255,255,255,.85)</strong> on light surfaces.</div></div></div></div></div>
+  </div>
+  <div class="sg-grid wide" style="margin-top:clamp(16px,2vw,24px)">
+    <div class="sg-card"><h4>UI Components</h4><div class="sg-ui"><div class="ui-el"><span class="ui-lbl">Buttons</span><div class="ui-row"><button class="ui-btn primary">Get Started</button><button class="ui-btn secondary">Learn More</button><button class="ui-btn ghost">Cancel</button></div></div><div class="ui-el"><span class="ui-lbl">Chips / Tags</span><div class="ui-row"><span class="ui-chip active">History</span><span class="ui-chip">Polity</span><span class="ui-chip">Geography</span><span class="ui-chip">Ecology</span></div></div><div class="ui-el"><span class="ui-lbl">Text Input</span><input class="ui-field" placeholder="Search topics..." readonly></div><div class="ui-el"><span class="ui-lbl">Analytics Card</span><div class="ui-card-s"><div class="ui-cs-num">78%</div><div class="ui-cs-lbl">Readiness Score</div><div class="ui-cs-trend">↑ 12% this week</div></div></div></div></div>
+  </div>
+</div></section>
+
+<!-- MODAL: DESIGN SCREENS -->
+<section class="sec"><div class="w sec-gap">
+  <h2 class="t-h2">Design</h2>
+  <div class="screen-row"><div class="sc"><div class="screen-img"><img src="../upsc app images/image 20.png" alt="Dashboard"></div><div class="bubble-wrap"><div class="bubble">Dashboard showing daily study tasks with guided learning path and progress overview.</div></div></div><div class="sc"><div class="screen-img"><img src="../upsc app images/image 21.png" alt="Active Recall"></div><div class="bubble-wrap"><div class="bubble">Active recall interface with flashcards and quiz-based revision system.</div></div></div></div>
+  <div class="screen-row"><div class="sc"><div class="screen-img"><img src="../upsc app images/image 22.png" alt="Note Reading"></div><div class="bubble-wrap"><div class="bubble">Note reading mode with AI-generated flashcards and MCQs from uploaded content.</div></div></div><div class="sc"><div class="screen-img"><img src="../upsc app images/image 23.png" alt="Spaced Repetition"></div><div class="bubble-wrap"><div class="bubble">Spaced repetition queue prioritizing weak topics for optimal revision timing.</div></div></div></div>
+  <div class="screen-row"><div class="sc"><div class="screen-img"><img src="../upsc app images/image 24.png" alt="Mastery Map"></div><div class="bubble-wrap"><div class="bubble">Mastery map visualization showing topic-wise understanding and readiness scores.</div></div></div><div class="sc"><div class="screen-img"><img src="../upsc app images/image 25.png" alt="AI Assistant"></div><div class="bubble-wrap"><div class="bubble">Context-aware AI assistant providing personalized explanations based on study history.</div></div></div></div>
+  <div class="screen-row" style="grid-template-columns:1fr;justify-items:center"><div class="sc" style="max-width:580px"><div class="screen-img"><img src="../upsc app images/image 26.png" alt="Motivation Dashboard"></div><div class="bubble-wrap"><div class="bubble">Motivation dashboard with streak tracking, small wins, and encouragement features.</div></div></div></div>
+</div></section>
+
+    </div>
+  </div>
+</div>
 
 <!-- FOOTER -->
 <footer class="footer">
@@ -754,6 +827,33 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
     }, { threshold: 0.08, rootMargin: '0px 0px -48px 0px' });
 
     document.querySelectorAll('.cs-reveal, .cs-stagger, .sec').forEach(el => io.observe(el));
+})();
+
+// ── Case study modal ──
+(function(){
+    const modal = document.getElementById('csModal');
+    const btn = document.getElementById('viewFullCsBtn');
+    const closeBtn = document.getElementById('closeCsModal');
+    if (!modal || !btn || !closeBtn) return;
+    function openModal(){
+        modal.style.display = 'flex';
+        requestAnimationFrame(() => modal.classList.add('open'));
+        document.body.style.overflow = 'hidden';
+    }
+    function closeModal(){
+        modal.classList.remove('open');
+        modal.addEventListener('transitionend', function handler(){
+            modal.style.display = 'none';
+            modal.removeEventListener('transitionend', handler);
+        });
+        document.body.style.overflow = '';
+    }
+    btn.addEventListener('click', openModal);
+    closeBtn.addEventListener('click', closeModal);
+    modal.addEventListener('click', e => {
+        if (e.target === modal || e.target.classList.contains('cs-modal-bg')) closeModal();
+    });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeModal(); });
 })();
 </script>
 </div>
