@@ -271,7 +271,6 @@
             /* Rive Mascot - follows cursor */
         .rive-mascot-container {
             position: fixed;
-            right: -150px;
             top: 50%;
             transform: translateY(-50%);
             width: 600px;
@@ -584,9 +583,9 @@
     let scrollTimeout = null;
     
     const mascotWidth = 600;
-    let mouseX = window.innerWidth - 400;
+    let mouseX = window.innerWidth / 2;
     let mouseY = window.innerHeight / 2;
-    let currentX = window.innerWidth - mascotWidth + 150;
+    let currentX = window.innerWidth / 2 - mascotWidth / 2;
     let currentY = window.innerHeight / 2 - 300;
     const followSpeed = 0.08;
     const cursorDistance = -350;
@@ -603,9 +602,6 @@
             autoplay: false,
             onLoad: function() {
                 playAnimation(ANIMATIONS.DEFAULT);
-            },
-            onError: function(err) {
-                container.style.display = 'none';
             }
         });
     }
