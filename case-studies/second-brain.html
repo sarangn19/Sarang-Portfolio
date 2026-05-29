@@ -84,16 +84,18 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 /* ── cards ── */
 .cards-3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(12px,1.5vw,24px)}
 .cards-2{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:clamp(12px,1.5vw,24px)}
-.card{border:1px solid rgba(0,0,0,.1);border-radius:4px;padding:clamp(16px,2vw,28px);display:flex;flex-direction:column;gap:clamp(16px,2vw,28px)}
+.card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:clamp(16px,2vw,28px);display:flex;flex-direction:column;gap:clamp(12px,1.5vw,20px);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .card-head{display:flex;flex-direction:column;gap:6px}
-.dot-list{display:flex;flex-direction:column;gap:clamp(8px,1vw,14px)}
-.dot-item{display:flex;align-items:flex-start;gap:10px}
-.dot{width:clamp(10px,1vw,16px);height:clamp(10px,1vw,16px);border-radius:50%;flex-shrink:0;margin-top:3px}
-.card-note{font-size:0.75rem;color:rgba(0,0,0,.4);font-style:italic}
+.card-head .t-h4{font-size:0.9rem!important;font-weight:600!important;letter-spacing:-.01em}
+.card-head .t-body{font-size:0.7rem!important;color:rgba(0,0,0,.4)!important;font-weight:400!important}
+.dot-list{display:flex;flex-direction:column;gap:clamp(6px,0.8vw,10px)}
+.dot-item{display:flex;align-items:flex-start;gap:8px}
+.dot{width:clamp(8px,0.8vw,12px);height:clamp(8px,0.8vw,12px);border-radius:50%;flex-shrink:0;margin-top:5px}
+.card-note{font-size:0.7rem;color:rgba(0,0,0,.35);font-style:italic}
 
 /* ── affinity grid ── */
 .affinity-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:clamp(12px,1.5vw,20px)}
-.affinity-card{border:1px solid rgba(0,0,0,.1);border-radius:4px;padding:clamp(16px,2vw,24px);display:flex;gap:clamp(12px,1.5vw,20px);align-items:flex-start}
+.affinity-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:clamp(16px,2vw,24px);display:flex;gap:clamp(12px,1.5vw,20px);align-items:flex-start;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .affinity-img{width:clamp(60px,8vw,120px);height:clamp(60px,8vw,120px);border-radius:8px;background:#CFCFCF;flex-shrink:0;overflow:hidden}
 .affinity-img img{width:100%;height:100%;object-fit:cover;display:block}
 .affinity-body{display:flex;flex-direction:column;gap:8px;opacity:.8}
@@ -106,7 +108,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 
 /* ── persona ── */
 .persona-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:clamp(12px,1.5vw,24px)}
-.persona{border:1px solid rgba(0,0,0,.1);border-radius:4px;padding:clamp(20px,3vw,48px);display:flex;flex-direction:column;align-items:center;gap:clamp(10px,1.2vw,16px)}
+.persona{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:clamp(20px,3vw,48px);display:flex;flex-direction:column;align-items:center;gap:clamp(10px,1.2vw,16px);box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .persona-img{width:clamp(80px,10vw,160px);height:clamp(100px,13vw,200px);background:#CFCFCF;border-radius:8px;overflow:hidden}
 .persona-img img{width:100%;height:100%;object-fit:cover;display:block}
 .persona-name{font-size:1.125rem;font-weight:700;color:#000;align-self:flex-start}
@@ -115,7 +117,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 /* ── ideation ── */
 .hmw-row{display:flex;flex-direction:column;gap:clamp(24px,4vw,80px)}
 .sol-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(12px,1.5vw,24px)}
-.sol-card{border:1px solid rgba(0,0,0,.1);border-radius:4px;padding:clamp(16px,2vw,32px);display:flex;flex-direction:column;gap:10px}
+.sol-card{background:#fff;border:1px solid rgba(0,0,0,.08);border-radius:4px;padding:clamp(16px,2vw,32px);display:flex;flex-direction:column;gap:10px;box-shadow:0 1px 3px rgba(0,0,0,.04)}
 .sol-title{font-size:1.125rem;font-weight:700;color:rgba(0,0,0,.8)}
 .sol-body{font-size:0.875rem;color:rgba(0,0,0,.7);line-height:1.7}
 .sol-note{font-size:0.75rem;color:rgba(0,0,0,.4)}
@@ -210,8 +212,8 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 .stat-num{transition:opacity .6s ease,transform .6s cubic-bezier(.16,1,.3,1)}
 
 /* card hover lift */
-.card,.affinity-card,.sol-card,.persona{transition:transform .3s cubic-bezier(.16,1,.3,1),box-shadow .3s ease}
-.card:hover,.affinity-card:hover,.sol-card:hover,.persona:hover{transform:translateY(-4px);box-shadow:0 12px 32px rgba(0,0,0,.08)}
+.card,.affinity-card,.sol-card,.persona{transition:transform .4s cubic-bezier(.22,1,.36,1),box-shadow .4s cubic-bezier(.22,1,.36,1)}
+.card:hover,.affinity-card:hover,.sol-card:hover,.persona:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.06),0 1px 3px rgba(0,0,0,.04)}
 
 /* screen row image scale on hover */
 .screen-img{transition:transform .4s cubic-bezier(.16,1,.3,1)}
@@ -289,7 +291,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 .sg-ui .ui-btn.ghost{background:transparent;color:rgba(0,0,0,.4)}
 .sg-ui .ui-field{height:46px;border-radius:10px;border:1px solid rgba(0,0,0,.1);padding:0 14px;font-size:0.82rem;font-family:inherit;background:#fff;color:rgba(0,0,0,.85);width:min(260px,100%)}
 .sg-ui .ui-field::placeholder{color:rgba(0,0,0,.25)}
-.sg-ui .ui-card-s{background:linear-gradient(135deg,#f8f8f8,#f0f0f0);border-radius:14px;padding:20px 22px;border:1px solid rgba(0,0,0,.06)}
+.sg-ui .ui-card-s{background:linear-gradient(135deg,#f8f8f8,#f0f0f0);border-radius:4px;padding:20px 22px;border:1px solid rgba(0,0,0,.06)}
 .sg-ui .ui-card-s .ui-cs-num{font-size:1.5rem;font-weight:700;color:#000;letter-spacing:-.02em}
 .sg-ui .ui-card-s .ui-cs-lbl{font-size:0.7rem;color:rgba(0,0,0,.4);margin-top:2px}
 .sg-ui .ui-card-s .ui-cs-trend{font-size:0.7rem;color:#00B874;margin-top:8px}
@@ -316,7 +318,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 .ft-hdr{display:flex;flex-direction:column;gap:8px;margin-bottom:clamp(24px,3vw,48px)}
 .ft-label{font-size:0.75rem;font-weight:500;letter-spacing:.08em;text-transform:uppercase;color:rgba(0,0,0,.35)}
 .ft-sub{font-size:1.25rem;font-weight:400;color:rgba(0,0,0,.5);line-height:1.4;margin-top:-12px}
-.ft-impact{background:#f5f5f5;border-radius:12px;padding:clamp(20px,3vw,40px);margin-top:clamp(16px,2vw,32px)}
+.ft-impact{background:#f5f5f5;border-radius:4px;padding:clamp(20px,3vw,40px);margin-top:clamp(16px,2vw,32px)}
 .ft-impact p{font-style:italic;color:rgba(0,0,0,.5)}
 
 /* ── UI placeholders ── */
@@ -396,255 +398,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
     </div>
     <p class="t-body-lg">SecondBrain is an intelligent UPSC preparation platform designed to help aspirants manage their entire learning journey in one place. Instead of switching between notes, current affairs websites, PDFs, coaching materials, and multiple productivity tools, students can learn, revise, track progress, and generate study resources through a single AI-powered ecosystem.</p>
     <p class="t-body-lg">The platform combines personalized learning, AI-assisted content generation, progress analytics, and structured revision systems to improve preparation efficiency and reduce information overload.</p>
-  </div>
-</section>
-
-<!-- FEATURE: DASHBOARD -->
-<section class="sec cs-reveal" id="dashboard">
-  <div class="w sec-gap">
-    <div class="ft-hdr">
-      <span class="ft-label">Feature</span>
-      <h2 class="t-h2">Dashboard</h2>
-      <p class="ft-sub">The Student's Command Center</p>
     </div>
-    <p class="t-body-lg">The Dashboard acts as the central hub of the platform, helping students stay focused on what matters most every day.</p>
-    <div class="cards-3 cs-stagger">
-      <div class="card">
-        <div class="card-head"><span class="t-h4">Daily Guidance</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Displays daily study goals and progress</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Highlights pending revisions and overdue topics</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Shows AI-generated study recommendations</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-head"><span class="t-h4">Quick Access</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Current affairs, notes, flashcards, chatbot</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Tracks daily consistency and study streaks</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Surfaces important UPSC updates</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-head"><span class="t-h4">Planning</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Displays upcoming tasks and calendar events</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Shows what to study next</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="ft-impact"><p class="t-body-lg">Most students struggle with knowing what to study next. The Dashboard eliminates decision fatigue by creating a clear roadmap for the day.</p></div>
-  </div>
-</section>
-
-<!-- FEATURE: LEARN -->
-<section class="sec cs-reveal" id="learn">
-  <div class="w sec-gap">
-    <div class="ft-hdr">
-      <span class="ft-label">Feature</span>
-      <h2 class="t-h2">Learn Page</h2>
-      <p class="ft-sub">Personal Knowledge Repository</p>
-    </div>
-    <p class="t-body-lg">The Learn Page serves as the student's digital library where all learning resources are automatically organized and stored.</p>
-    <div class="cards-3 cs-stagger">
-      <div class="card">
-        <div class="card-head"><span class="t-h4">Content Storage</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Stores AI-generated notes and summaries</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Saves flashcards from PDFs, articles, chats</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Organizes MCQs and practice questions</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-head"><span class="t-h4">Organization</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Categorized by subject, topic, and exam stage</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Quick search across all study materials</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Continuous knowledge accumulation</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-head"><span class="t-h4">Access</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Revisit previously generated content anytime</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Organized browsing experience</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="ft-impact"><p class="t-body-lg">Students often lose valuable insights generated during study sessions. The Learn Page ensures every piece of knowledge remains searchable and accessible.</p></div>
-  </div>
-</section>
-
-<!-- FEATURE: CALENDAR & REVISION -->
-<section class="sec cs-reveal" id="calendar">
-  <div class="w sec-gap">
-    <div class="ft-hdr">
-      <span class="ft-label">Feature</span>
-      <h2 class="t-h2">Calendar &amp; Revision Planner</h2>
-      <p class="ft-sub">Structured Preparation System</p>
-    </div>
-    <p class="t-body-lg">The Calendar helps students maintain consistency through intelligent planning and revision scheduling.</p>
-    <div class="cards-2 cs-stagger">
-      <div class="card">
-        <div class="card-head"><span class="t-h4">Planning</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Creates personalized study schedules</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Tracks upcoming tests and deadlines</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Visualizes completed and pending sessions</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-head"><span class="t-h4">Revision Intelligence</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Auto-schedules revisions via spaced repetition</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Sends reminders for revision cycles</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Balances static subjects with current affairs</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="ft-impact"><p class="t-body-lg">UPSC preparation is a long-term process. The Calendar transforms scattered studying into a structured and sustainable system.</p></div>
-  </div>
-</section>
-
-<!-- FEATURE: AI CHATBOT -->
-<section class="sec cs-reveal" id="chatbot">
-  <div class="w sec-gap">
-    <div class="ft-hdr">
-      <span class="ft-label">Feature</span>
-      <h2 class="t-h2">AI Chatbot</h2>
-      <p class="ft-sub">UPSC-Specialized Learning Assistant</p>
-    </div>
-    <p class="t-body-lg">The AI Chatbot acts as a personal mentor trained specifically for UPSC preparation, providing instant help across concept learning, answer writing, content generation, and current affairs assistance.</p>
-    <div class="cards-2 cs-stagger">
-      <div class="card">
-        <div class="card-head"><span class="t-h4">Concept Learning</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Explains difficult topics in simple language</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Provides examples and real-world connections</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-head"><span class="t-h4">Answer Writing Support</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Generates model answers</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Evaluates student-written responses</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Suggests improvements in structure and content</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-head"><span class="t-h4">Content Generation</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Creates notes from uploaded PDFs</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Generates flashcards and MCQs instantly</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Converts sessions into structured material</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-head"><span class="t-h4">Current Affairs Assistance</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Explains news from UPSC perspective</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Connects events with syllabus topics</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Generates exam-relevant insights</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="ft-impact"><p class="t-body-lg">Instead of searching across multiple platforms, students receive personalized guidance and content generation within seconds.</p></div>
-  </div>
-</section>
-
-<!-- FEATURE: STATISTICS -->
-<section class="sec cs-reveal" id="statistics">
-  <div class="w sec-gap">
-    <div class="ft-hdr">
-      <span class="ft-label">Feature</span>
-      <h2 class="t-h2">Statistics &amp; Performance Analytics</h2>
-      <p class="ft-sub">Data-Driven Improvement System</p>
-    </div>
-    <p class="t-body-lg">The Statistics Page helps students understand their strengths, weaknesses, and preparation trends through data-driven insights.</p>
-    <div class="cards-3 cs-stagger">
-      <div class="card">
-        <div class="card-head"><span class="t-h4">Performance Tracking</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Tracks subject-wise performance</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Monitors quiz and MCQ accuracy</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Identifies weak topics needing attention</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-head"><span class="t-h4">Visual Analytics</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Visualizes progress through charts and insights</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Measures revision effectiveness</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Analyzes consistency and productivity trends</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-head"><span class="t-h4">AI Recommendations</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Personalized improvement suggestions</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Data-backed study optimization</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="ft-impact"><p class="t-body-lg">Most aspirants know how much they study but not how effectively they study. Statistics convert study activity into actionable insights.</p></div>
-  </div>
-</section>
-
-<!-- FEATURE: CURRENT AFFAIRS -->
-<section class="sec cs-reveal" id="current-affairs">
-  <div class="w sec-gap">
-    <div class="ft-hdr">
-      <span class="ft-label">Feature</span>
-      <h2 class="t-h2">Current Affairs Engine</h2>
-      <p class="ft-sub">UPSC-Ready News Intelligence</p>
-    </div>
-    <p class="t-body-lg">A dedicated current affairs system transforms daily news into exam-focused study material, saving hours of manual filtering and note-making.</p>
-    <div class="cards-2 cs-stagger">
-      <div class="card">
-        <div class="card-head"><span class="t-h4">Intelligent Processing</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Updates news automatically</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Filters irrelevant information</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Generates UPSC-focused summaries</span></div>
-        </div>
-      </div>
-      <div class="card">
-        <div class="card-head"><span class="t-h4">Exam Integration</span></div>
-        <div class="dot-list">
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Creates flashcards and MCQs from news</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Links current events with syllabus topics</span></div>
-          <div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">Builds a searchable current affairs archive</span></div>
-        </div>
-      </div>
-    </div>
-    <div class="ft-impact"><p class="t-body-lg">Students spend less time collecting information and more time understanding and revising it.</p></div>
-  </div>
-</section>
-
-<!-- IMPACT -->
-<section class="sec cs-reveal" id="impact">
-  <div class="w sec-gap">
-    <div class="ft-hdr">
-      <span class="ft-label">Outcome</span>
-      <h2 class="t-h2">Impact</h2>
-    </div>
-    <p class="t-body-lg">SecondBrain transforms UPSC preparation from a fragmented process into an integrated learning ecosystem where:</p>
-    <div class="cards-3 cs-stagger">
-      <div class="card" style="background:#f5f5f5;border:none"><div class="card-head"><span class="t-h4">AI-Powered Learning</span></div><p class="t-body">Learning happens through AI — personalized, adaptive, and always available.</p></div>
-      <div class="card" style="background:#f5f5f5;border:none"><div class="card-head"><span class="t-h4">Auto Content</span></div><p class="t-body">Notes are generated automatically from any source material.</p></div>
-      <div class="card" style="background:#f5f5f5;border:none"><div class="card-head"><span class="t-h4">Smart Revision</span></div><p class="t-body">Revision is intelligently scheduled with spaced repetition.</p></div>
-      <div class="card" style="background:#f5f5f5;border:none"><div class="card-head"><span class="t-h4">Continuous Analysis</span></div><p class="t-body">Performance is continuously analyzed to identify weak areas.</p></div>
-      <div class="card" style="background:#f5f5f5;border:none"><div class="card-head"><span class="t-h4">News Intelligence</span></div><p class="t-body">Current affairs become exam-ready content automatically.</p></div>
-      <div class="card" style="background:#f5f5f5;border:none"><div class="card-head"><span class="t-h4">Knowledge Base</span></div><p class="t-body">Every study session contributes to a growing personal knowledge base.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- VIEW DETAILED CASE STUDY -->
-<section class="sec" style="padding-top:0">
-  <div class="w" style="text-align:center">
-    <p class="t-body-lg" style="margin-bottom:clamp(16px,2vw,24px);color:rgba(0,0,0,.45)">Want to see the full research, personas, and design process?</p>
-    <button id="viewFullCsBtn" style="background:#0a0a0a;color:#fff;border:none;padding:14px 36px;border-radius:100px;font-size:.95rem;font-weight:500;cursor:pointer;font-family:'Satoshi',sans-serif;transition:opacity .25s ease" onmouseover="this.style.opacity='.8'" onmouseout="this.style.opacity='1'">View Detailed Case Study</button>
   </div>
 </section>
 
@@ -689,13 +443,13 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
       <p class="t-body-lg" style="flex:1;min-width:200px;">The goal of this survey was to identify patterns in study behavior, challenges, and motivation. Insights helped uncover why students struggle with consistency despite using multiple tools.</p>
     </div>
     <div class="cards-3 cs-stagger">
-      <div class="card"><div class="card-head"><span class="t-h4">Study Planning Behavior</span><span class="t-body">How students approach planning</span></div><div class="dot-list"><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">70% create detailed study plans</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">40% spend more time planning than studying</span></div><div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">52% fail to follow them consistently</span></div></div><span class="card-note">Planning becomes a form of procrastination</span></div>
-      <div class="card"><div class="card-head"><span class="t-h4">Revision Behavior</span><span class="t-body">How students revise topics</span></div><div class="dot-list"><div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">65% rely on re-reading notes</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">48% use highlighting as main method</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">25% use active recall (flashcards/tests)</span></div></div><span class="card-note">Most students use passive learning methods</span></div>
-      <div class="card"><div class="card-head"><span class="t-h4">Tool Usage Behavior</span><span class="t-body">Tools students use while studying</span></div><div class="dot-list"><div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">72% use YouTube / EdTech platforms</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">60% use note-taking apps (Notion, etc.)</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">45% use AI tools like ChatGPT</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">35% use flashcards (Anki)</span></div></div><span class="card-note">High dependency but fragmented usage</span></div>
+      <div class="card"><div class="card-head"><span class="t-h4">Study Planning Behavior</span><span class="t-body">How students approach planning</span></div><div class="dot-list"><div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">70% create detailed study plans</span></div><div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">40% spend more time planning than studying</span></div><div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">52% fail to follow them consistently</span></div></div><span class="card-note">Planning becomes a form of procrastination</span></div>
+      <div class="card"><div class="card-head"><span class="t-h4">Revision Behavior</span><span class="t-body">How students revise topics</span></div><div class="dot-list"><div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">65% rely on re-reading notes</span></div><div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">48% use highlighting as main method</span></div><div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">25% use active recall (flashcards/tests)</span></div></div><span class="card-note">Most students use passive learning methods</span></div>
+      <div class="card"><div class="card-head"><span class="t-h4">Tool Usage Behavior</span><span class="t-body">Tools students use while studying</span></div><div class="dot-list"><div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">72% use YouTube / EdTech platforms</span></div><div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">60% use note-taking apps (Notion, etc.)</span></div><div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">45% use AI tools like ChatGPT</span></div><div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">35% use flashcards (Anki)</span></div></div><span class="card-note">High dependency but fragmented usage</span></div>
     </div>
     <div class="cards-2 cs-stagger">
-      <div class="card"><div class="card-head"><span class="t-h4">Motivation &amp; Consistency</span><span class="t-body">What affects consistency</span></div><div class="dot-list"><div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">68% lose motivation after small failures</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">55% feel overwhelmed by syllabus</span></div><div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">47% compare themselves with others</span></div></div><span class="card-note">Motivation is emotionally fragile</span></div>
-      <div class="card"><div class="card-head"><span class="t-h4">Progress Tracking Behavior</span><span class="t-body">How students measure progress</span></div><div class="dot-list"><div class="dot-item"><div class="dot" style="background:#3D75ED"></div><span class="t-body">66% track hours studied</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">42% track completed tasks</span></div><div class="dot-item"><div class="dot" style="background:#3D64B9"></div><span class="t-body">18% track actual understanding</span></div></div><span class="card-note">Shows illusion of productivity</span></div>
+      <div class="card"><div class="card-head"><span class="t-h4">Motivation &amp; Consistency</span><span class="t-body">What affects consistency</span></div><div class="dot-list"><div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">68% lose motivation after small failures</span></div><div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">55% feel overwhelmed by syllabus</span></div><div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">47% compare themselves with others</span></div></div><span class="card-note">Motivation is emotionally fragile</span></div>
+      <div class="card"><div class="card-head"><span class="t-h4">Progress Tracking Behavior</span><span class="t-body">How students measure progress</span></div><div class="dot-list"><div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">66% track hours studied</span></div><div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">42% track completed tasks</span></div><div class="dot-item"><div class="dot" style="background:#5B7CFF"></div><span class="t-body">18% track actual understanding</span></div></div><span class="card-note">Shows illusion of productivity</span></div>
     </div>
   </div>
   <div class="sec-gap gap-md" style="margin-top:clamp(16px,2vw,32px)">
@@ -828,6 +582,16 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
   </div>
 </div>
 
+<!-- STICKY BOTTOM CTA -->
+<div class="cs-open-btn" id="csOpenBtn" style="position:fixed;bottom:0;left:0;right:0;z-index:500;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid rgba(0,0,0,.06);padding:clamp(10px,1.2vw,14px) clamp(16px,4vw,40px);display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;cursor:pointer;font-family:'Satoshi',sans-serif;box-shadow:0 -2px 16px rgba(0,0,0,.04);transition:transform .35s cubic-bezier(.22,1,.36,1)">
+  <div style="display:flex;align-items:center;gap:clamp(8px,1.2vw,16px);flex-wrap:wrap">
+    <span style="width:26px;height:26px;border-radius:6px;background:linear-gradient(135deg,#5B7CFF,#8A7DFF);display:inline-flex;align-items:center;justify-content:center;font-size:0.6rem;color:#fff;flex-shrink:0">📋</span>
+    <span style="font-size:0.82rem;font-weight:600;color:#000;white-space:nowrap">Full Case Study</span>
+    <span style="font-size:0.68rem;color:rgba(0,0,0,.4);display:flex;gap:5px;flex-wrap:wrap"><span style="background:#f0f0f0;padding:2px 10px;border-radius:100px">Research</span><span style="background:#f0f0f0;padding:2px 10px;border-radius:100px">Personas</span><span style="background:#f0f0f0;padding:2px 10px;border-radius:100px">Design</span></span>
+  </div>
+  <span style="background:#0a0a0a;color:#fff;padding:8px 24px;border-radius:100px;font-size:0.82rem;font-weight:600;white-space:nowrap;flex-shrink:0;transition:all .3s cubic-bezier(.22,1,.36,1);box-shadow:0 2px 12px rgba(0,0,0,.1)">Open →</span>
+</div>
+
 <!-- FOOTER -->
 <footer class="footer">
   <div class="footer-inner">
@@ -859,9 +623,9 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
 // ── Case study modal ──
 (function(){
     const modal = document.getElementById('csModal');
-    const btn = document.getElementById('viewFullCsBtn');
+    const btns = document.querySelectorAll('.cs-open-btn');
     const closeBtn = document.getElementById('closeCsModal');
-    if (!modal || !btn || !closeBtn) return;
+    if (!modal || !btns.length || !closeBtn) return;
     function openModal(){
         modal.style.display = 'flex';
         requestAnimationFrame(() => modal.classList.add('open'));
@@ -875,7 +639,7 @@ h4.t-h4,.t-h4{font-family:'Satoshi',sans-serif;font-size:0.875rem!important;font
         });
         document.body.style.overflow = '';
     }
-    btn.addEventListener('click', openModal);
+    btns.forEach(b => b.addEventListener('click', openModal));
     closeBtn.addEventListener('click', closeModal);
     modal.addEventListener('click', e => {
         if (e.target === modal || e.target.classList.contains('cs-modal-bg')) closeModal();
