@@ -268,7 +268,36 @@
         }
 
 
+            /* Rive Mascot - follows cursor */
+        .rive-mascot-container {
+            position: fixed;
+            right: -150px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 600px;
+            height: 600px;
+            z-index: 999;
+            pointer-events: none;
+            transition: none;
+        }
+        .rive-mascot-container canvas {
+            width: 100%;
+            height: 100%;
+        }
+        @media (max-width: 1200px) {
+            .rive-mascot-container {
+                width: 400px;
+                height: 400px;
+            }
+        }
+        @media (max-width: 768px) {
+            .rive-mascot-container {
+                width: 300px;
+                height: 300px;
+            }
+        }
     </style>
+    <script src="https://unpkg.com/@rive-app/canvas@2.9.1"></script>
 </head>
 <body>
 <div class="page-wrapper">
@@ -530,7 +559,118 @@
 
 </div>
 <script src="script.js"></script>
-
+<script>
+// Rive Mascot - Default idle, scroll down animation on scroll, return to default when stop
+(function() {
+    const RIVE_FILE_PATH = 'mascot.riv';
+    
+    const ANIMATIONS = {
+        DEFAULT: 'Timeline 1',
+        SCROLL_DOWN: 'scroll down',
+        SCROLL_UP: 'Timeline 2'
+    };
+    
+    const container = document.createElement('div');
+    container.className = 'rive-mascot-container';
+    document.body.appendChild(container);
+    
+    const canvas = document.createElement('canvas');
+    canvas.width = 800;
+    canvas.height = 800;
+    container.appendChild(canvas);
+    
+    let riveInstance = null;
+    let lastScrollY = window.scrollY;
+    let scrollTimeout = null;
+    
+    const mascotWidth = 600;
+    let mouseX = window.innerWidth - 400;
+    let mouseY = window.innerHeight / 2;
+    let currentX = window.innerWidth - mascotWidth + 150;
+    let currentY = window.innerHeight / 2 - 300;
+    const followSpeed = 0.08;
+    const cursorDistance = -350;
+    
+    function initRive() {
+        if (!window.rive) {
+            setTimeout(initRive, 100);
+            return;
+        }
+        
+        riveInstance = new rive.Rive({
+            src: RIVE_FILE_PATH,
+            canvas: canvas,
+            autoplay: false,
+            onLoad: function() {
+                playAnimation(ANIMATIONS.DEFAULT);
+            },
+            onError: function(err) {
+                container.style.display = 'none';
+            }
+        });
+    }
+    
+    let currentAnimation = null;
+    
+    function playAnimation(animationName) {
+        if (!riveInstance || currentAnimation === animationName) return;
+        currentAnimation = animationName;
+        riveInstance.stop();
+        riveInstance.play(animationName);
+    }
+    
+    window.addEventListener('scroll', function() {
+        const currentScrollY = window.scrollY;
+        const delta = currentScrollY - lastScrollY;
+        clearTimeout(scrollTimeout);
+        if (delta > 3) {
+            playAnimation(ANIMATIONS.SCROLL_DOWN);
+        } else if (delta < -3) {
+            playAnimation(ANIMATIONS.SCROLL_UP);
+        }
+        lastScrollY = currentScrollY;
+        scrollTimeout = setTimeout(() => {
+            playAnimation(ANIMATIONS.DEFAULT);
+        }, 800);
+    }, { passive: true });
+    
+    document.addEventListener('mousemove', function(e) {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+    
+    function updatePosition() {
+        let targetX = mouseX + cursorDistance;
+        let targetY = mouseY;
+        const mascotHeight = 600;
+        const minX = 50;
+        const maxX = window.innerWidth - mascotWidth - 50;
+        const minY = 50;
+        const maxY = window.innerHeight - mascotHeight - 50;
+        targetX = Math.max(minX, Math.min(targetX, maxX));
+        targetY = Math.max(minY, Math.min(targetY, maxY));
+        currentX += (targetX - currentX) * followSpeed;
+        currentY += (targetY - currentY) * followSpeed;
+        container.style.left = currentX + 'px';
+        container.style.top = currentY + 'px';
+        container.style.right = 'auto';
+        container.style.transform = 'none';
+        requestAnimationFrame(updatePosition);
+    }
+    
+    container.style.left = currentX + 'px';
+    container.style.top = currentY + 'px';
+    container.style.right = 'auto';
+    
+    requestAnimationFrame(updatePosition);
+    
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initRive);
+    } else {
+        initRive();
+    }
+})();
+</script>
 </body>
 </html>
 
